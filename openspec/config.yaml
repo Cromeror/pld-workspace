@@ -1,0 +1,52 @@
+schema: spec-driven
+
+context: |
+  Workspace coordinador de PLD (Prevención de Lavado de Dinero, México). Orquesta 2 sub-repos:
+
+  - pld-api/ — Nx 14 monorepo + pnpm workspaces, TypeScript 4.8, NestJS 9, TypeORM 0.3 + MySQL 8, JWT/Passport, Swagger. Apps: auth-users (con catalogs consolidado), cross. Libs NestJS en migración a packages puros (@pld-api/shared-types, shared-errors, persistence, contracts, domain-auth-users). Plan completo en pld/docs/PLAN_REORGANIZACION_MONOREPO.md.
+  - pld-web/ — Vite 7 + React 19 + TS 5.9 + Tailwind 4 + PrimeReact 10 + React Query 5 + Zustand + RHF/Yup. Consume la API de pld-api.
+
+  Testing:
+  - BE: Jest 28 configurado, cero tests escritos. passWithNoTests: true oculta la ausencia.
+  - Web: sin tests configurados todavía.
+
+  Style: ESLint + Prettier en ambos sub-repos. Convención BE: controller → adapter → service.
+
+  Dev env local:
+  - BE: pld-api/docker-compose.dev.yml levanta MySQL (13306) + auth-users hot-reload.
+  - Web: vite dev server.
+  - Integración: la web consume http://localhost:9001/pld-api/auth-users/* del BE. Ver pld/docs/architecture.md para topología completa.
+
+  Reglas de paths: todas las referencias a código viven con prefijo de sub-repo desde el root del workspace (ej. `pld-api/apps/auth-users/...`, `pld-web/src/services/...`).
+
+rules:
+  proposal:
+    - Incluir plan de rollback para cambios riesgosos
+    - Identificar sub-repo(s) afectados (pld-api vs pld-web vs ambos)
+    - Validar que el login HTTP 201 del BE sigue funcionando al final de cada fase
+    - Cambios cross-repo: un único change cubre ambos sub-repos y sus deltas
+  specs:
+    - Usar Given/When/Then para scenarios
+    - Usar RFC 2119 (MUST, SHALL, SHOULD, MAY)
+  design:
+    - Documentar decisiones arquitectónicas con alternativas descartadas
+    - Incluir diagrama de secuencia para flujos complejos
+    - Si hay contrato API ↔ Web, documentar shapes request/response
+  tasks:
+    - Agrupar por fase (infrastructure, implementation, testing)
+    - Numeración jerárquica (1.1, 1.2)
+    - Cada tarea completable en una sesión
+    - Marcar claramente tareas BE vs tareas Web vs tareas cross-repo
+  apply:
+    - Seguir el patrón controller → adapter → service existente en el BE
+    - Los packages/domain-* del BE NO deben importar @nestjs/* ni TypeOrmModule
+    - Mantener libs/ del BE intactas hasta migrar sus consumidores
+    - En la web, usar React Query para server state y Zustand para client state global
+    - Si el BE cambia un contrato, actualizar los types de pld-web/src/types o pld-web/src/services en el mismo change
+  verify:
+    - Probar POST /auth/login con credenciales válidas (HTTP 201 + JWT) tras cada cambio de BE
+    - Verificar que pld-api/apps/cross sigue compilando (nx run cross:build)
+    - Si se toca la web, correr `yarn build` (tsc -b && vite build) y verificar que no rompe
+  archive:
+    - Advertir antes de mergear deltas destructivos (borrar libs, renombrar enums)
+    - Cross-repo: confirmar que ambos sub-repos aplicaron el cambio antes de archivar
