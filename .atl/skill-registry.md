@@ -20,7 +20,14 @@ Skills a nivel usuario (`~/.claude/skills/`). Filtradas para excluir `sdd-*`, `_
 
 ## Project Skills
 
-Skills a nivel proyecto (`pld/.claude/skills/`): **ninguna configurada todavía**.
+Skills a nivel proyecto (`pld/.claude/skills/`):
+
+| Skill | Trigger context | Path |
+|-------|-----------------|------|
+| stack-up | Levantar el stack dev (BE docker + Web Vite). Flags: `--no-be`, `--no-web`, `--rebuild`. | pld/.claude/skills/stack-up/SKILL.md |
+| stack-down | Bajar el stack dev. Flags: `--no-be`, `--no-web`, `--volumes` (borra mysql data). | pld/.claude/skills/stack-down/SKILL.md |
+| stack-status | Reportar estado: `docker compose ps` + PID y health HTTP de Web. Flags: `--be`, `--web`. | pld/.claude/skills/stack-status/SKILL.md |
+| stack-logs | Logs de BE (docker) y Web (tail del log Vite). Flags: `-f`, `--tail N`, `--be [svc]`, `--web`. | pld/.claude/skills/stack-logs/SKILL.md |
 
 ## Project Conventions
 
@@ -54,6 +61,15 @@ Skills a nivel proyecto (`pld/.claude/skills/`): **ninguna configurada todavía*
 ### humanizer
 **Aplica cuando**: se edita prosa de usuario (docs, PR descriptions, issue bodies).
 - Remover em-dash abusivos, rule-of-three, atribuciones vagas, simbolismos inflados.
+
+### stack-up / stack-down / stack-status / stack-logs
+**Aplica cuando**: se arranca/detiene/inspecciona el stack dev local del workspace (BE docker + Web Vite).
+- SIEMPRE ejecutar desde el root del workspace (`/home/cristobal/work/pld/`). Las skills rechazan si se corren desde otro CWD.
+- BE = `docker compose -f pld-api/docker-compose.dev.yml ...`. Servicios: `mysql` (13306), `auth-users` (9001). `cross` queda comentado en el compose (si se necesita, editar el YAML).
+- Web = Vite (`yarn dev` en `pld-web/`) como proceso background. PID en `pld/.stack/web.pid`, log en `pld/.stack/web.log`. Directorio `.stack/` gitignoreado.
+- Puerto default de Vite: 5173. Si se cambia en `pld-web/vite.config.ts`, actualizar `stack-status` y `stack-logs`.
+- Validación post `stack-up`: `curl http://localhost:9001/pld-api/auth-users/docs` debe devolver 200 (Swagger del BE). `curl http://localhost:5173` debe devolver 200 (Vite).
+- `/stack-down --volumes` BORRA la DB local — usar solo cuando se quiere reset total.
 
 ---
 

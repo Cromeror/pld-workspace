@@ -22,6 +22,9 @@ node_modules/
 # Configs locales de Claude no-compartibles
 .claude/settings.local.json
 
+# Runtime state de las skills stack-* (PID + logs del proceso Vite local)
+.stack/
+
 # Archivos internos de trabajo (BE-only)
 # Estos SÍ se trackean intencionalmente (contexto vivo del equipo):
 # - .claude/CHECKLIST_MIGRACION.md

@@ -138,7 +138,36 @@ Cuando agregues una, llená una fila y describí en una subsección (§5.x) el d
 
 ---
 
-## 7. Rollback del coordinador
+## 7. Comandos del stack dev (skills `stack-*`)
+
+Las 4 skills de proyecto en [.claude/skills/](../.claude/skills/) encapsulan los comandos habituales. Se ejecutan SIEMPRE desde el root del workspace.
+
+```bash
+/stack-up                    # BE (docker) + Web (Vite background)  ← default
+/stack-up --no-web           # solo BE
+/stack-up --no-be            # solo Web
+/stack-up --rebuild          # BE con --build
+
+/stack-down                  # baja todo
+/stack-down --volumes        # + borra mysql data (reset total)
+
+/stack-status                # docker compose ps + PID Vite + curl de health
+/stack-status --be           # solo BE
+/stack-status --web          # solo Web
+
+/stack-logs                  # últimas 100 líneas de BE + Web
+/stack-logs -f               # follow de ambos
+/stack-logs --be auth-users  # filtrar por servicio del compose
+/stack-logs --tail 500       # más historial
+```
+
+**Estado runtime de Web** (PID + log) vive en `pld/.stack/` — gitignoreado. Si la skill se rompe, el proceso de Vite queda huérfano: `pkill -f vite` lo mata y borrá manualmente `pld/.stack/web.pid`.
+
+**Observación — `cross`**: el servicio está comentado en `pld-api/docker-compose.dev.yml`. Si lo necesitás activo, descomentalo manualmente — las skills no tienen flag para habilitarlo dinámicamente (decisión consciente: tenerlo siempre off por default).
+
+---
+
+## 8. Rollback del coordinador
 
 El workspace es aditivo. Para desarmarlo sin tocar los sub-repos:
 
