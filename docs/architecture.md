@@ -43,7 +43,7 @@ Los dos sub-repos conservan sus propios `.git` y remotes. El root del workspace 
 | `auth-users` (BE) | `9001` | NestJS 9 | `pnpm nx run auth-users:serve` (o via docker) | [pld-api/docker-compose.dev.yml](../pld-api/docker-compose.dev.yml) |
 | `cross` (BE) | definido por `cross` app | NestJS 9 | `pnpm nx run cross:serve` | — |
 | `mysql` (BE db) | `13306` | MySQL 8 | docker compose up | [pld-api/docker-compose.dev.yml](../pld-api/docker-compose.dev.yml) |
-| `pld-web` (front) | `5173` (default Vite) | Vite 7 + React 19 | `yarn dev` en `pld-web/` | [pld-web/vite.config.ts](../pld-web/vite.config.ts) |
+| `pld-web` (front) | `4200` (default Vite) | Vite 7 + React 19 | `yarn dev` en `pld-web/` | [pld-web/vite.config.ts](../pld-web/vite.config.ts) |
 
 Los puertos son defaults del desarrollo local. Si chocan con otra cosa en tu máquina, ajustar en `.env` de cada sub-repo y documentar acá.
 
@@ -55,7 +55,7 @@ Los puertos son defaults del desarrollo local. Si chocan con otra cosa en tu má
 sequenceDiagram
   autonumber
   actor U as Browser
-  participant W as pld-web (Vite :5173)
+  participant W as pld-web (Vite :4200)
   participant A as auth-users (:9001)
   participant D as mysql (:13306)
 

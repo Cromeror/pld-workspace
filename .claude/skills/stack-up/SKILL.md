@@ -93,6 +93,6 @@ echo "✓ stack-up completo. Ver estado con /stack-status."
 
 - El compose del BE define `pld-api-dev-network` y los volumenes `pld-api-dev-mysql-data` / `pld-api-dev-mysql-config`. Persisten entre `up`/`down` (a menos que uses `docker compose down -v`).
 - El servicio `auth-users` monta `pld-api/` como volumen → hot-reload de `npx nx serve` funciona sin rebuild.
-- Vite corre en el puerto default (`5173`) salvo que `pld-web/vite.config.ts` lo cambie.
+- Vite corre en el puerto default (`4200`) salvo que `pld-web/vite.config.ts` lo cambie.
 - BE expone auth-users en `http://localhost:9001/pld-api/auth-users/*` (ver `docs/architecture.md`).
 - No crea bloques YAML para ambientes — por ahora solo existe `development` local.

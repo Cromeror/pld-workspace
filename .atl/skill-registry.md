@@ -67,8 +67,8 @@ Skills a nivel proyecto (`pld/.claude/skills/`):
 - SIEMPRE ejecutar desde el root del workspace (`/home/cristobal/work/pld/`). Las skills rechazan si se corren desde otro CWD.
 - BE = `docker compose -f pld-api/docker-compose.dev.yml ...`. Servicios: `mysql` (13306), `auth-users` (9001). `cross` queda comentado en el compose (si se necesita, editar el YAML).
 - Web = Vite (`yarn dev` en `pld-web/`) como proceso background. PID en `pld/.stack/web.pid`, log en `pld/.stack/web.log`. Directorio `.stack/` gitignoreado.
-- Puerto default de Vite: 5173. Si se cambia en `pld-web/vite.config.ts`, actualizar `stack-status` y `stack-logs`.
-- Validación post `stack-up`: `curl http://localhost:9001/pld-api/auth-users/docs` debe devolver 200 (Swagger del BE). `curl http://localhost:5173` debe devolver 200 (Vite).
+- Puerto de Vite: 4200 (fijo por `strictPort: true` en `pld-web/vite.config.ts`). Si se cambia, actualizar `stack-status` y `stack-logs` y esta regla.
+- Validación post `stack-up`: `curl http://localhost:9001/pld-api/auth-users/docs` debe devolver 200 (Swagger del BE). `curl http://localhost:4200` debe devolver 200 (Vite).
 - `/stack-down --volumes` BORRA la DB local — usar solo cuando se quiere reset total.
 
 ---
