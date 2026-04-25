@@ -1,0 +1,15 @@
+change: reorganize-components-atomic
+store: openspec
+phases:
+  proposal: done
+  spec: done
+  design: done
+  tasks: done
+  apply: pending
+  verify: pending
+  archive: pending
+artifacts:
+  proposal: openspec/changes/reorganize-components-atomic/proposal.md
+  spec: openspec/changes/reorganize-components-atomic/specs/pld-web/spec.md
+  design: openspec/changes/reorganize-components-atomic/design.md
+  tasks: openspec/changes/reorganize-components-atomic/tasks.md
