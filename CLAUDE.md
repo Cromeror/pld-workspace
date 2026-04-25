@@ -9,6 +9,19 @@ Todo el contexto Claude (skill-registry, openspec, docs, settings) vive en este 
 
 Arquitectura de dev local y contratos API→Web: ver [docs/architecture.md](docs/architecture.md).
 
+## Commit policy (workspace + sub-repos)
+
+Aplica a commits en este repo y en los sub-repos (`pld-api/`, `pld-web/`). Sin excepción, salvo que el usuario pida explícitamente lo contrario en el mismo turno.
+
+- **Una sola línea**. Subject únicamente, sin body, sin footer.
+- **Conventional Commits**: `tipo(scope): descripción`.
+  - Tipos permitidos: `feat`, `fix`, `refactor`, `chore`, `docs`, `test`, `style`, `perf`, `build`, `ci`, `revert`.
+  - `scope` opcional pero preferido cuando el cambio es local a un módulo (ej: `auth`, `components`, `stack`).
+- **Subject ≤72 caracteres**, imperativo, minúscula inicial, sin punto final.
+- **Sin `Co-Authored-By`** salvo pedido explícito.
+- **Sin heredoc multi-línea**: usar `git commit -m "tipo(scope): descripción"` directo.
+- Si el cambio no cabe en una línea, preferir partirlo en varios commits antes que agregar body.
+
 <!-- JARVIS:BEGIN hash=ws-pld-root -->
 ## Jarvis MCP (project)
 
