@@ -1,0 +1,73 @@
+# Test users (dev local)
+
+Usuarios creados para smoke / testing del stack local. **No usar en otros entornos.**
+
+Todos viven en la DB de `pld-api-dev-mysql` (puerto `13306`, db `pld_api_bd`). Las contraseñas temporales se generaron en finalize del wizard (o seed manual) y NO rotan automáticamente.
+
+Login en `http://localhost:4200/login` o vía API:
+
+```bash
+curl -X POST http://localhost:9001/pld-api/auth-users/auth/login \
+  -H 'Content-Type: application/json' \
+  -d '{"email":"<email>","password":"<password>"}'
+```
+
+## SUPERADMIN (seed manual)
+
+| Email | Password | Notas |
+|---|---|---|
+| `admin-test@pld.local` | `Test1234!@` | Insertado directo en DB con hash scrypt. Usar para acceder al wizard `/admin/reporting-entity/register`. |
+
+## NOTARY — Persona física (vía wizard 2026-04-27)
+
+| Campo | Valor |
+|---|---|
+| Email | `pedro.notario@example.mx` |
+| Password (temp) | `qNn7T0QHq6n4?0s&` |
+| Nombre | Pedro Hernández Vargas |
+| RFC | `HEVP800502ABC` |
+| CURP | `HEVP800502HDFRGN01` |
+| Fecha nac. | 1980-05-02 |
+| Tipo | NOTARY + INDIVIDUAL |
+
+## REAL_ESTATE — Persona moral (vía wizard 2026-04-27)
+
+| Campo | Valor |
+|---|---|
+| Email | `contacto@inmobiliaria-test.mx` |
+| Password (temp) | `sl*0$e!2*GSWVOUa` |
+| Razón social | Inmobiliaria Test S.A. de C.V. |
+| RFC | `ITE000101AB1` |
+| Tipo | REAL_ESTATE + LEGAL_ENTITY |
+| Responsable cumplimiento | María Hernández Soto (RFC `HESM800101ABC`, CURP `HESM800101MDFRSN01`) |
+
+## Cleanup
+
+Para borrar todos estos test users:
+
+```sql
+DELETE FROM users WHERE email IN (
+  'admin-test@pld.local',
+  'pedro.notario@example.mx',
+  'contacto@inmobiliaria-test.mx'
+);
+-- Para los registrations asociados, borrar primero por FK:
+-- contact, physical_person_profile/moral_person_profile, vulnerable_activity,
+-- reporting_entity_address, compliance_responsible, registration.
+```
+
+## Notas
+
+- Los users creados via wizard tienen `must_change_password = true` (regla del BE: usuarios nuevos deben rotar la temp password en el primer login). Para tests rápidos, podés bypassearlo con UPDATE manual a `false`.
+- `mustChangePassword` se expone en la respuesta de `GET /auth/me`, FE puede mostrar un toast/redirect a cambio de password (no implementado todavía).
+- `lastLoginAt` se actualiza en cada login exitoso desde el change `add-current-user-endpoint`.
+
+## Capturas del flow
+
+Ver `.stack/screenshots/` (no commiteado, regenerable):
+- `01-login.png` — pantalla de login
+- `02-wizard-step1-closed.png` — wizard step 1 inicial
+- `03-notario-only-individual.png` — Notario expandido (solo persona física)
+- `04-inmobiliarias-both-options.png` — Inmobiliarias expandido (ambas opciones)
+- `05-notario-creado.png` — modal de éxito tras crear notario
+- `06-inmobiliaria-creada.png` — modal de éxito tras crear inmobiliaria
