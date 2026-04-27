@@ -25,6 +25,14 @@ node_modules/
 # Runtime state de las skills stack-* (PID + logs del proceso Vite local)
 .stack/
 
+# Telemetría OTEL — datos persistidos en Docker named volumes (prom-data,
+# grafana-data). Defensa por si alguien cambia los volúmenes a bind mounts.
+otel/data/
+otel/**/data/
+otel/**/*.db
+otel/**/*.db-wal
+otel/**/*.db-shm
+
 # Archivos internos de trabajo (BE-only)
 # Estos SÍ se trackean intencionalmente (contexto vivo del equipo):
 # - .claude/CHECKLIST_MIGRACION.md

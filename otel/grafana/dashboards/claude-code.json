@@ -1,0 +1,384 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 1,
+  "id": null,
+  "uid": "pld-claude",
+  "title": "Claude Code — PLD",
+  "tags": ["claude-code", "pld"],
+  "timezone": "browser",
+  "schemaVersion": 39,
+  "version": 1,
+  "refresh": "30s",
+  "time": {
+    "from": "now-24h",
+    "to": "now"
+  },
+  "templating": {
+    "list": [
+      {
+        "name": "project",
+        "type": "constant",
+        "label": "Project",
+        "query": "pld",
+        "current": {
+          "selected": false,
+          "text": "pld",
+          "value": "pld"
+        },
+        "hide": 2
+      }
+    ]
+  },
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Total tokens (range)",
+      "gridPos": { "h": 4, "w": 6, "x": 0, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(increase(claude_code_token_usage_tokens_total{project=\"$project\"}[$__range]))",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value",
+        "graphMode": "area"
+      },
+      "fieldConfig": {
+        "defaults": { "unit": "short", "decimals": 0 }
+      }
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Total cost (USD, range)",
+      "gridPos": { "h": 4, "w": 6, "x": 6, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(increase(claude_code_cost_usage_USD_total{project=\"$project\"}[$__range]))",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value",
+        "graphMode": "area"
+      },
+      "fieldConfig": {
+        "defaults": { "unit": "currencyUSD", "decimals": 2 }
+      }
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Sessions started",
+      "gridPos": { "h": 4, "w": 6, "x": 12, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(increase(claude_code_session_count_total{project=\"$project\"}[$__range]))",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value",
+        "graphMode": "area"
+      },
+      "fieldConfig": {
+        "defaults": { "unit": "short", "decimals": 0 }
+      }
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Active time (range)",
+      "gridPos": { "h": 4, "w": 6, "x": 18, "y": 16 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum(increase(claude_code_active_time_total_seconds_total{project=\"$project\"}[$__range]))",
+          "refId": "A"
+        }
+      ],
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value",
+        "graphMode": "area"
+      },
+      "fieldConfig": {
+        "defaults": { "unit": "s", "decimals": 0 }
+      }
+    },
+    {
+      "id": 5,
+      "type": "timeseries",
+      "title": "Tokens by type (rate, log scale)",
+      "description": "Rate de tokens por tipo. Escala logarítmica porque cacheRead suele ser 100× más grande que las demás. Si las cuatro series están cerca, tu cache no está dominando — revisá el panel de Cache hit ratio.",
+      "gridPos": { "h": 9, "w": 12, "x": 0, "y": 20 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (type) (rate(claude_code_token_usage_tokens_total{project=\"$project\"}[5m]))",
+          "legendFormat": "{{type}}",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 10,
+            "lineWidth": 2,
+            "scaleDistribution": { "type": "log", "log": 10 }
+          }
+        }
+      },
+      "options": {
+        "legend": { "displayMode": "table", "placement": "bottom", "calcs": ["mean", "max"] },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      }
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Tokens by model (rate)",
+      "gridPos": { "h": 9, "w": 12, "x": 12, "y": 20 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (model) (rate(claude_code_token_usage_tokens_total{project=\"$project\"}[5m]))",
+          "legendFormat": "{{model}}",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "lineWidth": 2
+          }
+        }
+      },
+      "options": {
+        "legend": { "displayMode": "list", "placement": "bottom" },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      }
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "Cost over time (USD/min)",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 29 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (model) (rate(claude_code_cost_usage_USD_total{project=\"$project\"}[5m])) * 60",
+          "legendFormat": "{{model}}",
+          "refId": "A"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD",
+          "decimals": 4,
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 20,
+            "lineWidth": 2
+          }
+        }
+      }
+    },
+    {
+      "id": 8,
+      "type": "barchart",
+      "title": "Tokens by type (totals in range)",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 29 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "sum by (type) (increase(claude_code_token_usage_tokens_total{project=\"$project\"}[$__range]))",
+          "legendFormat": "{{type}}",
+          "refId": "A",
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": { "unit": "short" }
+      },
+      "options": {
+        "orientation": "horizontal",
+        "showValue": "always"
+      }
+    },
+    {
+      "id": 9,
+      "type": "gauge",
+      "title": "Cache hit ratio",
+      "description": "% del input que viene del cache. Querés esto >80%. Si baja, estás pagando tokens nuevos repetidamente — revisá si el contexto (CLAUDE.md, archivos grandes) está cambiando entre llamadas y rompiendo el cache.",
+      "gridPos": { "h": 7, "w": 8, "x": 0, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "100 * sum(increase(claude_code_token_usage_tokens_total{project=\"$project\", type=\"cacheRead\"}[$__range])) / clamp_min(sum(increase(claude_code_token_usage_tokens_total{project=\"$project\", type=~\"cacheRead|cacheCreation|input\"}[$__range])), 1)",
+          "refId": "A",
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "max": 100,
+          "decimals": 1,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "red", "value": null },
+              { "color": "orange", "value": 50 },
+              { "color": "yellow", "value": 70 },
+              { "color": "green", "value": 85 }
+            ]
+          }
+        }
+      },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "showThresholdLabels": true,
+        "showThresholdMarkers": true
+      }
+    },
+    {
+      "id": 10,
+      "type": "stat",
+      "title": "USD per 1K output tokens",
+      "description": "Cost-efficiency normalizado: cuánto te cuesta producir 1000 tokens de output. Si sube con el tiempo, estás pagando más por el mismo trabajo entregado (cache se rompe, contexto crece, prompts ineficientes).",
+      "gridPos": { "h": 7, "w": 8, "x": 8, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "1000 * sum(increase(claude_code_cost_usage_USD_total{project=\"$project\"}[$__range])) / clamp_min(sum(increase(claude_code_token_usage_tokens_total{project=\"$project\", type=\"output\"}[$__range])), 1)",
+          "refId": "A",
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "currencyUSD",
+          "decimals": 4,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 0.5 },
+              { "color": "orange", "value": 1.0 },
+              { "color": "red", "value": 2.0 }
+            ]
+          }
+        }
+      },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 11,
+      "type": "stat",
+      "title": "Cache creation overhead",
+      "description": "cacheCreation / cacheRead. Mide cuánto invertís en crear cache vs cuánto lo reusás. Bajo (<5%) es ideal: creás una vez y leés muchas. Alto significa que el cache se invalida demasiado seguido.",
+      "gridPos": { "h": 7, "w": 8, "x": 16, "y": 0 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "100 * sum(increase(claude_code_token_usage_tokens_total{project=\"$project\", type=\"cacheCreation\"}[$__range])) / clamp_min(sum(increase(claude_code_token_usage_tokens_total{project=\"$project\", type=\"cacheRead\"}[$__range])), 1)",
+          "refId": "A",
+          "instant": true
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "decimals": 2,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              { "color": "green", "value": null },
+              { "color": "yellow", "value": 5 },
+              { "color": "orange", "value": 15 },
+              { "color": "red", "value": 30 }
+            ]
+          }
+        }
+      },
+      "options": {
+        "reduceOptions": { "calcs": ["lastNotNull"] },
+        "colorMode": "value",
+        "graphMode": "area"
+      }
+    },
+    {
+      "id": 12,
+      "type": "timeseries",
+      "title": "Cache efficiency over time",
+      "description": "Línea verde = % de input que viene del cache (querés alto). Línea naranja = overhead de cache creation (querés bajo). Si la verde cae o la naranja sube, algo en tu prompt rompió el cache.",
+      "gridPos": { "h": 9, "w": 24, "x": 0, "y": 7 },
+      "datasource": { "type": "prometheus", "uid": "prometheus" },
+      "targets": [
+        {
+          "expr": "100 * sum(rate(claude_code_token_usage_tokens_total{project=\"$project\", type=\"cacheRead\"}[5m])) / clamp_min(sum(rate(claude_code_token_usage_tokens_total{project=\"$project\", type=~\"cacheRead|cacheCreation|input\"}[5m])), 0.0001)",
+          "legendFormat": "Cache hit ratio (%)",
+          "refId": "A"
+        },
+        {
+          "expr": "100 * sum(rate(claude_code_token_usage_tokens_total{project=\"$project\", type=\"cacheCreation\"}[5m])) / clamp_min(sum(rate(claude_code_token_usage_tokens_total{project=\"$project\", type=\"cacheRead\"}[5m])), 0.0001)",
+          "legendFormat": "Cache creation overhead (%)",
+          "refId": "B"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percent",
+          "min": 0,
+          "custom": {
+            "drawStyle": "line",
+            "fillOpacity": 15,
+            "lineWidth": 2,
+            "spanNulls": true
+          }
+        },
+        "overrides": [
+          {
+            "matcher": { "id": "byName", "options": "Cache hit ratio (%)" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "green" } }
+            ]
+          },
+          {
+            "matcher": { "id": "byName", "options": "Cache creation overhead (%)" },
+            "properties": [
+              { "id": "color", "value": { "mode": "fixed", "fixedColor": "orange" } }
+            ]
+          }
+        ]
+      },
+      "options": {
+        "legend": { "displayMode": "table", "placement": "bottom", "calcs": ["mean", "lastNotNull"] },
+        "tooltip": { "mode": "multi", "sort": "desc" }
+      }
+    }
+  ]
+}
