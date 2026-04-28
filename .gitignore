@@ -25,6 +25,9 @@ node_modules/
 # Runtime state de las skills stack-* (PID + logs del proceso Vite local)
 .stack/
 
+# Cache del MCP de Playwright (snapshots accessibility + console logs por sesión)
+.playwright-mcp/
+
 # Telemetría OTEL — datos persistidos en Docker named volumes (prom-data,
 # grafana-data). Defensa por si alguien cambia los volúmenes a bind mounts.
 otel/data/
