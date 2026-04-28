@@ -22,6 +22,17 @@ Aplica a commits en este repo y en los sub-repos (`pld-api/`, `pld-web/`). Sin e
 - **Sin heredoc multi-línea**: usar `git commit -m "tipo(scope): descripción"` directo.
 - Si el cambio no cabe en una línea, preferir partirlo en varios commits antes que agregar body.
 
+## Documentación de flujos de registro (`docs/FLUJO_*.md` + `docs/designs/<flujo>/`)
+
+Aplica al crear o actualizar archivos `docs/FLUJO_REGISTRO_*.md` y carpetas relacionadas en `docs/designs/`.
+
+- **Separar BE y UI**:
+  - El `.md` del flujo contiene **solo el diagrama BE** (mermaid) — endpoints, tablas, transacciones, validación autoritativa. Mismo estilo que [FLUJO_REGISTRO_REPORTING_ENTITIES.md](docs/FLUJO_REGISTRO_REPORTING_ENTITIES.md).
+  - El flujo UI vive en `docs/designs/<nombre-flujo>/` con una subcarpeta por paso (`step-1-*`, `step-2-*`, …) y carpetas `shared/`, `result-page/` cuando aplique. Las capturas y notas de UI van ahí.
+- **No mezclar planos UI y BE en el mismo diagrama**. Si un nodo es estado de cliente (validación visual, "ingresa el dato faltante"), va en las capturas UI, no en el mermaid del `.md`.
+- **Linkear ambos sentidos**: el `.md` referencia `docs/designs/<flujo>/` para las vistas; el `README.md` o `index.md` de la carpeta de designs referencia el `.md` del flujo.
+- Cuando el usuario provee una imagen del flujo BE (cajas/decisiones), traducirla a mermaid en el `.md`. Cuando provee mockups UI, archivarlos en `docs/designs/<flujo>/step-N-*/`.
+
 <!-- JARVIS:BEGIN hash=ws-pld-root -->
 ## Jarvis MCP (project)
 
