@@ -1,0 +1,18 @@
+Cleanup verification — auxiliary test users + profiles + addresses
+
+Executed:
+  DELETE FROM users WHERE email LIKE 'aux.test.%';
+  DELETE FROM auxiliary_profile WHERE id IN (...captured profile_ids);
+  DELETE FROM reporting_entity_address WHERE id IN (...captured address_ids);
+
+Captured before delete:
+- 5 test users (emails like aux.test.<unix>@example.mx)
+- 5 auxiliary_profile rows
+- 5 reporting_entity_address rows
+
+Verification after delete:
+- users_remaining   = 0
+- profiles_remaining = 0
+- addrs_remaining   = 0
+
+DB state clean.
