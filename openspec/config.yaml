@@ -3,7 +3,7 @@ schema: spec-driven
 context: |
   Workspace coordinador de PLD (Prevención de Lavado de Dinero, México). Orquesta 2 sub-repos:
 
-  - pld-api/ — Nx 14 monorepo + pnpm workspaces, TypeScript 4.8, NestJS 9, TypeORM 0.3 + MySQL 8, JWT/Passport, Swagger. Apps: auth-users (con catalogs consolidado), cross. Libs NestJS en migración a packages puros (@pld-api/shared-types, shared-errors, persistence, contracts, domain-auth-users). Plan completo en pld/docs/PLAN_REORGANIZACION_MONOREPO.md.
+  - pld-api/ — Nx 14 monorepo + pnpm workspaces, TypeScript 4.8, NestJS 9, TypeORM 0.3 + MySQL 8, JWT/Passport, Swagger. App única: auth-users (catalogs y cross ya fueron consolidados / eliminados). Libs NestJS en migración a packages puros (@pld-api/shared-types, shared-errors, persistence, contracts, domain-auth-users). Plan completo en pld/docs/PLAN_REORGANIZACION_MONOREPO.md.
   - pld-web/ — Vite 7 + React 19 + TS 5.9 + Tailwind 4 + PrimeReact 10 + React Query 5 + Zustand + RHF/Yup. Consume la API de pld-api.
 
   Testing:
@@ -45,7 +45,6 @@ rules:
     - Si el BE cambia un contrato, actualizar los types de pld-web/src/types o pld-web/src/services en el mismo change
   verify:
     - Probar POST /auth/login con credenciales válidas (HTTP 201 + JWT) tras cada cambio de BE
-    - Verificar que pld-api/apps/cross sigue compilando (nx run cross:build)
     - Si se toca la web, correr `yarn build` (tsc -b && vite build) y verificar que no rompe
   archive:
     - Advertir antes de mergear deltas destructivos (borrar libs, renombrar enums)

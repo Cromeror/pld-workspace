@@ -75,9 +75,11 @@ La lógica de firma y verificación JWT MUST residir en el paquete `domain-auth-
 - WHEN accede a un endpoint protegido con `JwtAuthGuard`
 - THEN el servidor responde con el recurso solicitado (no 401)
 
-### Requirement: JwtAuthGuard duplicado en cada app
+### Requirement: JwtAuthGuard local en `auth-users`
 
-`JwtAuthGuard` y `JwtStrategy` MUST existir como copias locales en `apps/auth-users/src/shared/auth/` y `apps/cross/src/shared/auth/`. Ninguna app SHOULD importar estos símbolos desde `@pld-api/jwt` tras esta fase.
+`JwtAuthGuard` y `JwtStrategy` MUST existir como copias locales en `apps/auth-users/src/shared/auth/`. La app SHOULD NOT importar estos símbolos desde `@pld-api/jwt`.
+
+> Nota 2026-05-02: el monorepo tenía una segunda copia en `apps/cross/src/shared/auth/`. La app `cross` fue eliminada y la convención original ("copia por app") aplica hoy a una sola app.
 
 #### Scenario: auth-users usa guard local
 

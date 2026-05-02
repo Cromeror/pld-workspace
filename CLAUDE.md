@@ -2,7 +2,7 @@
 
 Coordinador del proyecto PLD (Prevención de Lavado de Dinero, México). El workspace root orquesta dos sub-repos independientes:
 
-- [pld-api/](pld-api/) — Monorepo Nx 14 + pnpm, NestJS 9, TypeORM + MySQL 8, JWT. 3 apps (`auth-users`, `cross`, antes había `catalogs` consolidada en `auth-users`). En migración de `libs/` acoplados a NestJS → `packages/` puros.
+- [pld-api/](pld-api/) — Monorepo Nx 14 + pnpm, NestJS 9, TypeORM + MySQL 8, JWT. App única `auth-users` (las antiguas `catalogs` y `cross` ya fueron consolidadas / eliminadas). En migración de `libs/` acoplados a NestJS → `packages/` puros.
 - [pld-web/](pld-web/) — Vite 7 + React 19 + TS 5.9 + Tailwind 4 + PrimeReact 10 + React Query + Zustand. Consume la API de `pld-api`.
 
 Todo el contexto Claude (skill-registry, openspec, docs, settings) vive en este root. Los sub-repos NO tienen capa Claude propia — abrir Claude siempre desde `/home/cristobal/work/pld/`.

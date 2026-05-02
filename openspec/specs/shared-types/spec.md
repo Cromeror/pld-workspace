@@ -175,12 +175,14 @@ All properties within the types exported from `packages/shared-types/src/partici
 
 ### Requirement: DTO fields use English names
 
-`apps/auth-users/.../fideicomiso/dto/fideicomiso.dto.ts` and `apps/cross/.../beneficiario-controlador/dto/ben-controlador.dto.ts` MUST use `pepFullName`. MUST NOT use `nombreCompletoPEP`.
+`apps/auth-users/.../fideicomiso/dto/fideicomiso.dto.ts` MUST use `pepFullName`. MUST NOT use `nombreCompletoPEP`.
+
+> Nota 2026-05-02: el DTO equivalente en `apps/cross/.../beneficiario-controlador/dto/ben-controlador.dto.ts` también debía usar `pepFullName`. La app `cross` fue eliminada; el DTO equivalente sigue vivo en el lib `libs/participants/src/lib/beneficiario-controlador/` (ya en inglés tras el rename original).
 
 #### INV-10: pepFullName replaces nombreCompletoPEP in DTOs
 
-- GIVEN both DTOs have been updated
-- WHEN `tsc --noEmit` runs on `apps/auth-users` and `apps/cross`
+- GIVEN the DTO has been updated
+- WHEN `tsc --noEmit` runs on `apps/auth-users`
 - THEN `pepFullName` SHALL exist as a decorated DTO property
 - AND `nombreCompletoPEP` SHALL NOT exist in source
 
@@ -234,13 +236,13 @@ Patterns: `RegistroPerfil`, `RegistroSuperadmin`, `RegistroAuxiliar`, `RegistroN
 
 ### Requirement: Builds succeed after all renames
 
-`nx run auth-users:build` and `nx run cross:build` MUST exit 0 after the change is applied.
+`nx run auth-users:build` MUST exit 0 after the change is applied. (Histórico: también `nx run cross:build`; la app `cross` fue eliminada el 2026-05-02.)
 
 #### INV-13: Build commands exit 0
 
 - GIVEN all type renames, property renames, DTO field renames, route renames, and consumer updates are applied
-- WHEN `nx run auth-users:build` and `nx run cross:build` are executed
-- THEN both SHALL exit 0
+- WHEN `nx run auth-users:build` is executed
+- THEN it SHALL exit 0
 
 ---
 
@@ -292,13 +294,13 @@ Patterns: `RegistroPerfil`, `RegistroSuperadmin`, `RegistroAuxiliar`, `RegistroN
 
 ### Requirement: Consumers internos usan solo nombres nuevos
 
-Todos los consumers BE (`apps/auth-users`, `apps/cross`, `libs/auth-profiles`, `libs/operacion`, `libs/reports`) MUST importar únicamente los nombres English del paquete `shared-types`.
+Todos los consumers BE (`apps/auth-users`, `libs/auth-profiles`, `libs/operacion`, `libs/reports`) MUST importar únicamente los nombres English del paquete `shared-types`. (Histórico: la app `apps/cross` también era consumer; fue eliminada el 2026-05-02.)
 
 #### INV-8: Consumers actualizados — imports con nombres English
 
 **Given** la refactorización está completa,
-**When** se compila `nx run auth-users:build` y `nx run cross:build`,
-**Then** ambos comandos SHALL completar con código de salida 0,
+**When** se compila `nx run auth-users:build`,
+**Then** el comando SHALL completar con código de salida 0,
 **AND** ningún consumer SHALL referenciar los nombres Spanish anteriores.
 
 #### INV-9: Grep de nombres Spanish retorna cero matches
@@ -316,5 +318,5 @@ Todos los consumers BE (`apps/auth-users`, `apps/cross`, `libs/auth-profiles`, `
 #### INV-11: Build limpio post-rename
 
 **Given** todos los renames y cascadas están aplicados,
-**When** se ejecuta `nx run auth-users:build` y `nx run cross:build`,
-**Then** ambos SHALL completar con código de salida 0 y cero errores de compilación TypeScript.
+**When** se ejecuta `nx run auth-users:build`,
+**Then** SHALL completar con código de salida 0 y cero errores de compilación TypeScript.

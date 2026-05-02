@@ -75,9 +75,5 @@ Los proyectos `auth-users` y `cross` DEBEN compilar sin errores tras el cambio.
 - THEN el comando termina con exit code 0
 - AND genera `dist/apps/auth-users/main.js`
 
-#### Scenario: nx build en cross
+<!-- Scenario "nx build en cross" eliminado 2026-05-02 — apps/cross fue removida del monorepo. -->
 
-- GIVEN el repositorio post-cambio
-- WHEN se ejecuta `nx run cross:build --skip-nx-cache`
-- THEN el comando termina con exit code 0
-- AND genera `dist/apps/cross/main.js`

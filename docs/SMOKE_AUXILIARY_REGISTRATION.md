@@ -197,7 +197,6 @@
 ### 3.2 Builds del monorepo
 
 - [ ] `cd pld-api && pnpm exec nx run auth-users:build` verde.
-- [ ] `cd pld-api && pnpm exec nx run cross:build` verde.
 - [ ] `cd pld-web && yarn build` verde.
 
 ---

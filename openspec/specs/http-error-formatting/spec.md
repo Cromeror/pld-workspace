@@ -17,12 +17,7 @@ Cada gateway NestJS (`auth-users`, `cross`) DEBE contener su propia copia de `Ht
 - THEN la referencia a `HttpErrorInterceptor` apunta a la ruta local
 - AND no existe import `from '@pld-api/core'` para ese símbolo
 
-#### Scenario: cross usa la copia local
-
-- GIVEN el archivo `apps/cross/src/shared/http-error.interceptor.ts` existe
-- WHEN se inspecciona `apps/cross/src/app.module.ts` y `main.ts`
-- THEN la referencia a `HttpErrorInterceptor` apunta a la ruta local
-- AND no existe import `from '@pld-api/core'` para ese símbolo
+<!-- Scenario "cross usa la copia local" eliminado 2026-05-02 — apps/cross fue removida. -->
 
 ### Requirement: Shape uniforme de error
 

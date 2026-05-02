@@ -2,8 +2,10 @@
 
 **Proyecto**: pld-api
 **Fecha inicial**: 2026-04-17
-**Última actualización**: 2026-04-20
+**Última actualización**: 2026-05-02
 **Autor**: Cristobal Romero
+
+> **Nota 2026-05-02**: la app `apps/cross` fue **eliminada** (cierre de E.7 / C.4 en [CHECKLIST_DUDAS_PENDIENTES.md](CHECKLIST_DUDAS_PENDIENTES.md)). El monorepo hoy tiene una sola app (`auth-users`). Las menciones a `cross` más abajo son históricas; el lib `@pld-api/participants/beneficiario-controlador` se conserva por si el endpoint `POST /crear-beneficiario` se reactiva desde `auth-users`.
 
 ---
 

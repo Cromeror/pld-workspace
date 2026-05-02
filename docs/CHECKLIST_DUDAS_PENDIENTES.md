@@ -34,7 +34,7 @@
 - [ ] **C.1** Scope: ¿un solo paquete o dividir en sub-paquetes (`domain-pf`, `domain-pm`, `domain-fideicomiso`, `domain-anexo-7`)?
 - [ ] **C.2** `libs/participants/` tiene 28+ entities TypeORM. ¿Migración literal o refactor de entities durante la migración?
 - [ ] **C.3** FKs cruzadas entre entities (PF → BC, PM → PEP, etc.) — ¿se preservan literales o se rediseñan?
-- [ ] **C.4** Absorción de `apps/cross`: ¿se hace en Fase 4.2 o en Fase 5? (Fase 4 skipped en cross porque no usa JWT; `POST /crear-beneficiario` podría absorberse con la migración).
+- [x] **C.4** Absorción de `apps/cross`: **resuelto 2026-05-02** — la app `cross` fue eliminada (no había consumidores). El lib `@pld-api/participants/beneficiario-controlador` se conserva por si el endpoint `POST /crear-beneficiario` se reactiva desde `auth-users`.
 - [ ] **C.5** Los 4 controllers actuales de participantes (fisica, moral, fideicomiso, anexo-7) en `apps/auth-users/` — ¿refactor a ports + factory igual que `domain-auth-users`?
 
 ---
@@ -55,7 +55,7 @@
 - [ ] **E.4** Renombrar `apps/auth-users` → `apps/gateway` (opcional). Afecta docker, scripts, no rutas HTTP.
 - [ ] **E.5** Setup de tests real: remover `passWithNoTests: true`, diseñar estrategia de tests de comportamiento (no tautológicos) para crypto + JWT + adapters de `domain-auth-users`.
 - [ ] **E.6** Actualizar README con estructura real del monorepo post-reorganización.
-- [ ] **E.7** Apagar definitivamente `apps/cross` si se absorbe, o documentar por qué se mantiene.
+- [x] **E.7** ~~Apagar definitivamente `apps/cross` si se absorbe~~ — **eliminado 2026-05-02** (no había consumidores; lib `@pld-api/participants/beneficiario-controlador` conservado).
 - [ ] **E.8** Eliminar `apps/auth-users/src/participants/persona-fisica/dto/create/persona-fisica.dto.ts` del `include` explícito en `tsconfig.app.json` si ya no es necesario (podría ser otra deuda npm-era).
 
 ---
@@ -67,7 +67,7 @@ Documentados en [DIAGNOSTICO_SERVICIO_USUARIOS.md](DIAGNOSTICO_SERVICIO_USUARIOS
 - [x] **F.1** DTOs cruzados en `users.adapter.ts` → RESUELTO por la migración a `domain-auth-users` (2026-04-21). Ambos endpoints reciben el DTO correcto. Verificado con curl.
 - [ ] **F.1-bis** Los DTOs `CreateUserNotarioInmobiliarioDto` y `CreateUserInternoExternoDto` aceptan los 6 roles con `@IsEnum(UserRole)`. Un `POST /system-users/notario-inmobiliario` con `role: USUARIO_INTERNO` devuelve 201. Fix sugerido: sustituir `@IsEnum(UserRole)` por `@IsIn([UserRole.NOTARIO, UserRole.INMOBILIARIA])` en el primer DTO y `@IsIn([USUARIO_INTERNO, USUARIO_EXTERNO, AUXILIAR])` en el segundo.
 - [ ] **F.2** Regex de RFC con `&amp;` HTML-escapado en [pld-api/apps/auth-users/src/users/dto/create-user.dto.ts:62](../pld-api/apps/auth-users/src/users/dto/create-user.dto.ts#L62). Confirmado 2026-04-21: la clase `[A-ZÑ&amp;]` acepta literalmente `a`/`m`/`p`/`;` como válidos. RFCs obviamente inválidos (`XXX`) se rechazan; RFCs con minúsculas (`amp010101000`) pasan indebidamente. Fix: reemplazar `&amp;` por `&` en la regex. Cambio de 1 carácter, aislado.
-- [ ] **F.3** `ValidationPipe` con `{ whitelist: false, forbidNonWhitelisted: true }` en [pld-api/apps/auth-users/src/main.ts:42](../pld-api/apps/auth-users/src/main.ts#L42) y [pld-api/apps/cross/src/main.ts:42](../pld-api/apps/cross/src/main.ts#L42). Confirmado 2026-04-21: `forbidNonWhitelisted` es inefectivo sin `whitelist: true`. Request con campos extra (`hackField`, `injected`) devuelve 201 en lugar de 400. Falso sentido de seguridad. Fix: cambiar `whitelist: false` por `whitelist: true` en ambos archivos. Riesgo: si algún cliente envía campos adicionales hoy ignorados, empezará a recibir 400.
+- [ ] **F.3** `ValidationPipe` con `{ whitelist: false, forbidNonWhitelisted: true }` en [pld-api/apps/auth-users/src/main.ts:42](../pld-api/apps/auth-users/src/main.ts#L42). Confirmado 2026-04-21: `forbidNonWhitelisted` es inefectivo sin `whitelist: true`. Request con campos extra (`hackField`, `injected`) devuelve 201 en lugar de 400. Falso sentido de seguridad. Fix: cambiar `whitelist: false` por `whitelist: true`. Riesgo: si algún cliente envía campos adicionales hoy ignorados, empezará a recibir 400.
 - [ ] **F.4** `lastLoginAt` nunca se actualiza en el flujo de login. Confirmado 2026-04-21: bug heredado literal en [pld-api/packages/domain-auth-users/src/adapters/auth.adapter.ts:16-23](../pld-api/packages/domain-auth-users/src/adapters/auth.adapter.ts#L16-L23). Tras múltiples logins exitosos, `SELECT last_login_at FROM users WHERE email='admin@pld.com'` sigue devolviendo NULL. Fix sugerido (opción A): agregar `await this.usersPort.updateUser(user.id, { lastLoginAt: new Date() })` antes de emitir el token. 1 línea. Evaluar si debe ir en try/catch silencioso para que un fallo del UPDATE no bloquee el login.
 
 ---

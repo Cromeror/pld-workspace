@@ -20,7 +20,6 @@ flowchart TB
     subgraph API["pld-api/ (sub-repo, Nx monorepo)"]
       direction TB
       AUAPP["apps/auth-users"]
-      CROSSAPP["apps/cross"]
       LIBSPKG["libs/ + packages/"]
       DCDEV["docker-compose.dev.yml"]
     end
@@ -41,7 +40,6 @@ Los dos sub-repos conservan sus propios `.git` y remotes. El root del workspace 
 | Componente | Puerto host | Tecnología | Comando de arranque | Config origen |
 |------------|-------------|------------|---------------------|---------------|
 | `auth-users` (BE) | `9001` | NestJS 9 | `pnpm nx run auth-users:serve` (o via docker) | [pld-api/docker-compose.dev.yml](../pld-api/docker-compose.dev.yml) |
-| `cross` (BE) | definido por `cross` app | NestJS 9 | `pnpm nx run cross:serve` | — |
 | `mysql` (BE db) | `13306` | MySQL 8 | docker compose up | [pld-api/docker-compose.dev.yml](../pld-api/docker-compose.dev.yml) |
 | `pld-web` (front) | `4200` (default Vite) | Vite 7 + React 19 | `yarn dev` en `pld-web/` | [pld-web/vite.config.ts](../pld-web/vite.config.ts) |
 
@@ -81,24 +79,13 @@ sequenceDiagram
 
 ---
 
-## 4. Flujo runtime — API interna (auth-users ↔ cross)
+## 4. Composición interna del BE
 
-```mermaid
-sequenceDiagram
-  autonumber
-  participant AU as auth-users
-  participant CR as cross
-  participant D as mysql
+El monorepo Nx hoy tiene **una sola app NestJS** (`auth-users`) que consume `libs/` y `packages/` compartidos vía `@pld-api/*`. Toda la persistencia pasa por `@pld-api/persistence` (TypeORM, MySQL `pld_api_bd`).
 
-  Note over AU,CR: Ambas apps comparten la misma DB (mismo datasource).
-  AU->>D: ORM queries (TypeORM)
-  CR->>D: ORM queries (TypeORM)
-  Note over AU,CR: No hay comunicación HTTP directa entre apps en dev local.<br/>Coordinan por datos compartidos en MySQL.
-```
+Histórico: existieron las apps `catalogs` (consolidada en `auth-users`) y `cross` (eliminada — exponía solo `POST /crear-beneficiario`, sin consumidores). El lib `@pld-api/participants/beneficiario-controlador` se conserva por si en el futuro se reactiva la funcionalidad desde `auth-users`.
 
-Ambas apps del monorepo Nx usan la misma configuración de TypeORM (via `@pld-api/persistence`), apuntando a la misma DB `pld_api_bd`. No hay un bus de eventos local — cross lee datos que auth-users escribió, y viceversa.
-
-Cuando el plan de reorganización BE avance a Fase 3 (`domain-audit` + `EventPublisher`), habrá un flujo async dominado por eventos. Actualizar este diagrama cuando eso pase.
+Cuando el plan de reorganización BE avance a Fase 3 (`domain-audit` + `EventPublisher`), habrá un flujo async dominado por eventos. Actualizar esta sección cuando eso pase.
 
 ---
 
@@ -162,8 +149,6 @@ Las 4 skills de proyecto en [.claude/skills/](../.claude/skills/) encapsulan los
 ```
 
 **Estado runtime de Web** (PID + log) vive en `pld/.stack/` — gitignoreado. Si la skill se rompe, el proceso de Vite queda huérfano: `pkill -f vite` lo mata y borrá manualmente `pld/.stack/web.pid`.
-
-**Observación — `cross`**: el servicio está comentado en `pld-api/docker-compose.dev.yml`. Si lo necesitás activo, descomentalo manualmente — las skills no tienen flag para habilitarlo dinámicamente (decisión consciente: tenerlo siempre off por default).
 
 ---
 

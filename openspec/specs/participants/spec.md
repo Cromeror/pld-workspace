@@ -108,9 +108,11 @@ The beneficial-owner entity in `pld-api/libs/participants/src/lib/beneficiario-c
 #### INV-5: CrossBeneficialOwnerEntity replaces CrossBenControladorEntity
 
 - GIVEN `beneficiario-controlador/*.entity.ts` has been updated
-- WHEN `tsc --noEmit` runs on `libs/participants` and `apps/cross`
+- WHEN `tsc --noEmit` runs on `libs/participants`
 - THEN `CrossBeneficialOwnerEntity` SHALL be importable
 - AND `CrossBenControladorEntity` SHALL NOT resolve
+
+> Nota 2026-05-02: el escenario original también validaba `apps/cross`. La app fue eliminada; la entity sigue viva en el lib y se valida solo desde ahí.
 
 ---
 
@@ -287,13 +289,13 @@ After all phases complete, the following grep patterns MUST return zero matches 
 
 ### Requirement: Build succeeds after all renames
 
-`nx run auth-users:build`, `nx run cross:build`, and `tsc --noEmit` on `libs/participants` MUST all exit 0 after the change is applied.
+`nx run auth-users:build` and `tsc --noEmit` on `libs/participants` MUST exit 0 after the change is applied. (Histórico: también `nx run cross:build`; la app `cross` fue eliminada el 2026-05-02.)
 
 #### INV-16: Builds exit 0
 
 - GIVEN all entity renames, module updates, service updates, and migration are applied
-- WHEN `nx run auth-users:build` and `nx run cross:build` are executed
-- THEN both SHALL exit 0
+- WHEN `nx run auth-users:build` is executed
+- THEN it SHALL exit 0
 - AND `tsc --noEmit` on `libs/participants` SHALL exit 0
 
 ---
