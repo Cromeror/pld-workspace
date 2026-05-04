@@ -6,7 +6,7 @@
 
 ### Requirement: JwtStrategy rechaza tokens emitidos antes de password_changed_at
 
-`JwtStrategy.validate()` (única copia local en `apps/auth-users/src/shared/auth/jwt.strategy.ts` — la app `apps/cross` fue eliminada el 2026-05-02 y el INV-5 original deja de aplicar) MUST comparar el claim `iat` del JWT contra `users.password_changed_at` del usuario referenciado por `sub`. Si `iat * 1000 < user.password_changed_at`, MUST rechazar con HTTP 401 (RC-10).
+`JwtStrategy.validate()` en `apps/auth-users/src/shared/auth/jwt.strategy.ts` MUST comparar el claim `iat` del JWT contra `users.password_changed_at` del usuario referenciado por `sub`. Si `iat * 1000 < user.password_changed_at`, MUST rechazar con HTTP 401 (RC-10).
 
 La response 401 MUST seguir el shape de error uniforme definido en la spec `http-error-formatting` y MUST incluir un código de error identificable como `password-changed` para que el frontend pueda diferenciar este caso de un 401 genérico (token inválido / expirado / firma manipulada).
 
@@ -43,10 +43,7 @@ La verificación MUST ejecutarse en cada request a endpoint protegido — no se 
 - THEN el servidor SHALL NOT rechazar por motivo password-changed
 - AND la decisión 401/200 SHALL depender únicamente de los demás chequeos (firma, expiración, soft-delete, activo)
 
-<!-- INV-5 eliminado 2026-05-02 — apps/cross fue removida del monorepo. La única copia de JwtStrategy queda en apps/auth-users (cubierta por INV-1..INV-4). -->
-#### INV-5: ~~La verificación aplica en ambas apps~~ — N/A: app `cross` eliminada.
-
-#### INV-6: 401 por firma inválida o token expirado no usa código password-changed
+#### INV-5: 401 por firma inválida o token expirado no usa código password-changed
 
 - GIVEN un JWT con firma manipulada o `exp` en el pasado
 - WHEN un cliente envía un request a un endpoint protegido

@@ -277,7 +277,7 @@ Throttler: 20/1min IP. Response: 200 `{ valid: true }` o 410 `{ valid: false, re
 
 ### 4.3 JWT invalidation
 
-`JwtStrategy.validate(payload)` en `apps/auth-users/src/shared/auth/jwt.strategy.ts` (única copia tras la eliminación de `apps/cross` el 2026-05-02):
+`JwtStrategy.validate(payload)` en `apps/auth-users/src/shared/auth/jwt.strategy.ts`:
 
 ```ts
 async validate(payload: JwtPayload) {
@@ -498,7 +498,7 @@ DELETE FROM password_recovery_tokens
 
 **Ventana conservadora**: 7 días permite auditar reintentos cercanos sin acumular indefinidamente.
 
-**`ScheduleModule.forRoot()`** se importa una vez en `app.module.ts` (raíz de auth-users). El cron solo corre en la app `auth-users`, NO en `cross` (cross no carga este módulo).
+**`ScheduleModule.forRoot()`** se importa una vez en `app.module.ts` (raíz de auth-users).
 
 ## 7. Trade-offs explícitos
 
@@ -527,7 +527,7 @@ DELETE FROM password_recovery_tokens
   - Cron `cleanupExpiredTokens`: borra solo tokens > 7 días.
 - `password-recovery.adapter.spec.ts`: queries básicas con test DB.
 - `users.service.spec.ts`: nuevo método `markPasswordChanged` con y sin `qr` externo.
-- `jwt.strategy.spec.ts` (auth-users + cross): JWT con `iat * 1000 < password_changed_at` → 401 código `password-changed`; `iat * 1000 >= password_changed_at` → pass.
+- `jwt.strategy.spec.ts`: JWT con `iat * 1000 < password_changed_at` → 401 código `password-changed`; `iat * 1000 >= password_changed_at` → pass.
 
 ### 8.2 E2E backend
 
@@ -582,7 +582,7 @@ Al final de `sdd-apply`, ejecutar smoke a 1500px de viewport (preferencia global
 5. Backend feature module (entity + DTOs + adapter + service + controller + module).
 6. `PasswordRecoveryMailService` en `apps/auth-users/src/mail/`.
 7. Throttler + Schedule modules en `app.module.ts`.
-8. JWT strategy update (auth-users + cross).
+8. JWT strategy update.
 9. Tests backend (unit + e2e con stub).
 10. Frontend: routes, pages, hooks, schemas, interceptor.
 11. Tests frontend.

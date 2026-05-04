@@ -1,0 +1,21 @@
+Cleanup verification — password-recovery smoke test
+
+Executed:
+  UPDATE users SET password_hash = '<rehash of original>'
+   WHERE email = 'pedro.notario@example.mx';
+  DELETE FROM password_recovery_tokens
+   WHERE user_id = '2487c1bc-dffa-4fb2-af48-e12bc1fd2101';
+
+Verification:
+- users.password_hash for pedro.notario@example.mx → restored to a valid scrypt of the seed password
+- recovery_tokens for the user → 0 rows
+
+Note: `password_changed_at` queda con el timestamp del confirm (esperado, NO se restaura).
+Esto invalida JWTs emitidos antes del 2026-05-04 18:02:28 UTC, lo cual es la garantía
+de seguridad del feature (RC-10). Para volver al estado pre-test exacto, vaciar
+`password_changed_at`:
+
+  UPDATE users SET password_changed_at = created_at
+   WHERE email = 'pedro.notario@example.mx';
+
+(opcional — solo si se quiere revertir 100% el side-effect)

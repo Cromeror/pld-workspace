@@ -96,7 +96,7 @@ El **frontend** sigue el patrón de las features existentes en `pld-web/src/feat
 | `pld-api/apps/auth-users/src/mail/mail.module.ts` | Modified | Provee `CredentialsMailService` y `PasswordRecoveryMailService`. |
 | `pld-api/apps/auth-users/src/registration/auxiliaries/auxiliaries.service.ts` | Modified (refactor) | Inyecta `CredentialsMailService`; elimina `dispatchCredentialsEmail` privado. |
 | `pld-api/apps/auth-users/src/admin/registration/registration.service.ts` | Modified (refactor) | Idem. |
-| `pld-api/apps/auth-users/src/shared/auth/jwt.strategy.ts` | Modified | Comparar `iat` con `user.password_changed_at` y rechazar con código `password-changed`. (Única copia: `apps/cross` fue eliminada el 2026-05-02). |
+| `pld-api/apps/auth-users/src/shared/auth/jwt.strategy.ts` | Modified | Comparar `iat` con `user.password_changed_at` y rechazar con código `password-changed`. |
 | `pld-api/apps/auth-users/src/users/users.service.ts` | Modified | Agregar `markPasswordChanged(userId, qr?)`. |
 | `pld-api/packages/persistence/migrations/<ts>-create-password-recovery-tokens.ts` | New | Tabla nueva + indexes. |
 | `pld-api/packages/persistence/migrations/<ts>-add-password-changed-at-to-users.ts` | New | Columna nueva + backfill `= created_at`. |
