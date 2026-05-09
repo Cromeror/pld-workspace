@@ -1,0 +1,833 @@
+<mxfile host="embed.diagrams.net" agent="jarvis" pages="4">
+  <diagram id="page-inicio" name="Inicio">
+    <mxGraphModel dx="2169" dy="1061" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="start" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="&lt;span style=&quot;font-size: 12px;&quot;&gt;Crear sujeto obligado&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="300" x="263" y="45" as="geometry" />
+        </mxCell>
+        <mxCell id="rFNPX50j4pLcWRdWKmhk-9" edge="1" parent="1" source="auth" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;curved=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="wV3WCLZiW1YkTMyv7VQA-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="570" y="180" />
+            </Array>
+            <mxPoint x="563" y="290.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="auth" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Tipo de sujeto obligado a registrar" vertex="1">
+          <mxGeometry height="80" width="180" x="322" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="start" style="endArrow=classic;html=1;" target="auth">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="auth" style="endArrow=classic;html=1;edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="7LU_OGT2O4TUtneVcde7-4" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="262.53846153846166" y="290.0000000000001" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="start">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;fillColor=#e1d5e7;strokeColor=#9673a6;" value="inicio" vertex="1">
+          <mxGeometry height="50" width="50" x="140" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="R07VvydfrFgDI-5idRpH-7" edge="1" parent="1" source="wlpo7NgnhTpMq5LzNk5I-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontFamily=Helvetica;fontSize=12;fontColor=default;" target="wlpo7NgnhTpMq5LzNk5I-13" value="elige">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="yG_uLNLkh6KCBVBb7C1o-8" edge="1" parent="1" source="wlpo7NgnhTpMq5LzNk5I-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="yG_uLNLkh6KCBVBb7C1o-7" value="elige">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wlpo7NgnhTpMq5LzNk5I-10" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="TIPO DE PERFIL" vertex="1">
+          <mxGeometry height="70" width="80" x="190" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="wlpo7NgnhTpMq5LzNk5I-12" edge="1" parent="1" source="7LU_OGT2O4TUtneVcde7-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Helvetica;fontSize=12;fontColor=default;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="wlpo7NgnhTpMq5LzNk5I-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="262.53846153846166" y="340.0000000000001" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="wlpo7NgnhTpMq5LzNk5I-13" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="persona fisica" vertex="1">
+          <mxGeometry height="60" width="80" x="360" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="yG_uLNLkh6KCBVBb7C1o-7" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="persona moral" vertex="1">
+          <mxGeometry height="60" width="80" x="80" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="6zriBCtXxRF4vpBUTH0v-4" edge="1" parent="1" source="wV3WCLZiW1YkTMyv7VQA-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="wlpo7NgnhTpMq5LzNk5I-13" value="unica opcion disponible">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wV3WCLZiW1YkTMyv7VQA-4" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Notarias" vertex="1">
+          <mxGeometry height="60" width="80" x="530" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="7LU_OGT2O4TUtneVcde7-4" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;size=0.3333333333333333;" value="I&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;nmobiliarias&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="80" x="190" y="270" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="fQQ0BCakY2mAuxCV8w0D" name="Registro persona fisica">
+    <mxGraphModel dx="757" dy="370" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="TQT7kg2sja2l4MBuq-Ep-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="persona fisica" vertex="1">
+          <mxGeometry height="60" width="80" x="423.92" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-step1-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=11;" value="step 1: Datos de identificación de quien realiza la Actividad Vulnerable" vertex="1">
+          <mxGeometry height="50" width="360" x="283.92" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="e-pf-in-step1" edge="1" parent="1" source="TQT7kg2sja2l4MBuq-Ep-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-step1-header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-nombre" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Nombre*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="e-step1-nombre" edge="1" parent="1" source="pf-step1-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-nombre">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-ap-paterno" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Apellido paterno*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="e-nombre-appe" edge="1" parent="1" source="pf-nombre" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-ap-paterno">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-ap-materno" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Apellido materno*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="e-appe-appm" edge="1" parent="1" source="pf-ap-paterno" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-ap-materno">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-fecha-nac" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Fecha de nacimiento*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="e-appm-fnac" edge="1" parent="1" source="pf-ap-materno" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-fecha-nac">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-rfc" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="RFC*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="e-fnac-rfc" edge="1" parent="1" source="pf-fecha-nac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-rfc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-curp" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="CURP*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="e-rfc-curp" edge="1" parent="1" source="pf-rfc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-curp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-pais-nac" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="País de nacionalidad" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="e-curp-paisnac" edge="1" parent="1" source="pf-curp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-pais-nac">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-pais-naci" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="País de nacimiento" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="e-paisnac-paisnaci" edge="1" parent="1" source="pf-pais-nac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-pais-naci">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-step2-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=11;" value="step 2: Datos de Contacto" vertex="1">
+          <mxGeometry height="50" width="360" x="283.92" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-clave-lada" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Clave lada" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="e-step2-lada" edge="1" parent="1" source="pf-step2-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-clave-lada">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-telefono" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Número de teléfono*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="980" as="geometry" />
+        </mxCell>
+        <mxCell id="e-lada-tel" edge="1" parent="1" source="pf-clave-lada" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-telefono">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-correo" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Correo electrónico*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1050" as="geometry" />
+        </mxCell>
+        <mxCell id="e-tel-correo" edge="1" parent="1" source="pf-telefono" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-correo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-celular" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Celular*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="e-correo-cel" edge="1" parent="1" source="pf-correo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-celular">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-38" edge="1" parent="1" source="6Bl9Eo9h5ZW5aOWXfDvS-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="pf-step2-header" value="si, entonces se agrega otro formulario de contacto">
+          <mxGeometry relative="1" x="-0.073" y="20" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="210" y="1243" />
+              <mxPoint x="210" y="845" />
+            </Array>
+            <mxPoint x="326.9200000000001" y="1229.9655172413793" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e-cel-nota" edge="1" parent="1" source="pf-celular" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="6Bl9Eo9h5ZW5aOWXfDvS-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-step3-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=11;" value="step 3: Actividad Vulnerable" vertex="1">
+          <mxGeometry height="50" width="360" x="283.92" y="1310" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-26" edge="1" parent="1" source="pf-act-vul" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="0i8v7W0CoLZW8OQag_XC-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="643.92" y="1419.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pf-act-vul" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Actividad vulnerable*" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1400" as="geometry" />
+        </mxCell>
+        <mxCell id="e-step3-actvul" edge="1" parent="1" source="pf-step3-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-act-vul">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-fecha-inicial" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Fecha inicial" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="e-actvul-fecha" edge="1" parent="1" source="pf-act-vul" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-fecha-inicial">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-dom-act-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFB84D;fontColor=#000000;strokeColor=#d6a030;fontStyle=1;fontSize=11;" value="seccion: Domicilio principal de la actividad vulnerable" vertex="1">
+          <mxGeometry height="50" width="334" x="296.92" y="1540" as="geometry" />
+        </mxCell>
+        <mxCell id="e-fecha-domact" edge="1" parent="1" source="pf-fecha-inicial" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-dom-act-header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-cp1" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Código postal:" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1630" as="geometry" />
+        </mxCell>
+        <mxCell id="e-domact-cp1" edge="1" parent="1" source="pf-dom-act-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-cp1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-entidad" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Entidad federativa:" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1700" as="geometry" />
+        </mxCell>
+        <mxCell id="e-cp1-entidad" edge="1" parent="1" source="pf-cp1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-entidad">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-delegacion" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Delegación o municipio" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1770" as="geometry" />
+        </mxCell>
+        <mxCell id="e-entidad-deleg" edge="1" parent="1" source="pf-entidad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-delegacion">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-localidad" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Localidad" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1840" as="geometry" />
+        </mxCell>
+        <mxCell id="e-deleg-loc" edge="1" parent="1" source="pf-delegacion" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-localidad">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-colonia" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Colonia" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1910" as="geometry" />
+        </mxCell>
+        <mxCell id="e-loc-col" edge="1" parent="1" source="pf-localidad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-colonia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-tipo-vialidad" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Tipo de vialidad" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="1980" as="geometry" />
+        </mxCell>
+        <mxCell id="e-col-via" edge="1" parent="1" source="pf-colonia" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-tipo-vialidad">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-nombre-calle" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Nombre de la calle o v..." vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="2050" as="geometry" />
+        </mxCell>
+        <mxCell id="e-via-calle" edge="1" parent="1" source="pf-tipo-vialidad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-nombre-calle">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-num-ext" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Número exterior" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="2120" as="geometry" />
+        </mxCell>
+        <mxCell id="e-calle-numext" edge="1" parent="1" source="pf-nombre-calle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-num-ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-num-int" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Número interior" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="2190" as="geometry" />
+        </mxCell>
+        <mxCell id="e-numext-numint" edge="1" parent="1" source="pf-num-ext" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-num-int">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-30" edge="1" parent="1" source="pf-cp2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="MQX67YWydMDtkJNlJ8t1-29">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pf-cp2" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Código postal" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="2260" as="geometry" />
+        </mxCell>
+        <mxCell id="e-numint-cp2" edge="1" parent="1" source="pf-num-int" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="pf-cp2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-6" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pf-step2-header" value="siguiente step">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-2" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Guarda la información" vertex="1">
+          <mxGeometry height="80" width="100" x="795" y="690" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-5" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.532;entryY=-0.007;entryDx=0;entryDy=0;entryPerimeter=0;" target="MQX67YWydMDtkJNlJ8t1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-7" connectable="0" parent="MQX67YWydMDtkJNlJ8t1-5" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="si estan completos los datos paso 1" vertex="1">
+          <mxGeometry relative="1" x="-0.1816" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-9" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="MQX67YWydMDtkJNlJ8t1-8" value="no estan completos los datos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-3" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Los campos estan completos?" vertex="1">
+          <mxGeometry height="125" width="150" x="770" y="397.5" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-4" edge="1" parent="1" source="pf-pais-naci" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="MQX67YWydMDtkJNlJ8t1-3" value="continuar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;strokeColor=#d6b656;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#fff2cc;" value="Ingresa el dato faltante" vertex="1">
+          <mxGeometry height="30" width="200" x="659.92" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-10" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.999;entryY=0.362;entryDx=0;entryDy=0;entryPerimeter=0;" target="pf-step1-header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-22" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pf-step3-header" value="siguiente paso">
+          <mxGeometry relative="1" x="-0.3356" y="40" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="820" y="1190" />
+              <mxPoint x="820" y="1335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-11" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Guarda la información" vertex="1">
+          <mxGeometry height="80" width="100" x="859.92" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-18" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="MQX67YWydMDtkJNlJ8t1-17" value="no">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-12" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Los campos estan completos?" vertex="1">
+          <mxGeometry height="125" width="150" x="694.92" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-34" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="MQX67YWydMDtkJNlJ8t1-33" value="no">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-13" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Los campos estan completos?" vertex="1">
+          <mxGeometry height="125" width="150" x="744.92" y="1727.5" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-14" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="MQX67YWydMDtkJNlJ8t1-12" value="no, entonces continua">
+          <mxGeometry relative="1" x="-0.0824" y="-32" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="540" y="1240" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-15" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="MQX67YWydMDtkJNlJ8t1-11" value="si estan completos los datos paso 2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-19" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="pf-step2-header">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="770" y="845" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;strokeColor=#d6b656;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#fff2cc;" value="Ingresa el dato faltante" vertex="1">
+          <mxGeometry height="30" width="200" x="669.92" y="900" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-31" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="0i8v7W0CoLZW8OQag_XC-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="210" y="1884" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-32" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="MQX67YWydMDtkJNlJ8t1-13" value="continuar">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="689.92" y="2110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-40" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="wiJ4DUsuL8y2s92ojAHR-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="463.9200000000001" y="2430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-29" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Actividad vulnerable realizada en el&#xa;domicilio:" vertex="1">
+          <mxGeometry height="40" width="240" x="343.92" y="2338" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-35" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" target="pf-step3-header">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="1335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-33" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;strokeColor=#d6b656;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#fff2cc;" value="Ingresa el dato faltante" vertex="1">
+          <mxGeometry height="30" width="200" x="719.92" y="1470" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-42" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-36" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="MQX67YWydMDtkJNlJ8t1-41" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-36" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.database;whiteSpace=wrap;fillColor=#ffe6cc;strokeColor=#d79b00;" value="Guarda la información" vertex="1">
+          <mxGeometry height="80" width="100" x="769.92" y="2140" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-37" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.556;entryY=0.018;entryDx=0;entryDy=0;entryPerimeter=0;" target="MQX67YWydMDtkJNlJ8t1-36" value="si estan completos datos paso 3">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="820" y="2150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-44" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="MQX67YWydMDtkJNlJ8t1-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="Mensaje: Información de perfil Actualizada" vertex="1">
+          <mxGeometry height="60" width="274" x="682.92" y="2410" as="geometry" />
+        </mxCell>
+        <mxCell id="MQX67YWydMDtkJNlJ8t1-43" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="fin" vertex="1">
+          <mxGeometry height="60" width="100" x="769.92" y="2570" as="geometry" />
+        </mxCell>
+        <mxCell id="wiJ4DUsuL8y2s92ojAHR-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Desea agregar otra actividad vulnerable?" vertex="1">
+          <mxGeometry height="125" width="150" x="388.92" y="2440" as="geometry" />
+        </mxCell>
+        <mxCell id="XvwFGugAJQfGtPtO4YN4-2" edge="1" parent="1" source="wiJ4DUsuL8y2s92ojAHR-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="XvwFGugAJQfGtPtO4YN4-1" value="no">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Os4uIHni0M1pWZDjWUN2-2" edge="1" parent="1" source="wiJ4DUsuL8y2s92ojAHR-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="Os4uIHni0M1pWZDjWUN2-1" value="si">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wiJ4DUsuL8y2s92ojAHR-2" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Es notario?" vertex="1">
+          <mxGeometry height="90" width="110" x="170" y="2720" as="geometry" />
+        </mxCell>
+        <mxCell id="wiJ4DUsuL8y2s92ojAHR-3" edge="1" parent="1" source="wiJ4DUsuL8y2s92ojAHR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="YVfOAdB_ZFY_3VDHiVi8-2" value="si deseo agregar otra">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="315.88000000000005" y="2440.02" as="sourcePoint" />
+            <mxPoint x="210.00000000000017" y="2512.567619047619" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XvwFGugAJQfGtPtO4YN4-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Notarias" vertex="1">
+          <mxGeometry height="60" width="80" x="70" y="2840" as="geometry" />
+        </mxCell>
+        <mxCell id="Os4uIHni0M1pWZDjWUN2-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="I&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;nmobiliarias&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="80" x="298.91999999999996" y="2840" as="geometry" />
+        </mxCell>
+        <mxCell id="xJf-oDofH11FiG_HUynr-1" edge="1" parent="1" source="wiJ4DUsuL8y2s92ojAHR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="MQX67YWydMDtkJNlJ8t1-43" value="no">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0i8v7W0CoLZW8OQag_XC-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Actividad vulnerable" vertex="1">
+          <mxGeometry height="60" width="80" x="150" y="1850" as="geometry" />
+        </mxCell>
+        <mxCell id="6Bl9Eo9h5ZW5aOWXfDvS-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿agrega otro contacto?" vertex="1">
+          <mxGeometry height="125" width="150" x="388.91999999999996" y="1180" as="geometry" />
+        </mxCell>
+        <mxCell id="YVfOAdB_ZFY_3VDHiVi8-3" edge="1" parent="1" source="YVfOAdB_ZFY_3VDHiVi8-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="wiJ4DUsuL8y2s92ojAHR-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="YVfOAdB_ZFY_3VDHiVi8-2" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="agregar persona vulerable" vertex="1">
+          <mxGeometry height="90" width="116.08" x="166.96000000000004" y="2580" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="NFg75gfbiTjfLw1qQ7IC" name="Registro personal moral">
+    <mxGraphModel dx="2503" dy="1225" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="SzTm9eHGxZZZgRslnoWy-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="persona moral" vertex="1">
+          <mxGeometry height="80" width="96" x="366" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="e-in-pm" edge="1" parent="1" source="SzTm9eHGxZZZgRslnoWy-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-step1-header">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414.04347826086973" y="147" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pm-step1-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=12;" value="paso 1: Datos de identificación de quien realiza la Actividad Vulnerable" vertex="1">
+          <mxGeometry height="50" width="360" x="234" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-denom" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Denominación o razón social*:" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="257" as="geometry" />
+        </mxCell>
+        <mxCell id="e-step1-denom" edge="1" parent="1" source="pm-step1-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-denom">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-fecha-const" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Fecha de constitución:" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="339" as="geometry" />
+        </mxCell>
+        <mxCell id="e-denom-fecha" edge="1" parent="1" source="pm-denom" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-fecha-const">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-rfc" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="RFC*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="420" as="geometry" />
+        </mxCell>
+        <mxCell id="e-fecha-rfc" edge="1" parent="1" source="pm-fecha-const" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rfc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-pais-nac" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="País de nacionalidad:" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="502" as="geometry" />
+        </mxCell>
+        <mxCell id="e-rfc-pais" edge="1" parent="1" source="pm-rfc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-pais-nac">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-dec1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="¿Los campos están completos?" vertex="1">
+          <mxGeometry height="100" width="160" x="720" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="e-pais-dec1" edge="1" parent="1" source="pm-pais-nac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="pm-dec1" value="continuar">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="_oubkIk6GhklLxjbsWKU-1" edge="1" parent="1" source="pm-ingresa1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.451;exitY=-0.016;exitDx=0;exitDy=0;exitPerimeter=0;" target="pm-step1-header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-ingresa1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;fontColor=#ffffff;strokeColor=#9673a6;fontSize=12;" value="Ingresa el dato faltante" vertex="1">
+          <mxGeometry height="40" width="160" x="720" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dec1-no" edge="1" parent="1" source="pm-dec1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-ingresa1" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-guarda1" parent="1" style="shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Guarda la información" vertex="1">
+          <mxGeometry height="60" width="100" x="770" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dec1-si" edge="1" parent="1" source="pm-dec1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-guarda1" value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-step2-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=12;" value="paso 2: Datos de Contacto" vertex="1">
+          <mxGeometry height="50" width="360" x="234" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="e-guarda1-step2" edge="1" parent="1" source="pm-guarda1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-step2-header" value="siguiente paso">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-clave-lada" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Clave lada" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="e-step2-lada" edge="1" parent="1" source="pm-step2-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-clave-lada">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-telefono" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Número de teléfono:" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="e-lada-tel" edge="1" parent="1" source="pm-clave-lada" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-telefono">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-correo" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Correo electrónico*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="e-tel-correo" edge="1" parent="1" source="pm-telefono" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-correo">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-celular" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Celular*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="950" as="geometry" />
+        </mxCell>
+        <mxCell id="e-correo-cel" edge="1" parent="1" source="pm-correo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-celular">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-cel-nota" edge="1" parent="1" source="pm-celular" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="8xul3Zu-NVAGexpgJiIP-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="1020" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pm-dec2" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="¿Los campos están completos?" vertex="1">
+          <mxGeometry height="110" width="130" x="670" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="z7INrnXMn0RATkNJhmxM-3" edge="1" parent="1" source="pm-ingresa2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pm-step2-header">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="675" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pm-ingresa2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;fontColor=#ffffff;strokeColor=#9673a6;fontSize=12;" value="Ingresa el dato faltante" vertex="1">
+          <mxGeometry height="40" width="160" x="655" y="740" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dec2-no" edge="1" parent="1" source="pm-dec2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-ingresa2" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-guarda2" parent="1" style="shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Guarda la información" vertex="1">
+          <mxGeometry height="60" width="100" x="685" y="1160" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dec2-si" edge="1" parent="1" source="pm-dec2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-guarda2" value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-step3-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=12;" value="paso 3: Actividad Vulnerable" vertex="1">
+          <mxGeometry height="50" width="360" x="234" y="1260" as="geometry" />
+        </mxCell>
+        <mxCell id="e-guarda2-step3" edge="1" parent="1" source="pm-guarda2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-step3-header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hPOI1Unyf-qbyHT4kyG--2" edge="1" parent="1" source="pm-act-vul" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="hPOI1Unyf-qbyHT4kyG--1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-act-vul" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Actividad vulnerable*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1350" as="geometry" />
+        </mxCell>
+        <mxCell id="e-step3-actvul" edge="1" parent="1" source="pm-step3-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-act-vul">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-fecha-ini" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Fecha Inicial" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1420" as="geometry" />
+        </mxCell>
+        <mxCell id="e-actvul-fecha" edge="1" parent="1" source="pm-act-vul" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-fecha-ini">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-dom-act-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFB84D;fontColor=#000000;strokeColor=#d6a030;fontStyle=1;fontSize=12;" value="seccion: Domicilio principal de la actividad vulnerable" vertex="1">
+          <mxGeometry height="50" width="240" x="294" y="1490" as="geometry" />
+        </mxCell>
+        <mxCell id="e-fecha-domact" edge="1" parent="1" source="pm-fecha-ini" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-dom-act-header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-cp" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Código postal" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1570" as="geometry" />
+        </mxCell>
+        <mxCell id="e-domact-cp" edge="1" parent="1" source="pm-dom-act-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-cp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-entidad" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Entidad federativa" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1640" as="geometry" />
+        </mxCell>
+        <mxCell id="e-cp-entidad" edge="1" parent="1" source="pm-cp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-entidad">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-delegacion" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Delegación o municipio" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1710" as="geometry" />
+        </mxCell>
+        <mxCell id="e-entidad-deleg" edge="1" parent="1" source="pm-entidad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-delegacion">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-localidad" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Localidad" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1780" as="geometry" />
+        </mxCell>
+        <mxCell id="e-deleg-loc" edge="1" parent="1" source="pm-delegacion" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-localidad">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-colonia" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Colonia" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1850" as="geometry" />
+        </mxCell>
+        <mxCell id="e-loc-col" edge="1" parent="1" source="pm-localidad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-colonia">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-tipo-vialidad" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Tipo de vialidad" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1920" as="geometry" />
+        </mxCell>
+        <mxCell id="e-col-via" edge="1" parent="1" source="pm-colonia" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-tipo-vialidad">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-nombre-calle" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Nombre de la calle o v..." vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="1990" as="geometry" />
+        </mxCell>
+        <mxCell id="e-via-calle" edge="1" parent="1" source="pm-tipo-vialidad" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-nombre-calle">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-num-ext" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Número exterior" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2060" as="geometry" />
+        </mxCell>
+        <mxCell id="e-calle-numext" edge="1" parent="1" source="pm-nombre-calle" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-num-ext">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-cp2" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Código postal:" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2130" as="geometry" />
+        </mxCell>
+        <mxCell id="e-numext-cp2" edge="1" parent="1" source="pm-num-ext" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-cp2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-cp2-notadom" edge="1" parent="1" source="pm-cp2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="1vfiZXZv9TsTW5tS6_F3-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414.02222222222235" y="2200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pm-dec3" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="¿Los campos están completos?" vertex="1">
+          <mxGeometry height="120" width="140" x="625" y="1890" as="geometry" />
+        </mxCell>
+        <mxCell id="e-notadom-dec3" edge="1" parent="1" source="b7OTkJ_6BOhR1VPW2AN--1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="pm-dec3" value="no">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D0UtIMMp11IhOr2i02z3-1" edge="1" parent="1" source="pm-ingresa3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pm-step3-header">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="1285" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pm-ingresa3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;fontColor=#ffffff;strokeColor=#9673a6;fontSize=12;" value="Ingresa el dato faltante" vertex="1">
+          <mxGeometry height="40" width="160" x="615" y="1650" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dec3-no" edge="1" parent="1" source="pm-dec3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-ingresa3" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-guarda3" parent="1" style="shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Guarda la información" vertex="1">
+          <mxGeometry height="60" width="100" x="645" y="2420" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dec3-si" edge="1" parent="1" source="pm-dec3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-guarda3" value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-step4-header" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#666666;fontColor=#ffffff;strokeColor=#666666;fontStyle=1;fontSize=12;" value="paso 4: Responsable del Cumplimiento de la Ley" vertex="1">
+          <mxGeometry height="50" width="360" x="234" y="2500" as="geometry" />
+        </mxCell>
+        <mxCell id="e-guarda3-step4" edge="1" parent="1" source="pm-guarda3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-step4-header">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-rcl-nombre" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Nombre*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2588" as="geometry" />
+        </mxCell>
+        <mxCell id="e-pf-nombre" edge="1" parent="1" source="pm-step4-header" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rcl-nombre">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="414" y="2628" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pm-rcl-ap-pat" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Apellido paterno*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2658" as="geometry" />
+        </mxCell>
+        <mxCell id="e-nombre-appat" edge="1" parent="1" source="pm-rcl-nombre" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rcl-ap-pat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-rcl-ap-mat" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Apellido materno*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2728" as="geometry" />
+        </mxCell>
+        <mxCell id="e-appat-apmat" edge="1" parent="1" source="pm-rcl-ap-pat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rcl-ap-mat">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-rcl-fnac" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Fecha de nacimiento" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2798" as="geometry" />
+        </mxCell>
+        <mxCell id="e-apmat-fnac" edge="1" parent="1" source="pm-rcl-ap-mat" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rcl-fnac">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-rcl-rfc" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="RFC*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2868" as="geometry" />
+        </mxCell>
+        <mxCell id="e-fnac-rfc" edge="1" parent="1" source="pm-rcl-fnac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rcl-rfc">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-rcl-curp" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="CURP*" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2938" as="geometry" />
+        </mxCell>
+        <mxCell id="e-rfc-curp" edge="1" parent="1" source="pm-rcl-rfc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rcl-curp">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-rcl-pais-nac" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="País de nacionalidad" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="3008" as="geometry" />
+        </mxCell>
+        <mxCell id="e-curp-paisnac" edge="1" parent="1" source="pm-rcl-curp" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rcl-pais-nac">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-rcl-fdesig" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;" value="Fecha de designación" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="3078" as="geometry" />
+        </mxCell>
+        <mxCell id="e-paisnac-fdesig" edge="1" parent="1" source="pm-rcl-pais-nac" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-rcl-fdesig">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pm-dec4" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="¿Los campos están completos?" vertex="1">
+          <mxGeometry height="120" width="140" x="652.5" y="2708" as="geometry" />
+        </mxCell>
+        <mxCell id="e-fdesig-dec4" edge="1" parent="1" source="pm-rcl-fdesig" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" target="pm-dec4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fXYvAg0atm6L6t-H0-Jg-1" edge="1" parent="1" source="pm-ingresa4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="pm-step4-header">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="720" y="2525" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pm-ingresa4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#9673a6;fontColor=#ffffff;strokeColor=#9673a6;fontSize=12;" value="Ingresa el dato faltante" vertex="1">
+          <mxGeometry height="40" width="160" x="642.5" y="2588" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dec4-no" edge="1" parent="1" source="pm-dec4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;" target="pm-ingresa4" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e-dec4-si" edge="1" parent="1" source="pm-dec4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="fXYvAg0atm6L6t-H0-Jg-2" value="Sí">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="720" y="3137.9999999999995" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8xul3Zu-NVAGexpgJiIP-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿agrega otro contacto?" vertex="1">
+          <mxGeometry height="125" width="150" x="339" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="z7INrnXMn0RATkNJhmxM-1" edge="1" parent="1" source="8xul3Zu-NVAGexpgJiIP-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="pm-step2-header" value="si, entonces se agrega otro formulario de contacto">
+          <mxGeometry relative="1" x="0.1737" y="-70" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="80" y="1083" />
+              <mxPoint x="80" y="675" />
+            </Array>
+            <mxPoint x="259" y="1248" as="sourcePoint" />
+            <mxPoint x="154" y="850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="z7INrnXMn0RATkNJhmxM-2" edge="1" parent="1" source="8xul3Zu-NVAGexpgJiIP-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.099;entryY=0.453;entryDx=0;entryDy=0;entryPerimeter=0;" target="pm-dec2" value="no, entonces continua">
+          <mxGeometry relative="1" x="0.2422" y="-15" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="360" y="1125" as="sourcePoint" />
+            <mxPoint x="515" y="958" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hPOI1Unyf-qbyHT4kyG--1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Actividad vulnerable desde persona moral" vertex="1">
+          <mxGeometry height="100" width="166" x="94" y="1530" as="geometry" />
+        </mxCell>
+        <mxCell id="1vfiZXZv9TsTW5tS6_F3-2" edge="1" parent="1" source="1vfiZXZv9TsTW5tS6_F3-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="hPOI1Unyf-qbyHT4kyG--1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b7OTkJ_6BOhR1VPW2AN--4" edge="1" parent="1" source="1vfiZXZv9TsTW5tS6_F3-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="b7OTkJ_6BOhR1VPW2AN--1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="1vfiZXZv9TsTW5tS6_F3-1" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=20;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Actividad vulnerable realizada en el&#xa;domicilio:" vertex="1">
+          <mxGeometry height="40" width="240" x="294" y="2200" as="geometry" />
+        </mxCell>
+        <mxCell id="DZn4tNqitC8iM-wmYZsv-2" edge="1" parent="1" source="fXYvAg0atm6L6t-H0-Jg-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="DZn4tNqitC8iM-wmYZsv-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="fXYvAg0atm6L6t-H0-Jg-2" parent="1" style="shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=12;" value="Guarda la información" vertex="1">
+          <mxGeometry height="60" width="100" x="672.5" y="2968" as="geometry" />
+        </mxCell>
+        <mxCell id="LThWDaZeuW1ZLQjm8tNf-2" edge="1" parent="1" source="DZn4tNqitC8iM-wmYZsv-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="LThWDaZeuW1ZLQjm8tNf-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="DZn4tNqitC8iM-wmYZsv-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=11;" value="Mensaje: Información de perfil Actualizada" vertex="1">
+          <mxGeometry height="60" width="274" x="585.5" y="3128" as="geometry" />
+        </mxCell>
+        <mxCell id="LThWDaZeuW1ZLQjm8tNf-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="fin" vertex="1">
+          <mxGeometry height="47" width="75" x="685" y="3248" as="geometry" />
+        </mxCell>
+        <mxCell id="b7OTkJ_6BOhR1VPW2AN--3" edge="1" parent="1" source="b7OTkJ_6BOhR1VPW2AN--1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="b7OTkJ_6BOhR1VPW2AN--2" value="si">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="b7OTkJ_6BOhR1VPW2AN--1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Desea agregar otra actividad vulnerable?" vertex="1">
+          <mxGeometry height="125" width="150" x="339" y="2280" as="geometry" />
+        </mxCell>
+        <mxCell id="b7OTkJ_6BOhR1VPW2AN--2" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="agregar persona vulerable" vertex="1">
+          <mxGeometry height="90" width="116.08" x="117.92" y="2420" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="F2sUOkCEQ0tq9PhtMbMs" name="Actividad vulnerable">
+    <mxGraphModel dx="1122" dy="549" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="J-CJc4qFT0NFPqPkzBAT-5" edge="1" parent="1" source="wdS4TjaoxI7pNZYw7RHQ-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="6axQViRaD8oYbtXiRItu-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="wdS4TjaoxI7pNZYw7RHQ-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Actividad vulnerable" vertex="1">
+          <mxGeometry height="60" width="80" x="340" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="J-CJc4qFT0NFPqPkzBAT-2" edge="1" parent="1" source="6axQViRaD8oYbtXiRItu-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="J-CJc4qFT0NFPqPkzBAT-1" value="no">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="J-CJc4qFT0NFPqPkzBAT-4" edge="1" parent="1" source="6axQViRaD8oYbtXiRItu-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="J-CJc4qFT0NFPqPkzBAT-3" value="si">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="532" y="185" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6axQViRaD8oYbtXiRItu-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Es inmobiliaria?" vertex="1">
+          <mxGeometry height="90" width="100" x="330" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="J-CJc4qFT0NFPqPkzBAT-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;strokeColor=#d6b656;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#fff2cc;" value="selecciona por defecto: FE PÚBLICA (NOTARIOS Y CORREDORES)" vertex="1">
+          <mxGeometry height="50" width="200" x="128" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="J-CJc4qFT0NFPqPkzBAT-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;strokeColor=#d6b656;align=center;verticalAlign=middle;fontFamily=Helvetica;fontSize=12;fontColor=default;fillColor=#fff2cc;" value="selecciona por defecto: TRANSMISION DE BIENES INMUEBLES" vertex="1">
+          <mxGeometry height="50" width="200" x="432" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="m6SuB8MnhoKD_ujMXmE9-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Actividad vulnerable desde persona moral" vertex="1">
+          <mxGeometry height="70" width="90" x="542" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="m6SuB8MnhoKD_ujMXmE9-2" edge="1" parent="1" source="m6SuB8MnhoKD_ujMXmE9-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.6;entryY=0.111;entryDx=0;entryDy=0;entryPerimeter=0;" target="6axQViRaD8oYbtXiRItu-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="587" y="120" />
+              <mxPoint x="390" y="120" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

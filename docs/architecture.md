@@ -8,27 +8,22 @@
 
 ## 1. Topología del workspace
 
-```mermaid
-flowchart TB
-  subgraph Workspace["~/work/pld (workspace coordinador, master)"]
-    direction TB
-    CM[CLAUDE.md]
-    DOCS[docs/architecture.md]
-    OS[openspec/]
-    ATL[.atl/skill-registry.md]
-    CL[".claude/ (settings + skills + migración)"]
-    subgraph API["pld-api/ (sub-repo, Nx monorepo)"]
-      direction TB
-      AUAPP["apps/auth-users"]
-      LIBSPKG["libs/ + packages/"]
-      DCDEV["docker-compose.dev.yml"]
-    end
-    subgraph WEB["pld-web/ (sub-repo, Vite + React)"]
-      direction TB
-      WEBSRC["src/ (pages, services, queries, store)"]
-      VITE["vite dev server"]
-    end
-  end
+> Diagrama de componentes estático — no es un flujo de control, se describe en texto estructurado.
+
+```
+~/work/pld/  (workspace coordinador, master git)
+├── CLAUDE.md
+├── docs/architecture.md
+├── openspec/
+├── .atl/skill-registry.md
+├── .claude/  (settings + skills)
+├── pld-api/  (sub-repo, Nx monorepo)
+│   ├── apps/auth-users        ← NestJS :9001
+│   ├── libs/ + packages/
+│   └── docker-compose.dev.yml
+└── pld-web/  (sub-repo, Vite + React)
+    ├── src/  (pages, services, queries, store)
+    └── vite dev server        ← :4200
 ```
 
 Los dos sub-repos conservan sus propios `.git` y remotes. El root del workspace es otro repo git (master, sin remote) que solo trackea la capa de coordinación — CLAUDE.md, docs, openspec, .atl, .claude, .gitignore.
@@ -49,27 +44,62 @@ Los puertos son defaults del desarrollo local. Si chocan con otra cosa en tu má
 
 ## 3. Flujo runtime — web ↔ API (dev local)
 
-```mermaid
-sequenceDiagram
-  autonumber
-  actor U as Browser
-  participant W as pld-web (Vite :4200)
-  participant A as auth-users (:9001)
-  participant D as mysql (:13306)
+<!-- jarvis:diagram src=architecture.drawio notation=ansi-iso-5807 -->
 
-  U->>W: GET /
-  W-->>U: HTML + bundle JS (React 19)
-  U->>A: POST /pld-api/auth-users/auth/login<br/>{email, password}
-  A->>D: SELECT users WHERE email=?
-  D-->>A: user row (hash, salt)
-  A->>A: verifyPassword(scryptSync)
-  A-->>U: 201 {token: JWT, ...}
-  Note over U: Guarda JWT en client state (Zustand + localStorage, por definir)
-  U->>A: XHR /pld-api/auth-users/admin/registration<br/>Authorization: Bearer <JWT>
-  A->>A: JwtAuthGuard verifica
-  A->>D: ...operación de dominio...
-  D-->>A: rows
-  A-->>U: 200/201 {resultado}
+```toon
+diagram: flow
+notation: ansi-iso-5807
+page: Login
+direction: TB
+nodes[12]{id,label,shape}:
+  inicio,Inicio,terminator
+  get-root,[Browser] GET /,process
+  serve-bundle,[pld-web] Serve HTML + bundle JS (React 19),process
+  post-login,[Browser] POST /pld-api/auth-users/auth/login {email password},process
+  select-user,[auth-users] SELECT users WHERE email=?,process
+  verify-pwd,[auth-users] verifyPassword (scryptSync),process
+  pwd-ok,¿Password OK?,decision
+  resp-401,[auth-users] 401 Unauthorized,terminator
+  resp-jwt,[auth-users] 201 {token: JWT},process
+  save-jwt,[Browser] Guardar JWT en client state (Zustand + localStorage),process
+  a,A,offpage
+  fin-error,Fin,terminator
+edges[11]{from,to,label}:
+  inicio,get-root,
+  get-root,serve-bundle,
+  serve-bundle,post-login,
+  post-login,select-user,
+  select-user,verify-pwd,
+  verify-pwd,pwd-ok,
+  pwd-ok,resp-401,No
+  pwd-ok,resp-jwt,Sí
+  resp-401,fin-error,
+  resp-jwt,save-jwt,
+  save-jwt,a,
+---
+page: Operacion autenticada
+direction: TB
+nodes[10]{id,label,shape}:
+  a,A,offpage
+  xhr-request,[Browser] XHR /pld-api/auth-users/admin/registration Bearer JWT,process
+  jwt-guard,[auth-users] JwtAuthGuard.verifica(),process
+  jwt-valid,¿JWT válido?,decision
+  resp-401,[auth-users] 401 Unauthorized,terminator
+  dominio,[auth-users] Operación de dominio,process
+  db-query,[mysql] Query / operación,process
+  db-rows,[auth-users] Procesa rows,process
+  resp-ok,[auth-users] 200/201 {resultado},process
+  fin,Fin,terminator
+edges[9]{from,to,label}:
+  a,xhr-request,
+  xhr-request,jwt-guard,
+  jwt-guard,jwt-valid,
+  jwt-valid,resp-401,No
+  jwt-valid,dominio,Sí
+  dominio,db-query,
+  db-query,db-rows,
+  db-rows,resp-ok,
+  resp-ok,fin,
 ```
 
 **Detalles clave**:

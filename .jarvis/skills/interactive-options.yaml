@@ -1,0 +1,24 @@
+name: interactive-options
+version: 1
+description: Render decision points as clickable options the user can pick.
+triggers:
+  - id: t-1
+    text: When asking the user to choose among 2-6 alternatives.
+  - id: t-2
+    text: When proposing next steps that need confirmation.
+applies_to: []
+rules:
+  - id: r-1
+    text: Use the skill only when the answer space is finite (2-6 mutually exclusive choices).
+  - id: r-2
+    text: Skip the skill for binary yes/no questions — handle inline.
+behaviors:
+  default: |
+    Present options as a numbered list. Wait for the user to reply with a number.
+  claude_code:
+    format: skill-md
+    body: |
+      Use the Claude Code Form API. Emit one option per choice with a short label
+      and a one-line description. Default selection: option 1.
+_next_rule_id: 3
+_next_trigger_id: 3

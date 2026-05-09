@@ -41,3 +41,6 @@ otel/**/*.db-shm
 # - .claude/CHECKLIST_MIGRACION.md
 # - .claude/DECISIONES_MIGRACION.md
 # Si más adelante se quiere que sean privados, mover acá.
+
+.dist/
+.backups/

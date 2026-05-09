@@ -1,0 +1,144 @@
+<mxfile host="embed.diagrams.net" agent="jarvis" pages="2">
+  <diagram id="page-login" name="Login">
+    <mxGraphModel dx="1085" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="inicio" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Inicio" vertex="1">
+          <mxGeometry height="60" width="120" x="365" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="get-root" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[Browser] GET /" vertex="1">
+          <mxGeometry height="60" width="200" x="325" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="serve-bundle" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[pld-web] Serve HTML + bundle JS (React 19)" vertex="1">
+          <mxGeometry height="60" width="280" x="285" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="post-login" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[Browser] POST /pld-api/auth-users/auth/login&#xa;{email, password}" vertex="1">
+          <mxGeometry height="60" width="280" x="285" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="select-user" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[auth-users] SELECT users WHERE email=?" vertex="1">
+          <mxGeometry height="60" width="280" x="285" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="verify-pwd" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[auth-users] verifyPassword (scryptSync)" vertex="1">
+          <mxGeometry height="60" width="280" x="285" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="pwd-ok" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="¿Password OK?" vertex="1">
+          <mxGeometry height="80" width="160" x="345" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="resp-401" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="401 Unauthorized" vertex="1">
+          <mxGeometry height="60" width="160" x="580" y="650" as="geometry" />
+        </mxCell>
+        <mxCell id="fin-error" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Fin" vertex="1">
+          <mxGeometry height="60" width="80" x="620" y="760" as="geometry" />
+        </mxCell>
+        <mxCell id="resp-jwt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[auth-users] 201 {token: JWT}" vertex="1">
+          <mxGeometry height="60" width="220" x="215" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="save-jwt" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[Browser] Guardar JWT en client state&#xa;(Zustand + localStorage)" vertex="1">
+          <mxGeometry height="60" width="260" x="195" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="off-a" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="A" vertex="1">
+          <mxGeometry height="60" width="80" x="385" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="inicio" style="endArrow=classic;html=1;" target="get-root">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="get-root" style="endArrow=classic;html=1;" target="serve-bundle">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="serve-bundle" style="endArrow=classic;html=1;" target="post-login">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="post-login" style="endArrow=classic;html=1;" target="select-user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="select-user" style="endArrow=classic;html=1;" target="verify-pwd">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="verify-pwd" style="endArrow=classic;html=1;" target="pwd-ok">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="pwd-ok" style="endArrow=classic;html=1;" target="resp-401" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="resp-401" style="endArrow=classic;html=1;" target="fin-error">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="pwd-ok" style="endArrow=classic;html=1;" target="resp-jwt" value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="resp-jwt" style="endArrow=classic;html=1;" target="save-jwt">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="save-jwt" style="endArrow=classic;html=1;" target="off-a">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="page-autenticada" name="Operacion autenticada">
+    <mxGraphModel dx="1085" dy="600" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="off-a" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;direction=west;" value="A" vertex="1">
+          <mxGeometry height="60" width="80" x="385" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="xhr-request" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[Browser] XHR /pld-api/auth-users/admin/registration&#xa;Authorization: Bearer JWT" vertex="1">
+          <mxGeometry height="60" width="300" x="275" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="jwt-guard" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[auth-users] JwtAuthGuard.verifica()" vertex="1">
+          <mxGeometry height="60" width="260" x="295" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="jwt-valid" parent="1" style="rhombus;whiteSpace=wrap;html=1;" value="¿JWT válido?" vertex="1">
+          <mxGeometry height="80" width="160" x="345" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="resp-401" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="401 Unauthorized" vertex="1">
+          <mxGeometry height="60" width="160" x="580" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="dominio" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[auth-users] Operación de dominio" vertex="1">
+          <mxGeometry height="60" width="240" x="305" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="db-query" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[mysql] Query / operación" vertex="1">
+          <mxGeometry height="60" width="220" x="315" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="db-rows" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[auth-users] Procesa rows" vertex="1">
+          <mxGeometry height="60" width="220" x="315" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="resp-ok" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="[auth-users] 200/201 {resultado}" vertex="1">
+          <mxGeometry height="60" width="240" x="305" y="770" as="geometry" />
+        </mxCell>
+        <mxCell id="fin" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Fin" vertex="1">
+          <mxGeometry height="60" width="80" x="385" y="870" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="off-a" style="endArrow=classic;html=1;" target="xhr-request">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="xhr-request" style="endArrow=classic;html=1;" target="jwt-guard">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="jwt-guard" style="endArrow=classic;html=1;" target="jwt-valid">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="jwt-valid" style="endArrow=classic;html=1;" target="resp-401" value="No">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="jwt-valid" style="endArrow=classic;html=1;" target="dominio" value="Sí">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="dominio" style="endArrow=classic;html=1;" target="db-query">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="db-query" style="endArrow=classic;html=1;" target="db-rows">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="db-rows" style="endArrow=classic;html=1;" target="resp-ok">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="resp-ok" style="endArrow=classic;html=1;" target="fin">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

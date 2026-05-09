@@ -1,0 +1,23 @@
+{
+  "folders": [
+    {
+      "name": "pld (root)",
+      "path": ".",
+      "settings": {
+        "files.exclude": {
+          "pld-api": true,
+          "pld-web": true
+        }
+      }
+    },
+    {
+      "name": "pld-api",
+      "path": "pld-api"
+    },
+    {
+      "name": "pld-web",
+      "path": "pld-web"
+    }
+  ],
+  "settings": {}
+}
