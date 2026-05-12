@@ -17,7 +17,6 @@ instruction: Read this file first at the start of any session involving pld-web 
     - [flujos/registro-sujeto-obligado/disenos/README.md](flujos/registro-sujeto-obligado/disenos/README.md) — mapa step→diseño→componente FE
   - [flujos/registro-auxiliar/](flujos/registro-auxiliar/) — auxiliares por sujeto obligado (smoke: `smoke.md`)
 - Inconsistencias conocidas (pendiente resolver)
-  - **Wizard PM falta Paso 5**: `ComplianceResponsibleStep` existe pero no está conectado al wizard (debe tener 6 pasos, no 5)
   - **MoralIdentificationStep `birthCountry` sobrante**: el campo existe en FE pero no aparece en diseño ni diagrama BE — confirmar si eliminar
 - Redes futuras
   - _(agregar aquí nuevos flujos, features o integraciones)_

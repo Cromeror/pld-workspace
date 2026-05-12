@@ -134,6 +134,17 @@ flowchart TB
 
 > ⚠️ Envío de correo con la password queda **fuera de scope** (mismo criterio que PF/PM): no hay servicio de email implementado. La password temporal se devuelve en el response del `201` y la UI la muestra en modal copiable.
 
+<!-- jarvis:llm-index type=flow-design-mapping hide=true description="Índice toon que agrupa nodos del diagrama BE por pantalla UI. El wizard de 3 pasos es estado del front — el BE tiene un único endpoint. nodos_diagrama lista los nodos BE que corresponden conceptualmente a cada pantalla. disenos lista screenshots disponibles. nota registra inconsistencias o vacíos." -->
+
+```toon
+steps[5]{step_ui,label_ui,variante,nodos_diagrama,disenos,nota}:
+  1,Tipo de usuario,-,,,"paso-1-tipo-usuario/1.png|2.png","VACÍO en diagrama BE: la selección Auxiliar/Clientes es estado del front. Clientes=sin flujo (placeholder Próximamente). 1.png=vacío; 2.png=Auxiliar seleccionado"
+  2,Datos del usuario,-,,"Req+Auth+Validate+Dedupe (validaciones BE del payload completo)","paso-2-datos-usuario/1.png|2.png","Todo el DTO se captura aquí. 1.png=vacío; 2.png=formulario lleno. El front bloquea Siguiente hasta completar"
+  3,Revisión y validación,-,,"TX+InsAddr+InsProf+Pwd+InsUser+R201 (se disparan al Confirmar)","paso-3-revision/1.png|2.png","1.png=resumen datos; 2.png=con confirmación. El POST ocurre al confirmar en este step"
+  -,Modal resultado éxito,-,,R201,pagina-resultado/success.png,Muestra temporaryPassword copiable — envío de correo fuera de scope
+  -,Modal resultado error,-,,"E400|E403|E409",pagina-resultado/error.png,
+```
+
 ## Diferencias clave vs. flujo SUPERADMIN
 
 | Aspecto | SUPERADMIN (sujeto obligado) | AUXILIARY |

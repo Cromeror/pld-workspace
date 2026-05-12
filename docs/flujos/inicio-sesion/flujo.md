@@ -98,3 +98,12 @@ flowchart LR
     class valida,correoRegistrado,coinciden decision
     class datosAlmacenados storage
 ```
+
+<!-- jarvis:llm-index type=flow-design-mapping hide=true description="Índice toon que agrupa nodos del diagrama BE por pantalla UI. nodos_diagrama lista todos los nodos que esa pantalla implementa. disenos lista screenshots disponibles. nota registra inconsistencias o vacíos pendientes." -->
+
+```toon
+steps[4]{step_ui,label_ui,variante,nodos_diagrama,disenos,nota}:
+  1,Inicio de sesión,-,"inicio+login+ingresaEmail+ingresaPass+valida+inactiva+reintento+ingresa+fin+olvido",,VACÍO: sin diseño UI — ver flujo recuperacion-contrasena para el subflujo
+  2,Recuperar contraseña — ingresar correo,-,"recuperar+ingresaCorreoRec+correoRegistrado+revisarCorreo+correoOk",,VACÍO: sin diseño en este flujo — diseños en docs/flujos/recuperacion-contrasena/
+  3,Recuperar contraseña — nueva contraseña,-,"enviarEnlace+abrirEnlace+nuevaPass+confirmaPass+coinciden+reintentoPass+datosAlmacenados+redirect+finRec",,VACÍO: sin diseño en este flujo — diseños en docs/flujos/recuperacion-contrasena/
+```
