@@ -7,7 +7,12 @@ Coordinador del proyecto PLD (Prevención de Lavado de Dinero, México). El work
 
 Todo el contexto Claude (skill-registry, openspec, docs, settings) vive en este root. Los sub-repos NO tienen capa Claude propia — abrir Claude siempre desde `/home/cristobal/work/pld/`.
 
-Arquitectura de dev local y contratos API→Web: ver [docs/architecture.md](docs/architecture.md).
+Arquitectura de dev local y contratos API→Web: ver [docs/arquitecturas/architecture.md](docs/arquitecturas/architecture.md).
+
+## Interacción con el usuario
+
+Cuando haya 2–6 alternativas para elegir, usar `/interactive-options` para presentarlas. No usar para preguntas binarias sí/no — esas se responden inline.
+
 
 ## Contexto de sesión
 
@@ -26,16 +31,17 @@ Aplica a commits en este repo y en los sub-repos (`pld-api/`, `pld-web/`). Sin e
 - **Sin heredoc multi-línea**: usar `git commit -m "tipo(scope): descripción"` directo.
 - Si el cambio no cabe en una línea, preferir partirlo en varios commits antes que agregar body.
 
-## Documentación de flujos de registro (`docs/FLUJO_*.md` + `docs/designs/<flujo>/`)
+## Documentación de flujos (`docs/flujos/<nombre-flujo>/`)
 
-Aplica al crear o actualizar archivos `docs/FLUJO_REGISTRO_*.md` y carpetas relacionadas en `docs/designs/`.
+Aplica al crear o actualizar flujos en `docs/flujos/`.
 
 - **Separar BE y UI**:
-  - El `.md` del flujo contiene **solo el diagrama BE** (mermaid) — endpoints, tablas, transacciones, validación autoritativa. Mismo estilo que [FLUJO_REGISTRO_REPORTING_ENTITIES.md](docs/FLUJO_REGISTRO_REPORTING_ENTITIES.md).
-  - El flujo UI vive en `docs/designs/<nombre-flujo>/` con una subcarpeta por paso (`step-1-*`, `step-2-*`, …) y carpetas `shared/`, `result-page/` cuando aplique. Las capturas y notas de UI van ahí.
-- **No mezclar planos UI y BE en el mismo diagrama**. Si un nodo es estado de cliente (validación visual, "ingresa el dato faltante"), va en las capturas UI, no en el mermaid del `.md`.
-- **Linkear ambos sentidos**: el `.md` referencia `docs/designs/<flujo>/` para las vistas; el `README.md` o `index.md` de la carpeta de designs referencia el `.md` del flujo.
-- Cuando el usuario provee una imagen del flujo BE (cajas/decisiones), traducirla a mermaid en el `.md`. Cuando provee mockups UI, archivarlos en `docs/designs/<flujo>/step-N-*/`.
+  - `flujo.md` contiene **solo el diagrama BE** (toon) — endpoints, tablas, transacciones, validación autoritativa.
+  - El flujo UI vive en `disenos/` dentro del mismo folder, con subcarpetas por paso (`paso-N-*`) y `pagina-resultado/` cuando aplique.
+- **No mezclar planos UI y BE en el mismo diagrama**. Estados de cliente (validaciones visuales) van en las capturas UI, no en el toon.
+- **Linkear ambos sentidos**: `flujo.md` referencia `disenos/`; el `README.md` de `disenos/` referencia `flujo.md`.
+- Cuando el usuario provee imagen del flujo BE, traducir a toon en `flujo.md`. Cuando provee mockups UI, archivar en `disenos/paso-N-*/`.
+- Decisiones técnicas relevantes al flujo → crear ADR en `docs/decisiones/`.
 
 <!-- JARVIS:BEGIN hash=ws-pld-root -->
 ## Jarvis MCP (project)

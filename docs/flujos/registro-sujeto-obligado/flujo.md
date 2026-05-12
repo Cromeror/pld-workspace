@@ -2,16 +2,6 @@
 
 > Diagrama de referencia para el registro de sujetos obligados por parte de un `SUPERADMIN`. Dos tipos de sujeto obligado (Notarías, Inmobiliarias) y dos tipos de perfil (Persona Física, Persona Moral).
 
-## Contexto y restricciones
-
-- **Tipos de usuario del sistema**: `SUPERADMIN`, `NOTARIO`, `INMOBILIARIA`, `AUXILIAR` (más `USUARIO_INTERNO`, `USUARIO_EXTERNO` existentes en el enum). Notarías e Inmobiliarias son tipos de usuario; `SUPERADMIN` y `AUXILIAR` son los perfiles administrativos que operan el alta.
-- **Tipo de perfil** (aplica al sujeto obligado): `PERSONA_FISICA` o `PERSONA_MORAL`.
-- **Registro largo con checkpoints**: el flujo se compone de pasos discretos (identificación → contacto → actividad vulnerable → …). Cada paso termina con una validación y un `Guardar información` que persiste parcialmente y permite continuar. Debe ser posible **retomar un registro incompleto** (diseño a resolver — ver sección "Gap detectado").
-- **Campos de entrada (cajas azules en el diagrama)**: datos que se capturan. Los marcados con `*` son **requeridos**. La validación autoritativa vive en el back en el DTO de cada request.
-- **Independencia entre perfiles**: los flujos de Persona Física y Persona Moral son **ramas independientes** (no se entrelazan) y tienen sus propias entidades de persistencia.
-- ⚠️ **Importante**: dentro del flujo de Persona Moral, si aparece un nodo "Persona Física" hace referencia al **responsable del cumplimiento de la Ley**, NO al tipo de perfil. No confundirlos.
-- 📝 **Leyendas del paso "Actividad vulnerable\*"** (*"Para el caso de Notarías deberá decir: FE PÚBLICA (SERVIDORES PÚBLICOS...)"* y *"En caso de inmobiliarias deberá decir: TRANSMISIÓN DE BIENES INMUEBLES"*): son **etiquetas / copy del front** — el nombre de la sección que se muestra al usuario según el tipo de sujeto obligado. **No son valores del dominio a persistir**. El backend recibe y valida únicamente el valor del enum `ActividadVulnerable` que le envía el front.
-
 ## Referencias de código
 
 ### Enums canónicos (`packages/shared-types/src/enums.ts`)
@@ -34,7 +24,10 @@
 
 ## Diagrama
 
-Diagrama solo del lado **BE** — el wizard de UI (capturas, copys, validación visual) vive en [designs/](designs/). Cada caja morada representa un endpoint del módulo `/admin/registration/*` y persiste un sub-recurso del registro.
+Diagrama solo del lado **BE** — el wizard de UI (capturas, copys, validación visual) vive en [disenos/](disenos/). Cada caja morada representa un endpoint del módulo `/admin/registration/*` y persiste un sub-recurso del registro.
+
+> ⚠️ Dentro del flujo PM, un nodo "Persona Física" refiere al **responsable del cumplimiento de la Ley**, no al tipo de perfil.
+> 📝 Las leyendas de "Actividad vulnerable" (FE PÚBLICA / TRANSMISIÓN DE BIENES INMUEBLES) son copy del front según el tipo de sujeto obligado — no son valores a persistir.
 
 <!-- jarvis:diagram src=FLUJO_REGISTRO_REPORTING_ENTITIES.drawio notation=ansi-iso-5807 -->
 
