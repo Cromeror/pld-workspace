@@ -9,6 +9,10 @@ Todo el contexto Claude (skill-registry, openspec, docs, settings) vive en este 
 
 Arquitectura de dev local y contratos API→Web: ver [docs/architecture.md](docs/architecture.md).
 
+## Contexto de sesión
+
+**Leer [`docs/CONTEXT.md`](docs/CONTEXT.md) al inicio de cualquier sesión** que involucre UI, flujos de registro o documentación. Es el hub central que apunta a todas las fuentes de verdad del proyecto — componentes, flujos BE, diseños UI, usuarios de prueba. No escanear carpetas: navegar desde ahí.
+
 ## Commit policy (workspace + sub-repos)
 
 Aplica a commits en este repo y en los sub-repos (`pld-api/`, `pld-web/`). Sin excepción, salvo que el usuario pida explícitamente lo contrario en el mismo turno.

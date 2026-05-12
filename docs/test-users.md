@@ -30,6 +30,20 @@ curl -X POST http://localhost:9001/pld-api/auth-users/auth/login \
 | Fecha nac. | 1980-05-02 |
 | Tipo | NOTARY + INDIVIDUAL |
 
+## NOTARY — Persona física #2 (datos smoke pre-selección actividad vulnerable)
+
+| Campo | Valor |
+|---|---|
+| RFC | `HEVP800502XYZ` |
+| Nombre | Pedro |
+| Apellido paterno | Hernández |
+| Apellido materno | Vargas |
+| Fecha nac. | 1980-05-02 |
+| CURP | `HEVP800502HDFRGN02` |
+| Email contacto | `pedro2.notario@example.mx` |
+| Celular | `5550001234` |
+| Actividad vulnerable | Fe pública (Corredores y Notarios) — pre-seleccionada por rol |
+
 ## REAL_ESTATE — Persona moral (vía wizard 2026-04-27)
 
 | Campo | Valor |
@@ -40,6 +54,63 @@ curl -X POST http://localhost:9001/pld-api/auth-users/auth/login \
 | RFC | `ITE000101AB1` |
 | Tipo | REAL_ESTATE + LEGAL_ENTITY |
 | Responsable cumplimiento | María Hernández Soto (RFC `HESM800101ABC`, CURP `HESM800101MDFRSN01`) |
+
+## REAL_ESTATE — Persona moral (datos reales Métrica Inmobiliaria)
+
+> Extraído de documento SHCP "Detalle de Alta Métrica". Usar solo en dev local.
+
+**Step 1**
+
+| Campo | Valor |
+|---|---|
+| Tipo de usuario | Inmobiliaria |
+| Tipo de perfil | Persona moral |
+
+**Step 2 — Identificación**
+
+| Campo | Valor |
+|---|---|
+| Razón social | METRICA INMOBILIARIA |
+| Fecha de constitución | 12/07/2006 |
+| RFC | `MIN0607127R0` |
+| País de nacionalidad | México |
+
+**Step 3 — Contacto (2 contactos)**
+
+| # | Email | Teléfono | Celular | Clave lada |
+|---|---|---|---|---|
+| 1 | `mballi@metricainmobiliaria.com` | 55067575 | 5555067575 | 55 |
+| 2 | `rballi@metricainmobiliaria.com` | 54029142 | 5554029142 | 55 |
+
+**Step 4 — Actividad vulnerable**
+
+| Campo | Valor |
+|---|---|
+| Actividad | Transmisión de bienes inmuebles — pre-seleccionada por rol |
+| Fecha inicial | 27/03/2024 |
+| CP | 05100 |
+| Entidad federativa | Ciudad de México (Distrito Federal) |
+| Municipio | Cuajimalpa de Morelos |
+| Localidad | Cuajimalpa de Morelos |
+| Colonia | Lomas de Vista Hermosa |
+| Tipo de vialidad | Avenida |
+| Calle | Loma de Vista Hermosa |
+| Núm. exterior | 149 |
+| Núm. interior | 401 |
+| Actividad en domicilio | Transmisión de bienes inmuebles |
+
+**Step PM — Responsable de cumplimiento**
+
+| Campo | Valor |
+|---|---|
+| Nombre(s) | Maria Angelica |
+| Apellido paterno | Cervantes |
+| Apellido materno | Vera |
+| Fecha de nacimiento | 14/06/1976 |
+| RFC | `CEVA760614BR1` |
+| CURP | `CEVA760614MDFRRN08` |
+| País de nacionalidad | México |
+| Fecha de designación | 19/04/2024 |
 
 ## Cleanup
 

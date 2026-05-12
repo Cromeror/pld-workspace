@@ -1,0 +1,46 @@
+notation: toon
+purpose: Component library reference for AI-assisted development. Read this before generating UI code to know what components exist, their props, and when to use each.
+source: pld-web/src/components/atoms/ and molecules/
+design-system: PrimeReact 10 + Tailwind 4 + custom wrappers
+
+---
+
+# Atoms
+
+components[6]{name,path,extends,custom_props,notes}:
+  InputText,atoms/InputText/,PrimeReact InputTextProps,errorText?: string,Shows red error text below input when errorText is set. Use for free-text fields.
+  Dropdown,atoms/Dropdown/,PrimeReact DropdownProps,errorText?: string,Shows red error text below. Supports filter prop for searchable lists. Use for catalog selections.
+  Calendar,atoms/Calendar/,PrimeReact CalendarProps,errorText?: string,Use dateFormat=dd/mm/yy showIcon. Parse with new Date(year month-1 day) — never new Date(isoString) to avoid timezone bug.
+  Button,atoms/Button/,PrimeReact ButtonProps,severity?: primary|secondary,Default severity=primary. Use secondary for cancel/back actions.
+  Checkbox,atoms/Checkbox/,PrimeReact CheckboxProps,,No custom props.
+  RadioButton,atoms/RadioButton/,PrimeReact RadioButtonProps,,No custom props.
+
+---
+
+# Molecules
+
+molecules[3]{name,path,props,notes}:
+  AdministrativeDivisionsField,molecules/AdministrativeDivisionsField/,"countryCode: string; value: Record<string,string>; onChange: fn; errors?: Record<string,string>",Cascade dropdowns: state → municipality → neighborhood. Pass errors keyed by fieldName. Fallback to InputText if no catalog entries.
+  ConfirmDialog,molecules/ConfirmDialog/,"open title description cancelLabel confirmLabel onCancel onConfirm isConfirming isConfirmDisabled? icon? iconBackground?",Use for all destructive or irreversible confirmations.
+  Stepper,molecules/Stepper/,,Wizard progress indicator. Managed internally by Wizard organism.
+
+---
+
+# Layout conventions
+
+grid[4]{context,class,notes}:
+  default form,grid grid-cols-1 md:grid-cols-3 gap-3,3-col grid for most steps
+  identification PF,grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3,4-col for dense identification forms
+  full-width field,md:col-span-3,Use for textarea or long labels that span the full row
+  2-col field,md:col-span-2,Use for firstName which is wider than surname fields
+
+---
+
+# Error display pattern
+
+All form steps follow this pattern — do not deviate:
+
+error_pattern[3]{rule,implementation}:
+  touched+attemptedNext,Show error only when field.touched OR wizard.attemptedNext is true
+  normalize before validate,Pass value ?? "" for every string field before calling schema.safeParse — avoids Zod "expected string received undefined"
+  schema messages,All Zod error messages in Spanish user-friendly — see schemas.ts
