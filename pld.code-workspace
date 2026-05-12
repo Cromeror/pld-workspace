@@ -5,6 +5,8 @@
       "path": ".",
       "settings": {
         "files.exclude": {
+          "pld-api/**": true,
+          "pld-web/**": true,
           "pld-api": true,
           "pld-web": true
         }
