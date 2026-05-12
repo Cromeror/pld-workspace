@@ -1,6 +1,6 @@
-<mxfile host="embed.diagrams.net" agent="jarvis" pages="4">
+<mxfile host="embed.diagrams.net" agent="jarvis" pages="5">
   <diagram id="page-inicio" name="Inicio">
-    <mxGraphModel dx="1611" dy="572" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1329" dy="573" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -65,7 +65,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="fQQ0BCakY2mAuxCV8w0D" name="Registro persona fisica">
-    <mxGraphModel dx="933" dy="447" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1658" dy="723" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -367,26 +367,11 @@
         <mxCell id="wiJ4DUsuL8y2s92ojAHR-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Desea agregar otra actividad vulnerable?" vertex="1">
           <mxGeometry height="125" width="150" x="388.92" y="2440" as="geometry" />
         </mxCell>
-        <mxCell id="XvwFGugAJQfGtPtO4YN4-2" edge="1" parent="1" source="wiJ4DUsuL8y2s92ojAHR-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="XvwFGugAJQfGtPtO4YN4-1" value="si">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="Os4uIHni0M1pWZDjWUN2-2" edge="1" parent="1" source="wiJ4DUsuL8y2s92ojAHR-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="Os4uIHni0M1pWZDjWUN2-1" value="no">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="wiJ4DUsuL8y2s92ojAHR-2" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Es notario?" vertex="1">
-          <mxGeometry height="90" width="110" x="170" y="2720" as="geometry" />
-        </mxCell>
         <mxCell id="wiJ4DUsuL8y2s92ojAHR-3" edge="1" parent="1" source="wiJ4DUsuL8y2s92ojAHR-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="YVfOAdB_ZFY_3VDHiVi8-2" value="si deseo agregar otra">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="315.88000000000005" y="2440.02" as="sourcePoint" />
             <mxPoint x="210.00000000000017" y="2512.567619047619" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="XvwFGugAJQfGtPtO4YN4-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Notarias" vertex="1">
-          <mxGeometry height="60" width="80" x="70" y="2840" as="geometry" />
-        </mxCell>
-        <mxCell id="Os4uIHni0M1pWZDjWUN2-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="I&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;nmobiliarias&lt;/span&gt;" vertex="1">
-          <mxGeometry height="60" width="80" x="298.91999999999996" y="2840" as="geometry" />
         </mxCell>
         <mxCell id="niaP_Z2kwV9EazxzUcGh-1" edge="1" parent="1" source="p3xoX5yi5TSI0wPTIOrw-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" target="pf-act-vul">
           <mxGeometry relative="1" as="geometry">
@@ -410,10 +395,21 @@
         <mxCell id="6Bl9Eo9h5ZW5aOWXfDvS-1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿agrega otro contacto?" vertex="1">
           <mxGeometry height="125" width="150" x="388.91999999999996" y="1180" as="geometry" />
         </mxCell>
-        <mxCell id="YVfOAdB_ZFY_3VDHiVi8-3" edge="1" parent="1" source="YVfOAdB_ZFY_3VDHiVi8-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="wiJ4DUsuL8y2s92ojAHR-2">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="XhNotOp5wlz3jhM-hxlQ-1" edge="1" parent="1" source="eBpV-vfRlxoqpI2HsWg0-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="MQX67YWydMDtkJNlJ8t1-13">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="275" y="2850" />
+              <mxPoint x="1070" y="2850" />
+              <mxPoint x="1070" y="1790" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-        <mxCell id="YVfOAdB_ZFY_3VDHiVi8-2" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="agregar persona vulerable" vertex="1">
+        <mxCell id="dr9njNTd-SMTV74sNrqL-1" connectable="0" parent="XhNotOp5wlz3jhM-hxlQ-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="retorno a continuar con el registro" vertex="1">
+          <mxGeometry relative="1" x="0.0726" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="YVfOAdB_ZFY_3VDHiVi8-2" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="agregar segunda actividad vulnerable pf" vertex="1">
           <mxGeometry height="90" width="116.08" x="210.00000000000003" y="2570" as="geometry" />
         </mxCell>
         <mxCell id="tQ74JHZuNSS4L9ByHqFC-1" edge="1" parent="1" source="MQX67YWydMDtkJNlJ8t1-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.567;entryY=-0.006;entryDx=0;entryDy=0;entryPerimeter=0;" target="MQX67YWydMDtkJNlJ8t1-2">
@@ -427,11 +423,14 @@
         <mxCell id="p3xoX5yi5TSI0wPTIOrw-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="retorno actividad vulnerable" vertex="1">
           <mxGeometry height="60" width="80" x="100" y="1430" as="geometry" />
         </mxCell>
+        <mxCell id="eBpV-vfRlxoqpI2HsWg0-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Continuar proceso de registro principal" vertex="1">
+          <mxGeometry height="100" width="130" x="210" y="2710" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="NFg75gfbiTjfLw1qQ7IC" name="Registro personal moral">
-    <mxGraphModel dx="1713" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1396" dy="608" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -763,8 +762,7 @@
         <mxCell id="09uUkQgbOgmQ_RmP8DeV-2" edge="1" parent="1" source="Y6kLHry4dXikdCY41Jla-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="1vfiZXZv9TsTW5tS6_F3-1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="133" y="1520" />
-              <mxPoint x="133" y="2220" />
+              <mxPoint x="60" y="2220" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -798,11 +796,28 @@
         <mxCell id="b7OTkJ_6BOhR1VPW2AN--1" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Desea agregar otra actividad vulnerable?" vertex="1">
           <mxGeometry height="125" width="150" x="339" y="2280" as="geometry" />
         </mxCell>
-        <mxCell id="b7OTkJ_6BOhR1VPW2AN--2" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="agregar persona vulerable" vertex="1">
-          <mxGeometry height="90" width="116.08" x="117.92" y="2420" as="geometry" />
+        <mxCell id="b7OTkJ_6BOhR1VPW2AN--2" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="agregar segunda actividad vulnerable inmobiliaria pm" vertex="1">
+          <mxGeometry height="120" width="132.08" x="83.92" y="2430" as="geometry" />
         </mxCell>
         <mxCell id="Y6kLHry4dXikdCY41Jla-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="retorno actividad vulnerable" vertex="1">
           <mxGeometry height="60" width="80" x="20" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="94rHlmD8ovqqHuM8FYDT-1" edge="1" parent="1" source="yFb3Zg83TP_iAW_d-2gW-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" target="pm-dec3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="149" y="3360" />
+              <mxPoint x="980" y="3360" />
+              <mxPoint x="980" y="1950" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="94rHlmD8ovqqHuM8FYDT-2" connectable="0" parent="94rHlmD8ovqqHuM8FYDT-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="retorno a continuar con el registro" vertex="1">
+          <mxGeometry relative="1" x="0.1614" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yFb3Zg83TP_iAW_d-2gW-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Continuar proceso de registro principal" vertex="1">
+          <mxGeometry height="100" width="130" x="83.92" y="2650" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
@@ -865,6 +880,61 @@
         </mxCell>
         <mxCell id="ZQSvO6kReKjVpYF7j604-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="retorno actividad vulnerable" vertex="1">
           <mxGeometry height="60" width="80" x="334" y="420" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="2O-MGwIi0o902AGg_aBK" name="Agregar segunda actividad vulnerable">
+    <mxGraphModel dx="1105" dy="482" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2erwEk5TuLMMSC5ZLwFU-1" edge="1" parent="1" source="2erwEk5TuLMMSC5ZLwFU-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="2erwEk5TuLMMSC5ZLwFU-4" value="no es notario debe registrar actividad vulnerable de notarias">
+          <mxGeometry relative="1" x="0.407" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2erwEk5TuLMMSC5ZLwFU-2" edge="1" parent="1" source="2erwEk5TuLMMSC5ZLwFU-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="2erwEk5TuLMMSC5ZLwFU-5" value="si es notario debe registrar actividad vulnerable inmobiliarias">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2erwEk5TuLMMSC5ZLwFU-3" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;fillColor=#d5e8d4;strokeColor=#82b366;" value="¿Es notario?" vertex="1">
+          <mxGeometry height="90" width="110" x="299.46" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="Ecf0fvFMUOli-HqY-Gzi-3" edge="1" parent="1" source="2erwEk5TuLMMSC5ZLwFU-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="Ecf0fvFMUOli-HqY-Gzi-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="240" y="635" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2erwEk5TuLMMSC5ZLwFU-4" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Notarias" vertex="1">
+          <mxGeometry height="60" width="80" x="200" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="Ecf0fvFMUOli-HqY-Gzi-2" edge="1" parent="1" source="2erwEk5TuLMMSC5ZLwFU-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="Ecf0fvFMUOli-HqY-Gzi-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2erwEk5TuLMMSC5ZLwFU-5" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="I&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;nmobiliarias&lt;/span&gt;" vertex="1">
+          <mxGeometry height="60" width="80" x="428.91999999999996" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="2erwEk5TuLMMSC5ZLwFU-6" edge="1" parent="1" source="2erwEk5TuLMMSC5ZLwFU-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="2erwEk5TuLMMSC5ZLwFU-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="2erwEk5TuLMMSC5ZLwFU-7" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="agregar segunda actividad vulnerable pf" vertex="1">
+          <mxGeometry height="90" width="116.08" x="296.4200000000001" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="VNhFWrFJRE5ibzb8QEGi-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="agregar segunda actividad vulnerable inmobiliaria pm" vertex="1">
+          <mxGeometry height="110" width="140" x="510" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="VNhFWrFJRE5ibzb8QEGi-2" edge="1" parent="1" source="VNhFWrFJRE5ibzb8QEGi-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" target="2erwEk5TuLMMSC5ZLwFU-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="580" y="180" />
+              <mxPoint x="355" y="180" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Ecf0fvFMUOli-HqY-Gzi-1" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Continuar proceso de registro principal" vertex="1">
+          <mxGeometry height="100" width="130" x="299.46" y="585" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

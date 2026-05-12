@@ -57,7 +57,7 @@ edges[8]{from,to,label}:
 ---
 page: Registro persona fisica
 direction: LR
-nodes[49]{id,label,shape}:
+nodes[47]{id,label,shape}:
   persona-fisica,persona fisica,offpage
   step-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable,step 1: Datos de identificación de quien realiza la Actividad Vulnerable,process
   nombre,Nombre*,data
@@ -100,14 +100,12 @@ nodes[49]{id,label,shape}:
   mensaje-informacion-de-perfil-actualizada,Mensaje: Información de perfil Actualizada,process
   fin,fin,process
   desea-agregar-otra-actividad-vulnerable?,¿Desea agregar otra actividad vulnerable?,decision
-  es-notario?,¿Es notario?,decision
-  notarias,Notarias,offpage
-  inmobiliarias,Inmobiliarias,offpage
   actividad-vulnerable-2,Actividad vulnerable,offpage
   agrega-otro-contacto?,¿agrega otro contacto?,decision
-  agregar-persona-vulerable,agregar persona vulerable,offpage
+  agregar-segunda-actividad-vulnerable-pf,agregar segunda actividad vulnerable pf,offpage
   retorno-actividad-vulnerable,retorno actividad vulnerable,offpage
-edges[52]{from,to,label}:
+  continuar-proceso-de-registro-principal,Continuar proceso de registro principal,offpage
+edges[50]{from,to,label}:
   persona-fisica "persona fisica",step-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable "step 1: Datos de identificación de quien realiza la Actividad Vulnerable",
   step-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable "step 1: Datos de identificación de quien realiza la Actividad Vulnerable",nombre "Nombre*",
   nombre "Nombre*",apellido-paterno "Apellido paterno*",
@@ -153,17 +151,15 @@ edges[52]{from,to,label}:
   guarda-la-informacion-3 "Guarda la información",mensaje-informacion-de-perfil-actualizada "Mensaje: Información de perfil Actualizada",
   los-campos-estan-completos?-3 "¿Los campos estan completos?",guarda-la-informacion-3 "Guarda la información",si estan completos datos paso 3
   mensaje-informacion-de-perfil-actualizada "Mensaje: Información de perfil Actualizada",fin "fin",
-  es-notario? "¿Es notario?",notarias "Notarias",si
-  es-notario? "¿Es notario?",inmobiliarias "Inmobiliarias",no
-  desea-agregar-otra-actividad-vulnerable? "¿Desea agregar otra actividad vulnerable?",agregar-persona-vulerable "agregar persona vulerable",si deseo agregar otra
+  desea-agregar-otra-actividad-vulnerable? "¿Desea agregar otra actividad vulnerable?",agregar-segunda-actividad-vulnerable-pf "agregar segunda actividad vulnerable pf",si deseo agregar otra
   retorno-actividad-vulnerable "retorno actividad vulnerable",actividad-vulnerable "Actividad vulnerable*",
   retorno-actividad-vulnerable "retorno actividad vulnerable",actividad-vulnerable-realizada-en-el-domicilio "Actividad vulnerable realizada en el domicilio:",
-  agregar-persona-vulerable "agregar persona vulerable",es-notario? "¿Es notario?",
+  continuar-proceso-de-registro-principal "Continuar proceso de registro principal",los-campos-estan-completos?-3 "¿Los campos estan completos?",
   los-campos-estan-completos? "¿Los campos estan completos?",guarda-la-informacion "Guarda la información",
 ---
 page: Registro personal moral
 direction: LR
-nodes[53]{id,label,shape}:
+nodes[54]{id,label,shape}:
   persona-moral,persona moral,offpage
   paso-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable,paso 1: Datos de identificación de quien realiza la Actividad Vulnerable,process
   denominacion-o-razon-social,Denominación o razón social*:,data
@@ -215,9 +211,10 @@ nodes[53]{id,label,shape}:
   mensaje-informacion-de-perfil-actualizada,Mensaje: Información de perfil Actualizada,process
   fin,fin,process
   desea-agregar-otra-actividad-vulnerable?,¿Desea agregar otra actividad vulnerable?,decision
-  agregar-persona-vulerable,agregar persona vulerable,offpage
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,agregar segunda actividad vulnerable inmobiliaria pm,offpage
   retorno-actividad-vulnerable,retorno actividad vulnerable,offpage
-edges[57]{from,to,label}:
+  continuar-proceso-de-registro-principal,Continuar proceso de registro principal,offpage
+edges[58]{from,to,label}:
   persona-moral "persona moral",paso-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable "paso 1: Datos de identificación de quien realiza la Actividad Vulnerable",
   paso-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable "paso 1: Datos de identificación de quien realiza la Actividad Vulnerable",denominacion-o-razon-social "Denominación o razón social*:",
   denominacion-o-razon-social "Denominación o razón social*:",fecha-de-constitucion "Fecha de constitución:",
@@ -274,7 +271,8 @@ edges[57]{from,to,label}:
   actividad-vulnerable-realizada-en-el-domicilio "Actividad vulnerable realizada en el domicilio:",desea-agregar-otra-actividad-vulnerable? "¿Desea agregar otra actividad vulnerable?",
   guarda-la-informacion-4 "Guarda la información",mensaje-informacion-de-perfil-actualizada "Mensaje: Información de perfil Actualizada",
   mensaje-informacion-de-perfil-actualizada "Mensaje: Información de perfil Actualizada",fin "fin",
-  desea-agregar-otra-actividad-vulnerable? "¿Desea agregar otra actividad vulnerable?",agregar-persona-vulerable "agregar persona vulerable",si
+  desea-agregar-otra-actividad-vulnerable? "¿Desea agregar otra actividad vulnerable?",agregar-segunda-actividad-vulnerable-inmobiliaria-pm "agregar segunda actividad vulnerable inmobiliaria pm",si
+  continuar-proceso-de-registro-principal "Continuar proceso de registro principal",los-campos-estan-completos?-3 "¿Los campos están completos?",
 ---
 page: Actividad vulnerable
 direction: LR
@@ -292,21 +290,71 @@ edges[6]{from,to,label}:
   selecciona-por-defecto-fe-publica-notarios-y-corredores "selecciona por defecto: FE PÚBLICA (NOTARIOS Y CORREDORES)",retorno-actividad-vulnerable "retorno actividad vulnerable",
   selecciona-por-defecto-transmision-de-bienes-inmuebles "selecciona por defecto: TRANSMISION DE BIENES INMUEBLES",retorno-actividad-vulnerable "retorno actividad vulnerable",
   actividad-vulnerable-desde-persona-moral "Actividad vulnerable desde persona moral",es-inmobiliaria? "¿Es inmobiliaria?",
+---
+page: Agregar segunda actividad vulnerable
+direction: LR
+nodes[6]{id,label,shape}:
+  es-notario?,¿Es notario?,decision
+  notarias,Notarias,offpage
+  inmobiliarias,Inmobiliarias,offpage
+  agregar-segunda-actividad-vulnerable-pf,agregar segunda actividad vulnerable pf,offpage
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,agregar segunda actividad vulnerable inmobiliaria pm,offpage
+  continuar-proceso-de-registro-principal,Continuar proceso de registro principal,offpage
+edges[6]{from,to,label}:
+  es-notario? "¿Es notario?",notarias "Notarias",no es notario debe registrar actividad vulnerable de notarias
+  es-notario? "¿Es notario?",inmobiliarias "Inmobiliarias",si es notario debe registrar actividad vulnerable inmobiliarias
+  notarias "Notarias",continuar-proceso-de-registro-principal "Continuar proceso de registro principal",
+  inmobiliarias "Inmobiliarias",continuar-proceso-de-registro-principal "Continuar proceso de registro principal",
+  agregar-segunda-actividad-vulnerable-pf "agregar segunda actividad vulnerable pf",es-notario? "¿Es notario?",
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm "agregar segunda actividad vulnerable inmobiliaria pm",es-notario? "¿Es notario?",
 ```
 
 > ⚠️ Envío de correo con la password queda **fuera de scope** en este flujo: no hay servicio de email implementado. La password temporal se devuelve en el response del `POST /:id/finalize` y la UI la muestra en modal copiable. Cuando exista servicio de email, se sumará en una feature posterior.
 
-<!-- jarvis:llm-index type=flow-design-mapping hide=true description="Índice toon que agrupa nodos del diagrama BE por step UI. Cada fila = una pantalla del wizard. nodos_diagrama lista todos los nodos BE que esa pantalla implementa (decisiones internas incluidas). disenos lista los screenshots disponibles. nota registra inconsistencias o vacíos pendientes." -->
+<!-- jarvis:llm-index type=flow-design-mapping hide=true description="Índice toon que relaciona nodos del diagrama BE con sus screenshots de diseño UI. Úsalo para navegar directo al archivo correcto sin leer el flujo completo." -->
 
 ```toon
-steps[8]{step_ui,label_ui,variante,paginas_diagrama,nodos_diagrama,disenos,nota}:
-  1,Sujeto obligado,PF+PM,Inicio,"inicio+crear-sujeto-obligado+tipo-de-sujeto-obligado-a-registrar+notarias+inmobiliarias+tipo-de-perfil+persona-fisica+persona-moral","paso-1-sujeto-obligado/common.jpg|persona-fisica.jpg|persona-moral.jpg","Notario→solo PF (única opción); Inmobiliaria→PF o PM. La decisión tipo-de-perfil ocurre en esta misma pantalla antes de avanzar"
-  2,Datos de identificación,PF,"Registro persona fisica","step-1-datos-de-identificacion+nombre+apellido-paterno+apellido-materno+fecha-de-nacimiento+rfc+curp+pais-de-nacionalidad+pais-de-nacimiento+los-campos-estan-completos?+ingresa-el-dato-faltante+guarda-la-informacion",paso-2-identificacion/persona-fisica.jpg,Validación inline — los nodos decision/ingresa-dato-faltante son comportamiento FE no pantalla separada
-  2,Datos de identificación,PM,"Registro personal moral","paso-1-datos-de-identificacion+denominacion-o-razon-social+fecha-de-constitucion+rfc+pais-de-nacionalidad+los-campos-estan-completos?+ingresa-el-dato-faltante+guarda-la-informacion",paso-2-identificacion/persona-moral.jpg,
-  3,Datos de Contacto,PF+PM,"Registro persona fisica|Registro personal moral","step-2-datos-de-contacto|paso-2-datos-de-contacto+clave-lada+numero-de-telefono+correo-electronico+celular+agrega-otro-contacto?+los-campos-estan-completos?-2+ingresa-el-dato-faltante-2+guarda-la-informacion-2","paso-3-contacto/1.jpg|paso-3-contacto/2.jpg","1.jpg=vacío; 2.jpg=con contacto. agrega-otro-contacto? es loop dentro de la misma pantalla"
-  4,Actividad vulnerable,PF+PM,"Registro persona fisica|Registro personal moral|Actividad vulnerable","step-3-actividad-vulnerable|paso-3-actividad-vulnerable+actividad-vulnerable-2|actividad-vulnerable-desde-persona-moral+es-inmobiliaria?+selecciona-por-defecto-fe-publica|selecciona-por-defecto-transmision+retorno-actividad-vulnerable+actividad-vulnerable+fecha-inicial+seccion-domicilio+codigo-postal+entidad-federativa+delegacion-o-municipio+localidad+colonia+tipo-de-vialidad+nombre-de-la-calle+numero-exterior+numero-interior+actividad-vulnerable-realizada-en-el-domicilio+desea-agregar-otra-actividad-vulnerable?+agregar-persona-vulnerable+los-campos-estan-completos?-3+ingresa-el-dato-faltante-3+guarda-la-informacion-3","paso-4-actividad-vulnerable/persona-fisica.jpg|persona-fisica-actividad-vulnerable.jpg|persona-moral.jpg|persona-moral-con-actividad-vulnerable.jpg","La página Actividad vulnerable del diagrama es lógica interna de esta pantalla — pre-selecciona el valor según es-inmobiliaria? y retorna. Campo READ-ONLY no editable por usuario. Loop agregar actividad ocurre dentro de la misma pantalla"
-  5,Responsable del cumplimiento,PM,"Registro personal moral","paso-4-responsable-del-cumplimiento-de-la-ley+nombre+apellido-paterno+apellido-materno+fecha-de-nacimiento+rfc-2+curp+pais-de-nacionalidad-2+fecha-de-designacion+los-campos-estan-completos?-4+ingresa-el-dato-faltante-4+guarda-la-informacion-4",paso-5-responsable-cumplimiento/1.jpg,VACÍO: step existe en diseño y componente FE pero NO conectado al wizard PM
-  6,Revisión y validación,PF,"Registro persona fisica","los-campos-estan-completos?-3→[UI: pantalla resumen]→[UI: modal confirmación]→guarda-la-informacion-3+mensaje-informacion-de-perfil-actualizada+fin","paso-5-revision-persona-fisica/notario.jpg|notario-con-actividad-vulnerable.jpg|inmobiliaria.jpg|inmobiliaria-con-actividad-vulnerable.jpg|confirmacion.jpg","La revisión y el modal de confirmación son estado del front — no tienen nodo BE propio. guarda-la-informacion-3 es el POST que se dispara al confirmar"
-  6,Revisión y validación,PM,"Registro personal moral","los-campos-estan-completos?-4→[UI: pantalla resumen]→[UI: modal confirmación]→guarda-la-informacion-4+mensaje-informacion-de-perfil-actualizada+fin",,Sin diseño UI — implementar con resumen genérico similar a revisión PF hasta que el cliente provea mockup
-  -,Modal resultado,PF+PM,-,fin,"pagina-resultado/result.jpg|result-with-error.jpg","INCONSISTENCIA: copy del modal promete envío de correo — el servicio de email no existe. Ver nota ⚠️ al pie del diagrama"
+mapping[42]{nodo,pagina_flujo,variante,diseno,nota}:
+  crear-sujeto-obligado,Inicio,PF+PM,paso-1-sujeto-obligado/common.jpg,
+  tipo-de-sujeto-obligado+tipo-de-perfil,Inicio,PF Notario,paso-1-sujeto-obligado/persona-fisica.jpg,Notario solo admite PF — única opción disponible
+  tipo-de-sujeto-obligado+tipo-de-perfil,Inicio,PM Inmobiliaria,paso-1-sujeto-obligado/persona-moral.jpg,Inmobiliaria admite PF y PM
+  step-1-datos-identificacion,Registro persona fisica,PF,paso-2-identificacion/persona-fisica.jpg,
+  paso-1-datos-identificacion,Registro personal moral,PM,paso-2-identificacion/persona-moral.jpg,
+  step-2-datos-contacto,Registro persona fisica,PF,paso-3-contacto/1.jpg,estado vacío — sin contactos
+  step-2-datos-contacto,Registro persona fisica,PF,paso-3-contacto/2.jpg,estado con contacto agregado
+  step-3-actividad-vulnerable+domicilio,Registro persona fisica,PF Notario,paso-4-actividad-vulnerable/persona-fisica.jpg,actividad pre-seleccionada READ-ONLY — no editable por usuario
+  step-3-actividad-vulnerable+domicilio,Registro persona fisica,PF Notario múltiple,paso-4-actividad-vulnerable/persona-fisica-actividad-vulnerable.jpg,múltiples actividades agregadas
+  paso-3-actividad-vulnerable+domicilio,Registro personal moral,PM Inmobiliaria,paso-4-actividad-vulnerable/persona-moral.jpg,actividad pre-seleccionada READ-ONLY
+  paso-3-actividad-vulnerable+domicilio,Registro personal moral,PM Inmobiliaria múltiple,paso-4-actividad-vulnerable/persona-moral-con-actividad-vulnerable.jpg,múltiples actividades agregadas
+  paso-4-responsable-cumplimiento,Registro personal moral,PM,paso-5-responsable-cumplimiento/1.jpg,step existe en diseño y componente FE pero NO está conectado al wizard
+  revision-final,Registro persona fisica,PF Notario,paso-5-revision-persona-fisica/notario.jpg,
+  revision-final,Registro persona fisica,PF Notario+AV,paso-5-revision-persona-fisica/notario-con-actividad-vulnerable.jpg,
+  revision-final,Registro persona fisica,PF Inmobiliaria,paso-5-revision-persona-fisica/inmobiliaria.jpg,
+  revision-final,Registro persona fisica,PF Inmobiliaria+AV,paso-5-revision-persona-fisica/inmobiliaria-con-actividad-vulnerable.jpg,
+  confirmacion-modal,Revision,PF+PM,paso-5-revision-persona-fisica/confirmacion.jpg,dialog ¿Estás seguro/a? antes de finalizar
+  resultado-exito,Result,PF+PM,pagina-resultado/result.jpg,modal muestra tempPassword — copy incorrecto promete envío de correo que NO existe
+  resultado-error,Result,PF+PM,pagina-resultado/result-with-error.jpg,
+  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario PF paso-01 vacío,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-01-tipo-persona.jpg,tipo persona READ-ONLY — Inmobiliaria seleccionada por sistema (cruce notario→inmobiliaria)
+  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario PF paso-01 seleccionado,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-01-tipo-persona-seleccionado.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-02,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-03 vacío,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-03 lleno,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-04,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-04-actividad-vulnerable.jpg,pre-selecciona TRANSMISION DE BIENES INMUEBLES — flujo inmobiliaria
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-05,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-05-responsable-cumplimiento.jpg,solo aplica cuando tipo persona es PM
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-06,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-06-revision.jpg,
+  resultado-exito-modal,Agregar segunda actividad vulnerable,PF+PM,pagina-resultado/result.jpg,modal éxito tras guardar segunda actividad vulnerable
+  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-01,modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-01-tipo-persona.jpg,Inmobiliaria+PF pre-seleccionados READ-ONLY
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-02,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,mismo diseño que PM — paso compartido
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-03 vacío,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,mismo diseño que PM — paso compartido
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-03 lleno,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,mismo diseño que PM — paso compartido
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-04 vacío,modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-04-actividad-vulnerable-vacio.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-04 lleno,modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-04-actividad-vulnerable-lleno.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-05,modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-05-revision.jpg,sin paso responsable — es PF
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm+es-notario?,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-01,modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-01-tipo-persona.jpg,Notario+PF pre-seleccionados READ-ONLY — notaria solo admite PF
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-02,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,mismo diseño — paso compartido
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-03 vacío,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,mismo diseño — paso compartido
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-03 lleno,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,mismo diseño — paso compartido
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-04 vacío,modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-04-actividad-vulnerable-vacio.jpg,pre-selecciona FE PÚBLICA
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-04 lleno,modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-04-actividad-vulnerable-lleno.jpg,
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-05,modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-05-revision.jpg,sin responsable de cumplimiento — es PF
 ```
