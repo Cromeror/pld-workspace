@@ -39,7 +39,7 @@ direction: LR
 nodes[8]{id,label,shape}:
   crear-sujeto-obligado,Crear sujeto obligado,process
   tipo-de-sujeto-obligado-a-registrar,Tipo de sujeto obligado a registrar,decision
-  inicio,inicio,process
+  inicio,inicio,terminator
   tipo-de-perfil,TIPO DE PERFIL,decision
   persona-fisica,persona fisica,offpage
   persona-moral,persona moral,offpage
@@ -98,7 +98,7 @@ nodes[47]{id,label,shape}:
   ingresa-el-dato-faltante-3,Ingresa el dato faltante,process
   guarda-la-informacion-3,Guarda la información,process
   mensaje-informacion-de-perfil-actualizada,Mensaje: Información de perfil Actualizada,process
-  fin,fin,process
+  fin,fin,terminator
   desea-agregar-otra-actividad-vulnerable?,¿Desea agregar otra actividad vulnerable?,decision
   actividad-vulnerable-2,Actividad vulnerable,offpage
   agrega-otro-contacto?,¿agrega otro contacto?,decision
@@ -209,7 +209,7 @@ nodes[54]{id,label,shape}:
   actividad-vulnerable-realizada-en-el-domicilio,Actividad vulnerable realizada en el domicilio:,data
   guarda-la-informacion-4,Guarda la información,process
   mensaje-informacion-de-perfil-actualizada,Mensaje: Información de perfil Actualizada,process
-  fin,fin,process
+  fin,fin,terminator
   desea-agregar-otra-actividad-vulnerable?,¿Desea agregar otra actividad vulnerable?,decision
   agregar-segunda-actividad-vulnerable-inmobiliaria-pm,agregar segunda actividad vulnerable inmobiliaria pm,offpage
   retorno-actividad-vulnerable,retorno actividad vulnerable,offpage

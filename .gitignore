@@ -11,6 +11,9 @@ node_modules/
 .env.local
 .env.*.local
 
+# Jarvis runtime
+.jarvis/ui-port
+
 # Logs / tmp / cache
 *.log
 .DS_Store

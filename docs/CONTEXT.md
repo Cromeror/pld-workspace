@@ -16,6 +16,7 @@ instruction: Read this file first at the start of any session involving pld-web 
   - [flujos/registro-sujeto-obligado/](flujos/registro-sujeto-obligado/) — sujetos obligados (Notario/Inmobiliaria, PF/PM)
     - [flujos/registro-sujeto-obligado/disenos/README.md](flujos/registro-sujeto-obligado/disenos/README.md) — mapa step→diseño→componente FE
   - [flujos/registro-auxiliar/](flujos/registro-auxiliar/) — auxiliares por sujeto obligado (smoke: `smoke.md`)
+  - [flujos/actividad-secundaria/](flujos/actividad-secundaria/) — segunda actividad vulnerable; registro independiente enlazado al principal
 - Inconsistencias conocidas (pendiente resolver)
   - **MoralIdentificationStep `birthCountry` sobrante**: el campo existe en FE pero no aparece en diseño ni diagrama BE — confirmar si eliminar
 - Redes futuras

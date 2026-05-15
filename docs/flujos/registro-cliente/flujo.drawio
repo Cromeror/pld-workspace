@@ -1,0 +1,245 @@
+<mxfile host="embed.diagrams.net" agent="jarvis">
+
+  <diagram id="page-registro-cliente" name="Registro de Cliente">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1200" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="n-inicio" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_2;whiteSpace=wrap;" value="inicio" vertex="1"><mxGeometry x="80" y="60" width="50" height="50" as="geometry" /></mxCell>
+        <mxCell id="n-cu" parent="1" style="whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Cliente / Usuario" vertex="1"><mxGeometry x="60" y="160" width="160" height="50" as="geometry" /></mxCell>
+        <mxCell id="n-bc-lista" parent="1" style="whiteSpace=wrap;html=1;fillColor=#ff9999;strokeColor=#cc0000;" value="Con beneficiario controlador se muestra la lista con los nombres agregados" vertex="1"><mxGeometry x="280" y="100" width="200" height="60" as="geometry" /></mxCell>
+        <mxCell id="n-bc-completar" parent="1" style="whiteSpace=wrap;html=1;fillColor=#ff9999;strokeColor=#cc0000;" value="Completar anexo de beneficiario controlador" vertex="1"><mxGeometry x="540" y="100" width="180" height="60" as="geometry" /></mxCell>
+        <mxCell id="n-tipo" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="Tipo de PERSONA" vertex="1"><mxGeometry x="70" y="270" width="160" height="80" as="geometry" /></mxCell>
+        <mxCell id="n-pf" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="PERSONA FÍSICA" vertex="1"><mxGeometry x="20" y="420" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="n-pm" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="PERSONA MORAL" vertex="1"><mxGeometry x="170" y="420" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="n-a6" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="ANEXO 6-Bis" vertex="1"><mxGeometry x="320" y="420" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="n-a7" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="ANEXO 7" vertex="1"><mxGeometry x="470" y="420" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="n-fid" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="FIDEICOMISO" vertex="1"><mxGeometry x="620" y="420" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="n-inicio" target="n-cu" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="n-cu" target="n-bc-lista" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="n-bc-lista" target="n-bc-completar" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="n-bc-completar" target="n-tipo" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="n-cu" target="n-tipo" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="n-tipo" target="n-pf" style="edgeStyle=orthogonalEdgeStyle;" value="Persona Física"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="n-tipo" target="n-pm" style="edgeStyle=orthogonalEdgeStyle;" value="Persona Moral"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="n-tipo" target="n-a6" style="edgeStyle=orthogonalEdgeStyle;" value="Anexo 6-Bis"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="n-tipo" target="n-a7" style="edgeStyle=orthogonalEdgeStyle;" value="Anexo 7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="n-tipo" target="n-fid" style="edgeStyle=orthogonalEdgeStyle;" value="Fideicomiso"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page-persona-fisica" name="Persona Física">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2400" pageHeight="900" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <!-- Entrada -->
+        <mxCell id="pf-in" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Persona Física" vertex="1"><mxGeometry x="60" y="40" width="120" height="50" as="geometry" /></mxCell>
+        <mxCell id="pf-nac" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="NACIONALIDAD" vertex="1"><mxGeometry x="50" y="140" width="140" height="70" as="geometry" /></mxCell>
+        <!-- Ramas nacionalidad -->
+        <mxCell id="pf-mex" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="MEXICANA" vertex="1"><mxGeometry x="230" y="120" width="130" height="70" as="geometry" /></mxCell>
+        <mxCell id="pf-ext" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="EXTRANJERA" vertex="1"><mxGeometry x="1200" y="120" width="130" height="70" as="geometry" /></mxCell>
+        <!-- Modalidad Mexicana -->
+        <mxCell id="mod-mex" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="MODALIDAD" vertex="1"><mxGeometry x="230" y="240" width="130" height="70" as="geometry" /></mxCell>
+        <mxCell id="mex-cta" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Acude por su cuenta" vertex="1"><mxGeometry x="100" y="370" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="mex-rep" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Acude con representante" vertex="1"><mxGeometry x="370" y="370" width="140" height="50" as="geometry" /></mxCell>
+        <!-- Modalidad Extranjera -->
+        <mxCell id="mod-ext" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="MODALIDAD" vertex="1"><mxGeometry x="1200" y="240" width="130" height="70" as="geometry" /></mxCell>
+        <mxCell id="ext-cta" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Acude por su cuenta" vertex="1"><mxGeometry x="1070" y="370" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="ext-rep" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Acude con representante" vertex="1"><mxGeometry x="1340" y="370" width="140" height="50" as="geometry" /></mxCell>
+        <!-- Anexos -->
+        <mxCell id="anx-mc" parent="1" style="whiteSpace=wrap;html=1;fillColor=#ffc0cb;strokeColor=#cc0066;" value="Anexo 3 PF Mexicana — acude por su cuenta" vertex="1"><mxGeometry x="60" y="470" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="anx-mr" parent="1" style="whiteSpace=wrap;html=1;fillColor=#ffc0cb;strokeColor=#cc0066;" value="Anexo 3 PF Mexicana — acude con representante" vertex="1"><mxGeometry x="330" y="470" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="anx-ec" parent="1" style="whiteSpace=wrap;html=1;fillColor=#ffc0cb;strokeColor=#cc0066;" value="Anexo 3 PF Extranjera — acude por su cuenta" vertex="1"><mxGeometry x="1030" y="470" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="anx-er" parent="1" style="whiteSpace=wrap;html=1;fillColor=#ffc0cb;strokeColor=#cc0066;" value="Anexo 3 PF Extranjera — acude con representante" vertex="1"><mxGeometry x="1300" y="470" width="200" height="50" as="geometry" /></mxCell>
+        <!-- Apartado I (flujo compartido desde aquí, representado una vez) -->
+        <mxCell id="ap1-h" parent="1" style="whiteSpace=wrap;html=1;fillColor=#444;fontColor=#fff;strokeColor=#222;" value="APARTADO I: DATOS DE IDENTIDAD" vertex="1"><mxGeometry x="680" y="560" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-n" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Nombre Completo / Apellidos" vertex="1"><mxGeometry x="680" y="620" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-fn" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Fecha de Nacimiento" vertex="1"><mxGeometry x="680" y="670" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-pn" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="País de Nacimiento" vertex="1"><mxGeometry x="680" y="720" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-pnac" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="País de Nacionalidad" vertex="1"><mxGeometry x="680" y="770" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-ln" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Lugar de Nacimiento" vertex="1"><mxGeometry x="680" y="820" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-oc" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Ocupación / Profesión / actividad o giro" vertex="1"><mxGeometry x="680" y="870" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-em" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Correo Electrónico" vertex="1"><mxGeometry x="680" y="920" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-cu" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="CURP" vertex="1"><mxGeometry x="680" y="970" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-rf" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="RFC" vertex="1"><mxGeometry x="680" y="1020" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-val" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="¿Los campos están completos?" vertex="1"><mxGeometry x="680" y="1080" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="ap1-fal" parent="1" style="whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Ingresa el dato faltante" vertex="1"><mxGeometry x="490" y="1095" width="160" height="40" as="geometry" /></mxCell>
+        <mxCell id="ap1-g" parent="1" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFE6A3;strokeColor=#f0ad4e;" value="Guarda la información" vertex="1"><mxGeometry x="700" y="1170" width="100" height="60" as="geometry" /></mxCell>
+        <!-- Domicilio -->
+        <mxCell id="dom-h" parent="1" style="whiteSpace=wrap;html=1;fillColor=#444;fontColor=#fff;strokeColor=#222;" value="DOMICILIO PARTICULAR" vertex="1"><mxGeometry x="680" y="1260" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-t" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="Domicilio Particular" vertex="1"><mxGeometry x="690" y="1310" width="160" height="60" as="geometry" /></mxCell>
+        <mxCell id="dom-nac" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Nacional" vertex="1"><mxGeometry x="580" y="1390" width="120" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-ext" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Extranjero" vertex="1"><mxGeometry x="840" y="1390" width="120" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-c" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Calle avenida o vía" vertex="1"><mxGeometry x="680" y="1450" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-ne" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Número exterior" vertex="1"><mxGeometry x="680" y="1500" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-ni" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Número interior" vertex="1"><mxGeometry x="680" y="1550" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-co" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Colonia o Urbanización" vertex="1"><mxGeometry x="680" y="1600" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-mu" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Municipio demarcación territorial o política" vertex="1"><mxGeometry x="680" y="1650" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-ci" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Ciudad o población" vertex="1"><mxGeometry x="680" y="1700" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-ef" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Entidad Federativa / Estado / provincia / dpto" vertex="1"><mxGeometry x="680" y="1750" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-cp" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Código Postal" vertex="1"><mxGeometry x="680" y="1800" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-pa" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="País" vertex="1"><mxGeometry x="680" y="1850" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-te" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Teléfono / Extensión" vertex="1"><mxGeometry x="680" y="1900" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-val" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="¿Los campos están completos?" vertex="1"><mxGeometry x="680" y="1960" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="dom-fal" parent="1" style="whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Ingresa el dato faltante" vertex="1"><mxGeometry x="490" y="1975" width="160" height="40" as="geometry" /></mxCell>
+        <mxCell id="dom-g" parent="1" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFE6A3;strokeColor=#f0ad4e;" value="Guarda la información" vertex="1"><mxGeometry x="700" y="2050" width="100" height="60" as="geometry" /></mxCell>
+        <!-- Identificación -->
+        <mxCell id="id-h" parent="1" style="whiteSpace=wrap;html=1;fillColor=#444;fontColor=#fff;strokeColor=#222;" value="DATOS DE IDENTIFICACIÓN (IFE/INE/pasaporte)" vertex="1"><mxGeometry x="650" y="2140" width="300" height="40" as="geometry" /></mxCell>
+        <mxCell id="id-n" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Nombre del documento" vertex="1"><mxGeometry x="680" y="2200" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="id-nu" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Número que lo identifique" vertex="1"><mxGeometry x="680" y="2250" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="id-au" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Autoridad que lo emite" vertex="1"><mxGeometry x="680" y="2300" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="id-val" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="¿Los campos están completos?" vertex="1"><mxGeometry x="680" y="2360" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="id-fal" parent="1" style="whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Ingresa el dato faltante" vertex="1"><mxGeometry x="490" y="2375" width="160" height="40" as="geometry" /></mxCell>
+        <mxCell id="id-g" parent="1" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFE6A3;strokeColor=#f0ad4e;" value="Guarda la información" vertex="1"><mxGeometry x="700" y="2450" width="100" height="60" as="geometry" /></mxCell>
+        <!-- Beneficiario controlador -->
+        <mxCell id="bc-h" parent="1" style="whiteSpace=wrap;html=1;fillColor=#444;fontColor=#fff;strokeColor=#222;" value="BENEFICIARIO CONTROLADOR / DUEÑO BENEFICIARIO" vertex="1"><mxGeometry x="620" y="2540" width="380" height="40" as="geometry" /></mxCell>
+        <mxCell id="bc-sel" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="Selección" vertex="1"><mxGeometry x="690" y="2600" width="240" height="70" as="geometry" /></mxCell>
+        <mxCell id="bc-agr" parent="1" style="whiteSpace=wrap;html=1;fillColor=#ff4444;fontColor=#fff;strokeColor=#cc0000;" value="Agregar Beneficiario controlador" vertex="1"><mxGeometry x="980" y="2615" width="180" height="40" as="geometry" /></mxCell>
+        <mxCell id="bc-nom" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Nombre(s) Primer Apellido y Segundo Apellido" vertex="1"><mxGeometry x="980" y="2670" width="260" height="40" as="geometry" /></mxCell>
+        <mxCell id="bc-g" parent="1" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFE6A3;strokeColor=#f0ad4e;" value="Guarda la información" vertex="1"><mxGeometry x="980" y="2720" width="100" height="60" as="geometry" /></mxCell>
+        <!-- PEP -->
+        <mxCell id="pep-h" parent="1" style="whiteSpace=wrap;html=1;fillColor=#444;fontColor=#fff;strokeColor=#222;" value="PERSONA POLÍTICAMENTE EXPUESTA (cliente o poderdante)" vertex="1"><mxGeometry x="600" y="2820" width="420" height="40" as="geometry" /></mxCell>
+        <mxCell id="pep-q" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="¿Desempeña o ha desempeñado funciones públicas destacadas (PEP)?" vertex="1"><mxGeometry x="650" y="2880" width="320" height="80" as="geometry" /></mxCell>
+        <mxCell id="pep-car" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Qué cargo que ocupa" vertex="1"><mxGeometry x="1020" y="2900" width="200" height="40" as="geometry" /></mxCell>
+        <mxCell id="pep-fq" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="¿Cónyuge o parentesco hasta 2° grado con PEP?" vertex="1"><mxGeometry x="650" y="2990" width="320" height="80" as="geometry" /></mxCell>
+        <mxCell id="pep-fc" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Qué cargo que ocupa" vertex="1"><mxGeometry x="1020" y="3010" width="200" height="40" as="geometry" /></mxCell>
+        <mxCell id="pep-fn" parent="1" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;size=10;fillColor=#bfe4ff;strokeColor=#3fa9f5;" value="Nombre completo del PEP" vertex="1"><mxGeometry x="1020" y="3060" width="200" height="40" as="geometry" /></mxCell>
+        <mxCell id="pep-val" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#b8e6c1;strokeColor=#4caf50;" value="¿Los campos están completos?" vertex="1"><mxGeometry x="680" y="3120" width="260" height="70" as="geometry" /></mxCell>
+        <mxCell id="pep-fal" parent="1" style="whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Ingresa el dato faltante" vertex="1"><mxGeometry x="490" y="3135" width="160" height="40" as="geometry" /></mxCell>
+        <mxCell id="pep-g" parent="1" style="shape=mxgraph.flowchart.database;whiteSpace=wrap;html=1;fillColor=#FFE6A3;strokeColor=#f0ad4e;" value="Guarda la información" vertex="1"><mxGeometry x="700" y="3210" width="100" height="60" as="geometry" /></mxCell>
+        <mxCell id="pf-fin" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Fin" vertex="1"><mxGeometry x="720" y="3300" width="80" height="40" as="geometry" /></mxCell>
+
+        <!-- Edges Persona Física -->
+        <mxCell id="ef1" edge="1" parent="1" source="pf-in" target="pf-nac" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef2" edge="1" parent="1" source="pf-nac" target="pf-mex" style="edgeStyle=orthogonalEdgeStyle;" value="Mexicana"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef3" edge="1" parent="1" source="pf-nac" target="pf-ext" style="edgeStyle=orthogonalEdgeStyle;" value="Extranjera"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef4" edge="1" parent="1" source="pf-mex" target="mod-mex" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef5" edge="1" parent="1" source="pf-ext" target="mod-ext" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef6" edge="1" parent="1" source="mod-mex" target="mex-cta" style="edgeStyle=orthogonalEdgeStyle;" value="Por su cuenta"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef7" edge="1" parent="1" source="mod-mex" target="mex-rep" style="edgeStyle=orthogonalEdgeStyle;" value="Con representante"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef8" edge="1" parent="1" source="mod-ext" target="ext-cta" style="edgeStyle=orthogonalEdgeStyle;" value="Por su cuenta"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef9" edge="1" parent="1" source="mod-ext" target="ext-rep" style="edgeStyle=orthogonalEdgeStyle;" value="Con representante"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef10" edge="1" parent="1" source="mex-cta" target="anx-mc" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef11" edge="1" parent="1" source="mex-rep" target="anx-mr" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef12" edge="1" parent="1" source="ext-cta" target="anx-ec" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef13" edge="1" parent="1" source="ext-rep" target="anx-er" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef14" edge="1" parent="1" source="anx-mc" target="ap1-h" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef15" edge="1" parent="1" source="anx-mr" target="ap1-h" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef16" edge="1" parent="1" source="anx-ec" target="ap1-h" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef17" edge="1" parent="1" source="anx-er" target="ap1-h" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef18" edge="1" parent="1" source="ap1-h" target="ap1-n" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef19" edge="1" parent="1" source="ap1-n" target="ap1-fn" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef20" edge="1" parent="1" source="ap1-fn" target="ap1-pn" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef21" edge="1" parent="1" source="ap1-pn" target="ap1-pnac" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef22" edge="1" parent="1" source="ap1-pnac" target="ap1-ln" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef23" edge="1" parent="1" source="ap1-ln" target="ap1-oc" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef24" edge="1" parent="1" source="ap1-oc" target="ap1-em" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef25" edge="1" parent="1" source="ap1-em" target="ap1-cu" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef26" edge="1" parent="1" source="ap1-cu" target="ap1-rf" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef27" edge="1" parent="1" source="ap1-rf" target="ap1-val" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef28" edge="1" parent="1" source="ap1-val" target="ap1-fal" style="edgeStyle=orthogonalEdgeStyle;" value="no"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef29" edge="1" parent="1" source="ap1-fal" target="ap1-n" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef30" edge="1" parent="1" source="ap1-val" target="ap1-g" style="edgeStyle=orthogonalEdgeStyle;" value="si"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef31" edge="1" parent="1" source="ap1-g" target="dom-h" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef32" edge="1" parent="1" source="dom-h" target="dom-t" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef33" edge="1" parent="1" source="dom-t" target="dom-nac" style="edgeStyle=orthogonalEdgeStyle;" value="Nacional"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef34" edge="1" parent="1" source="dom-t" target="dom-ext" style="edgeStyle=orthogonalEdgeStyle;" value="Extranjero"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef35" edge="1" parent="1" source="dom-nac" target="dom-c" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef36" edge="1" parent="1" source="dom-ext" target="dom-c" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef37" edge="1" parent="1" source="dom-c" target="dom-ne" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef38" edge="1" parent="1" source="dom-ne" target="dom-ni" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef39" edge="1" parent="1" source="dom-ni" target="dom-co" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef40" edge="1" parent="1" source="dom-co" target="dom-mu" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef41" edge="1" parent="1" source="dom-mu" target="dom-ci" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef42" edge="1" parent="1" source="dom-ci" target="dom-ef" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef43" edge="1" parent="1" source="dom-ef" target="dom-cp" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef44" edge="1" parent="1" source="dom-cp" target="dom-pa" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef45" edge="1" parent="1" source="dom-pa" target="dom-te" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef46" edge="1" parent="1" source="dom-te" target="dom-val" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef47" edge="1" parent="1" source="dom-val" target="dom-fal" style="edgeStyle=orthogonalEdgeStyle;" value="no"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef48" edge="1" parent="1" source="dom-fal" target="dom-c" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef49" edge="1" parent="1" source="dom-val" target="dom-g" style="edgeStyle=orthogonalEdgeStyle;" value="si"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef50" edge="1" parent="1" source="dom-g" target="id-h" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef51" edge="1" parent="1" source="id-h" target="id-n" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef52" edge="1" parent="1" source="id-n" target="id-nu" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef53" edge="1" parent="1" source="id-nu" target="id-au" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef54" edge="1" parent="1" source="id-au" target="id-val" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef55" edge="1" parent="1" source="id-val" target="id-fal" style="edgeStyle=orthogonalEdgeStyle;" value="no"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef56" edge="1" parent="1" source="id-fal" target="id-n" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef57" edge="1" parent="1" source="id-val" target="id-g" style="edgeStyle=orthogonalEdgeStyle;" value="si"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef58" edge="1" parent="1" source="id-g" target="bc-h" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef59" edge="1" parent="1" source="bc-h" target="bc-sel" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef60" edge="1" parent="1" source="bc-sel" target="bc-agr" style="edgeStyle=orthogonalEdgeStyle;" value="Tengo conocimiento de BC diferente"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef61" edge="1" parent="1" source="bc-agr" target="bc-nom" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef62" edge="1" parent="1" source="bc-nom" target="bc-g" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef63" edge="1" parent="1" source="bc-g" target="pep-h" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef64" edge="1" parent="1" source="bc-sel" target="pep-h" style="edgeStyle=orthogonalEdgeStyle;" value="No aplica"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef65" edge="1" parent="1" source="pep-h" target="pep-q" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef66" edge="1" parent="1" source="pep-q" target="pep-car" style="edgeStyle=orthogonalEdgeStyle;" value="Sí"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef67" edge="1" parent="1" source="pep-car" target="pep-fq" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef68" edge="1" parent="1" source="pep-q" target="pep-fq" style="edgeStyle=orthogonalEdgeStyle;" value="No"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef69" edge="1" parent="1" source="pep-fq" target="pep-fc" style="edgeStyle=orthogonalEdgeStyle;" value="Sí"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef70" edge="1" parent="1" source="pep-fc" target="pep-fn" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef71" edge="1" parent="1" source="pep-fn" target="pep-val" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef72" edge="1" parent="1" source="pep-fq" target="pep-val" style="edgeStyle=orthogonalEdgeStyle;" value="No"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef73" edge="1" parent="1" source="pep-val" target="pep-fal" style="edgeStyle=orthogonalEdgeStyle;" value="no"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef74" edge="1" parent="1" source="pep-fal" target="pep-q" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef75" edge="1" parent="1" source="pep-val" target="pep-g" style="edgeStyle=orthogonalEdgeStyle;" value="si"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ef76" edge="1" parent="1" source="pep-g" target="pf-fin" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page-persona-moral" name="Persona Moral">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" pageWidth="800" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="pm-in" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Persona Moral" vertex="1"><mxGeometry x="80" y="40" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="pm-pend" parent="1" style="whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666;fontStyle=2;" value="Subflujo pendiente de definir" vertex="1"><mxGeometry x="70" y="140" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="pm-fin" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Fin" vertex="1"><mxGeometry x="130" y="240" width="80" height="40" as="geometry" /></mxCell>
+        <mxCell id="epm1" edge="1" parent="1" source="pm-in" target="pm-pend" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="epm2" edge="1" parent="1" source="pm-pend" target="pm-fin" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page-anexo-6bis" name="Anexo 6-Bis">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" pageWidth="800" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="a6-in" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Anexo 6-Bis" vertex="1"><mxGeometry x="80" y="40" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="a6-pend" parent="1" style="whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666;fontStyle=2;" value="Subflujo pendiente de definir" vertex="1"><mxGeometry x="70" y="140" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="a6-fin" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Fin" vertex="1"><mxGeometry x="130" y="240" width="80" height="40" as="geometry" /></mxCell>
+        <mxCell id="ea6-1" edge="1" parent="1" source="a6-in" target="a6-pend" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea6-2" edge="1" parent="1" source="a6-pend" target="a6-fin" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page-anexo-7" name="Anexo 7">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" pageWidth="800" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="a7-in" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Anexo 7" vertex="1"><mxGeometry x="80" y="40" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="a7-pend" parent="1" style="whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666;fontStyle=2;" value="Subflujo pendiente de definir" vertex="1"><mxGeometry x="70" y="140" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="a7-fin" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Fin" vertex="1"><mxGeometry x="130" y="240" width="80" height="40" as="geometry" /></mxCell>
+        <mxCell id="ea7-1" edge="1" parent="1" source="a7-in" target="a7-pend" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="ea7-2" edge="1" parent="1" source="a7-pend" target="a7-fin" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+  <diagram id="page-fideicomiso" name="Fideicomiso">
+    <mxGraphModel dx="800" dy="600" grid="1" gridSize="10" pageWidth="800" pageHeight="400" math="0" shadow="0">
+      <root>
+        <mxCell id="0" /><mxCell id="1" parent="0" />
+        <mxCell id="fid-in" parent="1" style="shape=offPageConnector;whiteSpace=wrap;html=1;fillColor=#c6b8ff;strokeColor=#7c5cff;" value="Fideicomiso" vertex="1"><mxGeometry x="80" y="40" width="140" height="50" as="geometry" /></mxCell>
+        <mxCell id="fid-pend" parent="1" style="whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666;fontStyle=2;" value="Subflujo pendiente de definir" vertex="1"><mxGeometry x="70" y="140" width="200" height="50" as="geometry" /></mxCell>
+        <mxCell id="fid-fin" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" value="Fin" vertex="1"><mxGeometry x="130" y="240" width="80" height="40" as="geometry" /></mxCell>
+        <mxCell id="efid-1" edge="1" parent="1" source="fid-in" target="fid-pend" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="efid-2" edge="1" parent="1" source="fid-pend" target="fid-fin" style="edgeStyle=orthogonalEdgeStyle;"><mxGeometry relative="1" as="geometry" /></mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+
+</mxfile>
