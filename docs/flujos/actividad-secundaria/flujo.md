@@ -14,7 +14,7 @@ Flujo iniciado desde el wizard de registro de sujeto obligado cuando el usuario 
 - El flujo de [registro de sujeto obligado](../registro-sujeto-obligado/flujo.md) debe estar activo con un `registrationId` en estado `draft`.
 - El usuario presionó "+ Agregar actividad vulnerable" en el paso 4 del wizard principal.
 - Punto de entrada en el diagrama padre: nodos `agregar-segunda-actividad-vulnerable-pf` / `agregar-segunda-actividad-vulnerable-inmobiliaria-pm` (página "Agregar segunda actividad vulnerable").
-- El modal recibe el `sourceUserRole` del registro principal (`NOTARY` o `REAL_ESTATE`) para derivar el rol opuesto. **No recibe ni reutiliza el** `registrationId` **principal** — crea su propio draft al iniciar el paso de identificación.
+- El modal recibe el `sourceActivityType` del registro principal (`NOTARY` o `REAL_ESTATE`) para derivar el tipo de actividad opuesto. **No recibe ni reutiliza el** `registrationId` **principal** — crea su propio draft al iniciar el paso de identificación.
 
 ## Pasos
 
@@ -27,15 +27,15 @@ page: Actividad Secundaria
 direction: LR
 nodes[6]{id,label,shape}:
   inicio,inicio,terminator
-  sourceuserrole-notary,sourceUserRole = NOTARY,decision
+  sourceactivitytype-notary,sourceActivityType = NOTARY,decision
   registra-persona-fisica?,¿registra persona fisica?,decision
   muestra-formulario-pm,muestra formulario PM,process
   muestra-formulario-pf,muestra formulario PF,process
   regresa-al-flujo-principal-de-registro-con-los-datos-registrado-e-indetificacion-del-workspace-recibido-del-be,Regresa al flujo principal de registro con los datos registrado e indetificacion del workspace recibido del BE,process
 edges[7]{from,to,label}:
-  inicio "inicio",sourceuserrole-notary "sourceUserRole = NOTARY",
-  sourceuserrole-notary "sourceUserRole = NOTARY",muestra-formulario-pf "muestra formulario PF",
-  sourceuserrole-notary "sourceUserRole = NOTARY",registra-persona-fisica? "¿registra persona fisica?",
+  inicio "inicio",sourceactivitytype-notary "sourceActivityType = NOTARY",
+  sourceactivitytype-notary "sourceActivityType = NOTARY",muestra-formulario-pf "muestra formulario PF",
+  sourceactivitytype-notary "sourceActivityType = NOTARY",registra-persona-fisica? "¿registra persona fisica?",
   registra-persona-fisica? "¿registra persona fisica?",muestra-formulario-pm "muestra formulario PM",
   registra-persona-fisica? "¿registra persona fisica?",muestra-formulario-pf "muestra formulario PF",
   muestra-formulario-pm "muestra formulario PM",regresa-al-flujo-principal-de-registro-con-los-datos-registrado-e-indetificacion-del-workspace-recibido-del-be "Regresa al flujo principal de registro con los datos registrado e indetificacion del workspace recibido del BE",

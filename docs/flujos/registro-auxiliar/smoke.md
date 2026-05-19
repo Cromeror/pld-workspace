@@ -4,6 +4,8 @@ last-verified: 2026-04-28
 affects: flujos/registro-auxiliar/
 ---
 
+> **Nota de roles**: todos los usuarios sujeto obligado (notarios e inmobiliarias) tienen `role = WORKSPACE_ADMIN`. El `activityType` del workspace es lo que los distingue: `NOTARY` para notarios, `REAL_ESTATE` para inmobiliarias. Las credenciales de prueba listadas a continuación corresponden a usuarios con ese rol unificado.
+
 # Smoke test: registro de auxiliares (BE + FE)
 
 > Checklist completo para validar end-to-end el flujo de registro de auxiliares. Ejecutar tras cualquier cambio que toque `pld-api/apps/auth-users/src/registration/auxiliaries/**`, `pld-web/src/pages/users/AuxiliaryRegistrationPage.tsx`, `pld-web/src/components/organisms/auxiliary/**` o las rutas relacionadas.
@@ -78,7 +80,7 @@ affects: flujos/registro-auxiliar/
 
 ### 1.8 Regresión PF/PM (no rompimos `admin/registration`)
 
-- [ ] Login SUPERADMIN, `POST /admin/registration` con `{profileType:"INDIVIDUAL", userRole:"NOTARY", rfc:"REGR111111X11"}` → HTTP 201.
+- [ ] Login SUPERADMIN, `POST /admin/registration` con `{profileType:"INDIVIDUAL", activityType:"NOTARY", rfc:"REGR111111X11"}` → HTTP 201.
 
 ### 1.9 Cleanup
 

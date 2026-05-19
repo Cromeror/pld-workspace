@@ -1,12 +1,12 @@
 # Flujo: registro de auxiliares
 
-Registro de usuarios `AUXILIARY` ejecutado por un sujeto obligado (`NOTARY` o `REAL_ESTATE`). El auxiliar queda asociado al `registration_workspace` primario del sujeto obligado que lo registra.
+Registro de usuarios `AUXILIARY` ejecutado por un sujeto obligado (`WORKSPACE_ADMIN`). El auxiliar queda asociado al `registration_workspace` primario del sujeto obligado que lo registra.
 
 **UI vs BE**: wizard de 3 pasos en cliente (Tipo de usuario → Datos del usuario → Revisión). BE tiene un único endpoint — recibe todo el payload junto, persiste en transacción única, sin borrador ni pasos intermedios. Capturas en [disenos/](disenos/).
 
 ## Restricciones
 
-- Solo `NOTARY` o `REAL_ESTATE` pueden registrar auxiliares. Nunca `SUPERADMIN` ni `AUXILIARY`.
+- Solo `WORKSPACE_ADMIN` puede registrar auxiliares. Nunca `SUPERADMIN` ni `AUXILIARY`.
 - `workspaceId` se infiere del JWT — el front no lo manda. El service resuelve: `users.id → registration.user_id (COMPLETED) → registration_workspace (is_primary = true)`.
 - El auxiliar tiene su propia tabla de perfil (`auxiliary_profile`). `users` guarda credenciales, role y FK al perfil vía `profile_type + profile_id`.
 - Password generada al guardar, devuelta en el `201` una sola vez. `must_change_password = true`. Envío por correo fuera de scope.
@@ -38,7 +38,7 @@ Piezas reutilizadas: `users`, `reporting_entity_address` (domicilio del auxiliar
 
 ## Endpoint
 
-`POST /registration/auxiliaries` — JWT requerido, `role IN (NOTARY, REAL_ESTATE)`.
+`POST /registration/auxiliaries` — JWT requerido, `role = WORKSPACE_ADMIN`.
 
 | Campo | Tipo | Req | Destino |
 |---|---|---|---|
@@ -62,7 +62,7 @@ Response `201`: `{ user: <UserDTO>, temporaryPassword: "<plain>" }`.
 
 ## Lógica BE (transacción única)
 
-1. Validar `parent.role IN (NOTARY, REAL_ESTATE)` — `403` si no.
+1. Validar `parent.role = WORKSPACE_ADMIN` — `403` si no.
 2. Resolver workspace: `findCompletedRegistrationByUserId` → `findPrimaryWorkspaceByRegistrationId` — `403` si alguno falla.
 3. Pre-check email único → `409` si existe.
 4. `INSERT reporting_entity_address`

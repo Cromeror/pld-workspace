@@ -6,7 +6,7 @@ Flujo para registrar un cliente asociado a un sujeto obligado. El operador ingre
 
 ## Actores
 
-- **Operador** (NOTARY / REAL_ESTATE) — ingresa y envía los datos del cliente.
+- **Operador** (WORKSPACE_ADMIN) — ingresa y envía los datos del cliente.
 - **Sistema** — valida los datos por apartado, persiste la información y enlaza al beneficiario controlador cuando aplica.
 
 ## Precondiciones

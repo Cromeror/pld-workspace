@@ -6,7 +6,7 @@ Flujo de autenticación para usuarios registrados. El usuario ingresa su identif
 
 ## Actores
 
-- **Usuario** (NOTARY / REAL_ESTATE) — ingresa credenciales y selecciona perfil cuando aplica.
+- **Usuario** (WORKSPACE_ADMIN) — ingresa credenciales y selecciona perfil cuando aplica.
 - **Superadmin** (SUPERADMIN) — ingresa credenciales y accede directamente al sistema sin selección de perfil.
 - **Sistema** — valida credenciales, verifica estado de cuenta, evalúa perfiles disponibles y emite JWT.
 
@@ -110,7 +110,7 @@ edges[35]{from,to,label}:
 
 ### Notas técnicas
 
-- **JWT payload**: incluye `{ sub, email, role, workspaceId? }` — `role` refleja el perfil seleccionado (`NOTARY` o `REAL_ESTATE`); `workspaceId` es el `registration_workspace.id` del workspace activo. SUPERADMIN no lleva `workspaceId`.
+- **JWT payload**: incluye `{ sub, email, role, workspaceId? }` — `role` es `WORKSPACE_ADMIN`; `workspace.activityType` indica el tipo de actividad seleccionado (`NOTARY` o `REAL_ESTATE`); `workspaceId` es el `registration_workspace.id` del workspace activo. SUPERADMIN no lleva `workspaceId`.
 - **Selección de perfil**: `POST /auth/login` detecta cuántos registros `COMPLETED` tiene el usuario. Si tiene dos (uno NOTARY, uno REAL_ESTATE), emite un temp token (`exp: 2min`, `tempSession: true`) y responde `{ tempToken, requiresProfileSelection: true, profiles: [...] }`. El FE guarda el `tempToken` en `sessionStorage` y redirige a `/auth/select-profile`. `POST /auth/select-profile` recibe `{ tempToken, profile }` en el body (el guard lo extrae del body, no del header), valida, resuelve el `workspaceId` correspondiente y emite el JWT definitivo.
 - **Temp token**: expira en 2 minutos. Si el usuario no completa la selección en ese tiempo, el BE devuelve 401 y el FE redirige a login con mensaje de sesión expirada. Se almacena en `sessionStorage` (se limpia al cerrar la pestaña).
 - **`passwordChangedAt`**: `JwtStrategy` invalida tokens emitidos antes del último cambio de contraseña (`iat * 1000 < passwordChangedAt`).

@@ -18,7 +18,7 @@ curl -X POST http://localhost:9001/pld-api/auth-users/auth/login \
 |---|---|---|
 | `admin-test@pld.local` | `Test1234!@` | Insertado directo en DB con hash scrypt. Usar para acceder al wizard `/admin/reporting-entity/register`. |
 
-## NOTARY — Persona física (vía wizard 2026-04-27)
+## Notario — Persona física (Rol: WORKSPACE_ADMIN · activityType: NOTARY · vía wizard 2026-04-27)
 
 | Campo | Valor |
 |---|---|
@@ -28,9 +28,11 @@ curl -X POST http://localhost:9001/pld-api/auth-users/auth/login \
 | RFC | `HEVP800502ABC` |
 | CURP | `HEVP800502HDFRGN01` |
 | Fecha nac. | 1980-05-02 |
-| Tipo | NOTARY + INDIVIDUAL |
+| Rol | WORKSPACE_ADMIN |
+| activityType | NOTARY |
+| Perfil | INDIVIDUAL |
 
-## NOTARY — Persona física #2 (datos smoke pre-selección actividad vulnerable)
+## Notario — Persona física #2 (Rol: WORKSPACE_ADMIN · activityType: NOTARY · datos smoke pre-selección actividad vulnerable)
 
 | Campo | Valor |
 |---|---|
@@ -44,7 +46,7 @@ curl -X POST http://localhost:9001/pld-api/auth-users/auth/login \
 | Celular | `5550001234` |
 | Actividad vulnerable | Fe pública (Corredores y Notarios) — pre-seleccionada por rol |
 
-## REAL_ESTATE — Persona moral (vía wizard 2026-04-27)
+## Inmobiliaria — Persona moral (Rol: WORKSPACE_ADMIN · activityType: REAL_ESTATE · vía wizard 2026-04-27)
 
 | Campo | Valor |
 |---|---|
@@ -52,10 +54,12 @@ curl -X POST http://localhost:9001/pld-api/auth-users/auth/login \
 | Password (temp) | `sl*0$e!2*GSWVOUa` |
 | Razón social | Inmobiliaria Test S.A. de C.V. |
 | RFC | `ITE000101AB1` |
-| Tipo | REAL_ESTATE + LEGAL_ENTITY |
+| Rol | WORKSPACE_ADMIN |
+| activityType | REAL_ESTATE |
+| Perfil | LEGAL_ENTITY |
 | Responsable cumplimiento | María Hernández Soto (RFC `HESM800101ABC`, CURP `HESM800101MDFRSN01`) |
 
-## REAL_ESTATE — Persona moral (datos reales Métrica Inmobiliaria)
+## Inmobiliaria — Persona moral (Rol: WORKSPACE_ADMIN · activityType: REAL_ESTATE · datos reales Métrica Inmobiliaria)
 
 > Extraído de documento SHCP "Detalle de Alta Métrica". Usar solo en dev local.
 
