@@ -35,12 +35,11 @@ Aplica a commits en este repo y en los sub-repos (`pld-api/`, `pld-web/`). Sin e
 
 Aplica al crear o actualizar flujos en `docs/flujos/`.
 
-- **Separar BE y UI**:
-  - `flujo.md` contiene **solo el diagrama BE** (toon) — endpoints, tablas, transacciones, validación autoritativa.
-  - El flujo UI vive en `disenos/` dentro del mismo folder, con subcarpetas por paso (`paso-N-*`) y `pagina-resultado/` cuando aplique.
-- **No mezclar planos UI y BE en el mismo diagrama**. Estados de cliente (validaciones visuales) van en las capturas UI, no en el toon.
+- `flujo.md` es la **fuente de verdad del sistema completo** — describe el flujo end-to-end incluyendo pasos de usuario, validaciones, lógica BE y referencias a diseños UI. No es exclusivo del BE.
+- El toon en `flujo.md` representa el flujo del sistema; puede referenciar tanto decisiones de BE (endpoints, tablas) como de UI (pantallas, estados visuales). Las notas e inconsistencias del llm-index son la guía para alinear implementación y diseño.
+- Los diseños UI viven en `disenos/` dentro del mismo folder, con subcarpetas por paso (`paso-N-*`) y `pagina-resultado/` cuando aplique.
 - **Linkear ambos sentidos**: `flujo.md` referencia `disenos/`; el `README.md` de `disenos/` referencia `flujo.md`.
-- Cuando el usuario provee imagen del flujo BE, traducir a toon en `flujo.md`. Cuando provee mockups UI, archivar en `disenos/paso-N-*/`.
+- Cuando el usuario provee mockups UI, archivar en `disenos/paso-N-*/` y actualizar el llm-index en `flujo.md`.
 - Decisiones técnicas relevantes al flujo → crear ADR en `docs/decisiones/`.
 
 <!-- JARVIS:BEGIN hash=ws-pld-root -->

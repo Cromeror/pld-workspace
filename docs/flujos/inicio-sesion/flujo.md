@@ -2,7 +2,7 @@ Flujo: Inicio de Sesión y Recuperación de Contraseña
 
 ## Resumen
 
-Flujo de autenticación para usuarios registrados. El usuario ingresa sus credenciales, acepta el aviso de privacidad y el sistema valida. Si la cuenta tiene múltiples perfiles (Notaría / Inmobiliaria), se muestra una pantalla de selección antes de emitir el JWT. Incluye subflujo de recuperación de contraseña.
+Flujo de autenticación para usuarios registrados. El usuario ingresa su identificador (email o nickName) y contraseña, acepta el aviso de privacidad en el paso 1 y el sistema valida. Si la cuenta tiene múltiples perfiles (Notaría / Inmobiliaria), se muestra una pantalla de selección antes de emitir el JWT. Incluye subflujo de recuperación de contraseña.
 
 ## Actores
 
@@ -13,7 +13,7 @@ Flujo de autenticación para usuarios registrados. El usuario ingresa sus creden
 ## Precondiciones
 
 - El usuario debe estar registrado y tener una cuenta activa en el sistema.
-- Para el subflujo de recuperación: el correo electrónico debe estar registrado.
+- Para el subflujo de recuperación: el correo electrónico o nickName debe estar registrado.
 
 ## Pasos
 
@@ -24,7 +24,7 @@ diagram: flow
 notation: ansi-iso-5807
 page: Inicio de Sesión
 direction: LR
-nodes[28]{id,label,shape}:
+nodes[29]{id,label,shape}:
   ingresa-correo-electronico-o-nickname,Ingresa correo electrónico o nickName,data
   ingresa-la-contrasena,Ingresa la contraseña,data
   los-datos-son-correctos?,¿Los datos son correctos?,decision
@@ -49,13 +49,14 @@ nodes[28]{id,label,shape}:
   inicio-de-sesion,Inicio de sesion,offpage
   inicio-de-sesion-2,Inicio de sesion,offpage
   inicio,inicio,terminator
-  selecciona-check-aviso-de-privacidad,selecciona(check) aviso de privacidad,data
-  el-sistema-verifica-la-cuenta-esta-inactiva?,El sistema verifica: ¿La cuenta esta inactiva?,decision
+  en-inicio-de-sesion-selecciona-check-aviso-de-privacidad,en inicio de sesion selecciona (check) aviso de privacidad,data
+  la-cuenta-esta-activa?,¿La cuenta esta activa?,decision
   el-sistema-selecciona-por-defecto-el-unico-espacio-de-trabajo-disponible,El sistema selecciona por defecto el unico espacio de trabajo disponible,process
   es-superadmin?,¿Es superadmin?,decision
-edges[33]{from,to,label}:
+  enlace-valido,Enlace valido,decision
+edges[35]{from,to,label}:
   ingresa-correo-electronico-o-nickname "Ingresa correo electrónico o nickName",ingresa-la-contrasena "Ingresa la contraseña",
-  ingresa-la-contrasena "Ingresa la contraseña",selecciona-check-aviso-de-privacidad "selecciona(check) aviso de privacidad",
+  ingresa-la-contrasena "Ingresa la contraseña",en-inicio-de-sesion-selecciona-check-aviso-de-privacidad "en inicio de sesion selecciona (check) aviso de privacidad",
   los-datos-son-correctos? "¿Los datos son correctos?",volver-a-ingresar-los-datos-verifica-tus-datos "Volver a ingresar los datos 'Verifica tus datos'",no
   volver-a-ingresar-los-datos-verifica-tus-datos "Volver a ingresar los datos 'Verifica tus datos'",inicio-de-sesion "Inicio de sesion",
   selecciona-el-espacio-de-trabajo-notaria-inmobiliaria "Selecciona el espacio de trabajo Notaría / Inmobiliaria",emite-jwt-con-rol-seleccionado "Emite JWT con rol seleccionado",
@@ -75,18 +76,20 @@ edges[33]{from,to,label}:
   el-correo-esta-registrado? "¿El correo está registrado?",el-correo-es-correcto-y-esta-registrado "El correo es correcto y está registrado",Sí
   el-correo-es-correcto-y-esta-registrado "El correo es correcto y está registrado",envio-de-enlace-de-recuperacion-al-correo-electronico "Envío de enlace de recuperación al correo electrónico",
   envio-de-enlace-de-recuperacion-al-correo-electronico "Envío de enlace de recuperación al correo electrónico",abrir-enlace-para-cambiar-contrasena "Abrir enlace para cambiar contraseña",
-  abrir-enlace-para-cambiar-contrasena "Abrir enlace para cambiar contraseña",ingresa-la-nueva-contrasena "Ingresa la nueva contraseña",
+  abrir-enlace-para-cambiar-contrasena "Abrir enlace para cambiar contraseña",enlace-valido "Enlace valido",
   inicio-de-sesion "Inicio de sesion",ingresa-correo-electronico-o-nickname "Ingresa correo electrónico o nickName",
   inicio-de-sesion "Inicio de sesion",recuperar-contrasena "Recuperar contraseña",
   inicio "inicio",inicio-de-sesion "Inicio de sesion",
-  selecciona-check-aviso-de-privacidad "selecciona(check) aviso de privacidad",los-datos-son-correctos? "¿Los datos son correctos?",
-  el-sistema-verifica-la-cuenta-esta-inactiva? "El sistema verifica: ¿La cuenta esta inactiva?",volver-a-ingresar-los-datos-verifica-tus-datos "Volver a ingresar los datos 'Verifica tus datos'",si
-  el-sistema-verifica-la-cuenta-esta-inactiva? "El sistema verifica: ¿La cuenta esta inactiva?",es-superadmin? "¿Es superadmin?",no
-  los-datos-son-correctos? "¿Los datos son correctos?",el-sistema-verifica-la-cuenta-esta-inactiva? "El sistema verifica: ¿La cuenta esta inactiva?",si
+  en-inicio-de-sesion-selecciona-check-aviso-de-privacidad "en inicio de sesion selecciona (check) aviso de privacidad",los-datos-son-correctos? "¿Los datos son correctos?",
+  la-cuenta-esta-activa? "¿La cuenta esta activa?",volver-a-ingresar-los-datos-verifica-tus-datos "Volver a ingresar los datos 'Verifica tus datos'",no
+  la-cuenta-esta-activa? "¿La cuenta esta activa?",es-superadmin? "¿Es superadmin?",si
+  los-datos-son-correctos? "¿Los datos son correctos?",la-cuenta-esta-activa? "¿La cuenta esta activa?",si
   mensaje-generico-de-revisar-tu-correo "mensaje generico de revisar tu correo",inicio-de-sesion "Inicio de sesion",
   el-sistema-selecciona-por-defecto-el-unico-espacio-de-trabajo-disponible "El sistema selecciona por defecto el unico espacio de trabajo disponible",emite-jwt-con-rol-seleccionado "Emite JWT con rol seleccionado",
   es-superadmin? "¿Es superadmin?",tiene-multiples-espacios-de-trabajo? "¿Tiene múltiples espacios de trabajo?",no
   es-superadmin? "¿Es superadmin?",emite-jwt-con-rol-seleccionado "Emite JWT con rol seleccionado",si
+  enlace-valido "Enlace valido",ingresa-la-nueva-contrasena "Ingresa la nueva contraseña",si
+  enlace-valido "Enlace valido",inicio-de-sesion "Inicio de sesion",no
 ```
 
 ## Casos alternos
@@ -94,25 +97,27 @@ edges[33]{from,to,label}:
 - **Cuenta inactiva**: credenciales correctas pero cuenta desactivada → el sistema muestra "Verifica tus datos" y regresa a Inicio de Sesión (mismo mensaje que credenciales incorrectas).
 - **Recuperación de contraseña**: accesible desde la pantalla de Inicio de Sesión; el subflujo completo (nodos, edges, pasos) está documentado en este mismo archivo.
 - **Rol único**: si el usuario solo tiene un perfil registrado, el sistema lo selecciona por defecto sin mostrar pantalla de selección.
+- **Enlace de recuperación inválido**: si el usuario abre el enlace y el token no es válido (expirado o ya consumido), el sistema redirige a Inicio de Sesión sin mostrar el formulario de nueva contraseña.
 
 ## Reglas de negocio
 
-- El aviso de privacidad debe aceptarse (check) antes de que el sistema procese las credenciales. El check se resetea en cada intento fallido — el usuario debe volver a marcarlo para reintentar.
+- El aviso de privacidad debe aceptarse (check) en el paso 1 de inicio de sesión antes de que el sistema procese las credenciales. El check se resetea en cada intento fallido — el usuario debe volver a marcarlo para reintentar. No aplica al subflujo de recuperación de contraseña.
 - El JWT se emite **solo después** de determinar el rol — ya sea por selección del usuario o por defecto.
 - Un usuario puede tener máximo dos perfiles: `NOTARY` y `REAL_ESTATE`. El `SUPERADMIN` no tiene perfiles de workspace — accede directamente al sistema.
 - La validación de credenciales incorrectas y cuenta inactiva devuelve el mismo mensaje al usuario ("Verifica tus datos") para no revelar el estado de la cuenta.
 
 ## Notas
 
-- El diagrama BE (toon) es la fuente de verdad; el `.drawio` es una sombra generada por Jarvis.
-- Los diseños UI de la pantalla de selección de perfil están pendientes — es una pantalla nueva sin diseño aprobado.
-
 ### Notas técnicas
 
 - **JWT payload**: incluye `{ sub, email, role, workspaceId? }` — `role` refleja el perfil seleccionado (`NOTARY` o `REAL_ESTATE`); `workspaceId` es el `registration_workspace.id` del workspace activo. SUPERADMIN no lleva `workspaceId`.
-- **Selección de perfil**: `POST /auth/login` detecta cuántos registros `COMPLETED` tiene el usuario. Si tiene dos (uno NOTARY, uno REAL_ESTATE), emite un temp token (`exp: 2min`, `tempSession: true`) y responde `{ tempToken, requiresProfileSelection: true, profiles: [...] }`. El FE guarda el `tempToken` en `sessionStorage` y redirige a `/auth/select-profile`. `POST /auth/select-profile` recibe `{ tempToken, profile }`, valida, resuelve el `workspaceId` correspondiente y emite el JWT definitivo.
+- **Selección de perfil**: `POST /auth/login` detecta cuántos registros `COMPLETED` tiene el usuario. Si tiene dos (uno NOTARY, uno REAL_ESTATE), emite un temp token (`exp: 2min`, `tempSession: true`) y responde `{ tempToken, requiresProfileSelection: true, profiles: [...] }`. El FE guarda el `tempToken` en `sessionStorage` y redirige a `/auth/select-profile`. `POST /auth/select-profile` recibe `{ tempToken, profile }` en el body (el guard lo extrae del body, no del header), valida, resuelve el `workspaceId` correspondiente y emite el JWT definitivo.
 - **Temp token**: expira en 2 minutos. Si el usuario no completa la selección en ese tiempo, el BE devuelve 401 y el FE redirige a login con mensaje de sesión expirada. Se almacena en `sessionStorage` (se limpia al cerrar la pestaña).
 - **`passwordChangedAt`**: `JwtStrategy` invalida tokens emitidos antes del último cambio de contraseña (`iat * 1000 < passwordChangedAt`).
+- **Campo de login**: los únicos identificadores válidos son **email** y **nickName**. El teléfono no es un campo de login. El diseño UI actual muestra "Correo Electrónico o Teléfono" — es una inconsistencia; debe corregirse a "Correo Electrónico o Nickname". Aplica igual al subflujo de recuperación de contraseña.
+- **Aviso de privacidad**: el check de aviso de privacidad aplica únicamente en el paso 1 (inicio de sesión). El subflujo de recuperación de contraseña no lo requiere.
+- **Post-login**: el FE llama `GET /auth/me` tras guardar el token para obtener el rol y redirigir a la ruta correspondiente. Si falla, muestra error y hace logout.
+- **Post-cambio de contraseña**: al llegar a login con `?reason=password-changed` (redireccionado desde el subflujo de recuperación), el FE muestra un toast informativo: "Tu contraseña fue actualizada. Inicia sesión con la nueva contraseña."
 
 ## Referencias
 
@@ -127,12 +132,12 @@ edges[33]{from,to,label}:
 | JWT types | `pld-api/packages/domain-auth-users/src/jwt/types.ts` |
 | Diseños UI | [disenos/](disenos/) |
 
-<!-- jarvis:llm-index type=flow-design-mapping hide=true description="Índice toon que agrupa nodos del diagrama BE por pantalla UI. nodos_diagrama lista todos los nodos que esa pantalla implementa. disenos lista screenshots disponibles. nota registra inconsistencias o vacíos pendientes." -->
+<!-- jarvis:llm-index type=flow-design-mapping hide=true description="Índice toon paso a paso del flujo. refs usa prefijos BE:/FE:/UI:/FLUJO: para apuntar a donde se resuelve cada paso en el sistema." -->
 
 ```toon
-steps[4]{step_ui,label_ui,variante,nodos_diagrama,disenos,nota}:
-  1,Inicio de sesión,-,"inicio+inicio-de-sesion+ingresa-correo-electronico-o-nickname+ingresa-la-contrasena+selecciona-check-aviso-de-privacidad+los-datos-son-correctos?+el-sistema-verifica-la-cuenta-esta-inactiva?+volver-a-ingresar-los-datos-verifica-tus-datos",,VACÍO: sin diseño UI
-  2,Selección de perfil,-,"es-superadmin?+tiene-multiples-espacios-de-trabajo?+selecciona-el-espacio-de-trabajo-notaria-inmobiliaria+el-sistema-selecciona-por-defecto-el-unico-espacio-de-trabajo-disponible+emite-jwt-con-rol-seleccionado+ingresa-al-sistema+fin",,VACÍO: pantalla nueva — aplica solo cuando el usuario tiene NOTARY + REAL_ESTATE registrados; SUPERADMIN omite esta pantalla
-  3,Recuperar contraseña — ingresar correo,-,"recuperar-contrasena+ingresa-el-correo-electronico-nickname-para-recuperar-contrasena+el-correo-esta-registrado?+mensaje-generico-de-revisar-tu-correo+el-correo-es-correcto-y-esta-registrado","disenos/paso-3-solicitar-correo/1.png+disenos/paso-3-correo-enviado/image.png",
-  4,Recuperar contraseña — nueva contraseña,-,"envio-de-enlace-de-recuperacion-al-correo-electronico+abrir-enlace-para-cambiar-contrasena+ingresa-la-nueva-contrasena+confirma-la-nueva-contrasena+los-datos-coinciden?+volver-a-ingresar-los-datos-verifica-tus-datos-2+datos-almacenados+inicio-de-sesion-2","disenos/paso-4-nueva-contrasena/image.png+disenos/pagina-resultado/image.png",
+steps[4]{step_ui,label_ui,variante,nodos_diagrama,disenos,nota,refs}:
+  1,Inicio de sesión,-,"inicio+inicio-de-sesion+ingresa-correo-electronico-o-nickname+ingresa-la-contrasena+en-inicio-de-sesion-selecciona-check-aviso-de-privacidad+los-datos-son-correctos?+la-cuenta-esta-activa?+volver-a-ingresar-los-datos-verifica-tus-datos",disenos/paso-1-login/image.jpg,diseño UI dice 'Correo Electrónico o Teléfono' — identificador válido es solo email o nickName (no teléfono); pendiente corregir en el diseño,"BE:pld-api/apps/auth-users/src/auth/auth.controller.ts+FE:pld-web/src/components/organisms/auth/LoginForm/+FE:pld-web/src/services/authService.ts"
+  2,Selección de perfil,-,"es-superadmin?+tiene-multiples-espacios-de-trabajo?+selecciona-el-espacio-de-trabajo-notaria-inmobiliaria+el-sistema-selecciona-por-defecto-el-unico-espacio-de-trabajo-disponible+emite-jwt-con-rol-seleccionado+ingresa-al-sistema+fin","disenos/paso-2-seleccion-perfil/seleccionado.jpg+disenos/paso-2-seleccion-perfil/sin-seleccion.jpg",Aplica solo cuando el usuario tiene NOTARY + REAL_ESTATE registrados; SUPERADMIN omite esta pantalla,"BE:pld-api/apps/auth-users/src/auth/auth.controller.ts(POST /auth/select-profile)+BE:pld-api/packages/domain-auth-users/src/adapters/auth.adapter.ts+BE:pld-api/packages/domain-auth-users/src/jwt/types.ts+FE:pld-web/src/queries/authQueries.ts"
+  3,Recuperar contraseña — ingresar correo,-,"recuperar-contrasena+ingresa-el-correo-electronico-nickname-para-recuperar-contrasena+el-correo-esta-registrado?+mensaje-generico-de-revisar-tu-correo+el-correo-es-correcto-y-esta-registrado","disenos/paso-3-solicitar-correo/1.png+disenos/paso-3-correo-enviado/image.png",,"BE:pld-api/apps/auth-users/src/auth/auth.controller.ts+FE:pld-web/src/services/authService.ts"
+  4,Recuperar contraseña — nueva contraseña,-,"envio-de-enlace-de-recuperacion-al-correo-electronico+abrir-enlace-para-cambiar-contrasena+enlace-valido+ingresa-la-nueva-contrasena+confirma-la-nueva-contrasena+los-datos-coinciden?+volver-a-ingresar-los-datos-verifica-tus-datos-2+datos-almacenados+inicio-de-sesion-2","disenos/paso-4-nueva-contrasena/image.png+disenos/pagina-resultado/image.png",enlace inválido o expirado redirige a inicio-de-sesion (rama no de enlace-valido),"BE:pld-api/apps/auth-users/src/auth/auth.controller.ts+FE:pld-web/src/services/authService.ts"
 ```
