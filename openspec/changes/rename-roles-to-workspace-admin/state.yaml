@@ -1,0 +1,15 @@
+change: rename-roles-to-workspace-admin
+store: openspec
+phases:
+  proposal: done
+  spec: done
+  design: updated
+  tasks: updated
+  apply: pending
+  verify: pending
+  archive: pending
+artifacts:
+  proposal: openspec/changes/rename-roles-to-workspace-admin/proposal.md
+  spec: openspec/changes/rename-roles-to-workspace-admin/spec.md
+  design: openspec/changes/rename-roles-to-workspace-admin/design.md
+  tasks: openspec/changes/rename-roles-to-workspace-admin/tasks.md
