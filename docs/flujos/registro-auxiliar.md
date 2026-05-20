@@ -2,7 +2,7 @@
 
 Registro de usuarios `AUXILIARY` ejecutado por un sujeto obligado (`WORKSPACE_ADMIN`). El auxiliar queda asociado al `registration_workspace` primario del sujeto obligado que lo registra.
 
-**UI vs BE**: wizard de 3 pasos en cliente (Tipo de usuario → Datos del usuario → Revisión). BE tiene un único endpoint — recibe todo el payload junto, persiste en transacción única, sin borrador ni pasos intermedios. Capturas en [disenos/](disenos/).
+**UI vs BE**: wizard de 3 pasos en cliente (Tipo de usuario → Datos del usuario → Revisión). BE tiene un único endpoint — recibe todo el payload junto, persiste en transacción única, sin borrador ni pasos intermedios. Capturas en [disenos/registro-auxiliar/](disenos/registro-auxiliar/).
 
 ## Restricciones
 
@@ -104,9 +104,9 @@ edges[8]{from,to,label}:
 
 ```toon
 steps[5]{step_ui,label_ui,variante,nodos_diagrama,disenos,nota}:
-  1,Tipo de usuario,-,,,"paso-1-tipo-usuario/1.png|2.png","Selección Auxiliar/Clientes es estado del front. Clientes=placeholder Próximamente, sin flujo."
-  2,Datos del usuario,-,,"Req+Auth+Workspace+Dedupe","paso-2-datos-usuario/1.png|2.png","Todo el DTO se captura aquí. Front bloquea Siguiente hasta completar."
-  3,Revisión y validación,-,,"TX+InsAddr+InsProf+Pwd+InsUser+R201","paso-3-revision/1.png|2.png","El POST ocurre al confirmar en este step."
-  -,Modal resultado éxito,-,,R201,pagina-resultado/success.png,Muestra temporaryPassword copiable.
-  -,Modal resultado error,-,,"E403|E409",pagina-resultado/error.png,
+  1,Tipo de usuario,-,,,"disenos/registro-auxiliar/paso-1-tipo-usuario/1.png|2.png","Selección Auxiliar/Clientes es estado del front. Clientes=placeholder Próximamente, sin flujo."
+  2,Datos del usuario,-,,"Req+Auth+Workspace+Dedupe","disenos/registro-auxiliar/paso-2-datos-usuario/1.png|2.png","Todo el DTO se captura aquí. Front bloquea Siguiente hasta completar."
+  3,Revisión y validación,-,,"TX+InsAddr+InsProf+Pwd+InsUser+R201","disenos/registro-auxiliar/paso-3-revision/1.png|2.png","El POST ocurre al confirmar en este step."
+  -,Modal resultado éxito,-,,R201,disenos/registro-auxiliar/pagina-resultado/success.png,Muestra temporaryPassword copiable.
+  -,Modal resultado error,-,,"E403|E409",disenos/registro-auxiliar/pagina-resultado/error.png,
 ```

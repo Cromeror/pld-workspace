@@ -31,15 +31,16 @@ Aplica a commits en este repo y en los sub-repos (`pld-api/`, `pld-web/`). Sin e
 - **Sin heredoc multi-línea**: usar `git commit -m "tipo(scope): descripción"` directo.
 - Si el cambio no cabe en una línea, preferir partirlo en varios commits antes que agregar body.
 
-## Documentación de flujos (`docs/flujos/<nombre-flujo>/`)
+## Documentación de flujos (`docs/flujos/`)
 
-Aplica al crear o actualizar flujos en `docs/flujos/`.
+Aplica al crear o actualizar flujos en `docs/flujos/`. Estructura plana — sin subcarpetas por flujo.
 
-- `flujo.md` es la **fuente de verdad del sistema completo** — describe el flujo end-to-end incluyendo pasos de usuario, validaciones, lógica BE y referencias a diseños UI. No es exclusivo del BE.
-- El toon en `flujo.md` representa el flujo del sistema; puede referenciar tanto decisiones de BE (endpoints, tablas) como de UI (pantallas, estados visuales). Las notas e inconsistencias del llm-index son la guía para alinear implementación y diseño.
-- Los diseños UI viven en `disenos/` dentro del mismo folder, con subcarpetas por paso (`paso-N-*`) y `pagina-resultado/` cuando aplique.
-- **Linkear ambos sentidos**: `flujo.md` referencia `disenos/`; el `README.md` de `disenos/` referencia `flujo.md`.
-- Cuando el usuario provee mockups UI, archivar en `disenos/paso-N-*/` y actualizar el llm-index en `flujo.md`.
+- Cada flujo es un archivo `<nombre-flujo>.md` en la raíz de `docs/flujos/` (ej. `inicio-sesion.md`, `registro-auxiliar.md`).
+- El diagrama drawio acompaña al md con el mismo nombre: `<nombre-flujo>.drawio`.
+- `<nombre-flujo>.md` es la **fuente de verdad del sistema completo** — describe el flujo end-to-end incluyendo pasos de usuario, validaciones, lógica BE y referencias a diseños UI.
+- El toon en el `.md` representa el flujo del sistema; puede referenciar tanto decisiones de BE (endpoints, tablas) como de UI (pantallas, estados visuales). Las notas e inconsistencias del llm-index son la guía para alinear implementación y diseño.
+- Los diseños UI viven en `docs/flujos/disenos/<nombre-flujo>/`, con subcarpetas por paso (`paso-N-*`) y `pagina-resultado/` cuando aplique.
+- Cuando el usuario provee mockups UI, archivar en `disenos/<nombre-flujo>/paso-N-*/` y actualizar el llm-index en el `.md` del flujo.
 - Decisiones técnicas relevantes al flujo → crear ADR en `docs/decisiones/`.
 
 <!-- JARVIS:BEGIN hash=ws-pld-root -->

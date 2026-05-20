@@ -24,7 +24,7 @@
 
 ## Diagrama
 
-Diagrama solo del lado **BE** — el wizard de UI (capturas, copys, validación visual) vive en [disenos/](disenos/). Cada caja morada representa un endpoint del módulo `/admin/registration/*` y persiste un sub-recurso del registro.
+Diagrama solo del lado **BE** — el wizard de UI (capturas, copys, validación visual) vive en [disenos/registro-sujeto-obligado/](disenos/registro-sujeto-obligado/). Cada caja morada representa un endpoint del módulo `/admin/registration/*` y persiste un sub-recurso del registro.
 
 > ⚠️ Dentro del flujo PM, un nodo "Persona Física" refiere al **responsable del cumplimiento de la Ley**, no al tipo de perfil.
 > 📝 Las leyendas de "Actividad vulnerable" (FE PÚBLICA / TRANSMISIÓN DE BIENES INMUEBLES) son copy del front según el tipo de sujeto obligado — no son valores a persistir.
@@ -315,46 +315,46 @@ edges[6]{from,to,label}:
 
 ```toon
 mapping[42]{nodo,pagina_flujo,variante,diseno,nota}:
-  crear-sujeto-obligado,Inicio,PF+PM,paso-1-sujeto-obligado/common.jpg,
-  tipo-de-sujeto-obligado+tipo-de-perfil,Inicio,PF Notario,paso-1-sujeto-obligado/persona-fisica.jpg,Notario solo admite PF — única opción disponible
-  tipo-de-sujeto-obligado+tipo-de-perfil,Inicio,PM Inmobiliaria,paso-1-sujeto-obligado/persona-moral.jpg,Inmobiliaria admite PF y PM
-  step-1-datos-identificacion,Registro persona fisica,PF,paso-2-identificacion/persona-fisica.jpg,
-  paso-1-datos-identificacion,Registro personal moral,PM,paso-2-identificacion/persona-moral.jpg,
-  step-2-datos-contacto,Registro persona fisica,PF,paso-3-contacto/1.jpg,estado vacío — sin contactos
-  step-2-datos-contacto,Registro persona fisica,PF,paso-3-contacto/2.jpg,estado con contacto agregado
-  step-3-actividad-vulnerable+domicilio,Registro persona fisica,PF Notario,paso-4-actividad-vulnerable/persona-fisica.jpg,actividad pre-seleccionada READ-ONLY — no editable por usuario
-  step-3-actividad-vulnerable+domicilio,Registro persona fisica,PF Notario múltiple,paso-4-actividad-vulnerable/persona-fisica-actividad-vulnerable.jpg,múltiples actividades agregadas
-  paso-3-actividad-vulnerable+domicilio,Registro personal moral,PM Inmobiliaria,paso-4-actividad-vulnerable/persona-moral.jpg,actividad pre-seleccionada READ-ONLY
-  paso-3-actividad-vulnerable+domicilio,Registro personal moral,PM Inmobiliaria múltiple,paso-4-actividad-vulnerable/persona-moral-con-actividad-vulnerable.jpg,múltiples actividades agregadas
-  paso-4-responsable-cumplimiento,Registro personal moral,PM,paso-5-responsable-cumplimiento/1.jpg,step existe en diseño y componente FE pero NO está conectado al wizard
-  revision-final,Registro persona fisica,PF Notario,paso-5-revision-persona-fisica/notario.jpg,
-  revision-final,Registro persona fisica,PF Notario+AV,paso-5-revision-persona-fisica/notario-con-actividad-vulnerable.jpg,
-  revision-final,Registro persona fisica,PF Inmobiliaria,paso-5-revision-persona-fisica/inmobiliaria.jpg,
-  revision-final,Registro persona fisica,PF Inmobiliaria+AV,paso-5-revision-persona-fisica/inmobiliaria-con-actividad-vulnerable.jpg,
-  confirmacion-modal,Revision,PF+PM,paso-5-revision-persona-fisica/confirmacion.jpg,dialog ¿Estás seguro/a? antes de finalizar
-  resultado-exito,Result,PF+PM,pagina-resultado/result.jpg,modal muestra tempPassword — copy incorrecto promete envío de correo que NO existe
-  resultado-error,Result,PF+PM,pagina-resultado/result-with-error.jpg,
-  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario PF paso-01 vacío,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-01-tipo-persona.jpg,tipo persona READ-ONLY — Inmobiliaria seleccionada por sistema (cruce notario→inmobiliaria)
-  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario PF paso-01 seleccionado,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-01-tipo-persona-seleccionado.jpg,
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-02,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-03 vacío,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-03 lleno,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-04,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-04-actividad-vulnerable.jpg,pre-selecciona TRANSMISION DE BIENES INMUEBLES — flujo inmobiliaria
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-05,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-05-responsable-cumplimiento.jpg,solo aplica cuando tipo persona es PM
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-06,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-06-revision.jpg,
-  resultado-exito-modal,Agregar segunda actividad vulnerable,PF+PM,pagina-resultado/result.jpg,modal éxito tras guardar segunda actividad vulnerable
-  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-01,modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-01-tipo-persona.jpg,Inmobiliaria+PF pre-seleccionados READ-ONLY
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-02,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,mismo diseño que PM — paso compartido
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-03 vacío,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,mismo diseño que PM — paso compartido
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-03 lleno,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,mismo diseño que PM — paso compartido
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-04 vacío,modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-04-actividad-vulnerable-vacio.jpg,
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-04 lleno,modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-04-actividad-vulnerable-lleno.jpg,
-  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-05,modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-05-revision.jpg,sin paso responsable — es PF
-  agregar-segunda-actividad-vulnerable-inmobiliaria-pm+es-notario?,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-01,modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-01-tipo-persona.jpg,Notario+PF pre-seleccionados READ-ONLY — notaria solo admite PF
-  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-02,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,mismo diseño — paso compartido
-  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-03 vacío,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,mismo diseño — paso compartido
-  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-03 lleno,modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,mismo diseño — paso compartido
-  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-04 vacío,modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-04-actividad-vulnerable-vacio.jpg,pre-selecciona FE PÚBLICA
-  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-04 lleno,modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-04-actividad-vulnerable-lleno.jpg,
-  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-05,modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-05-revision.jpg,sin responsable de cumplimiento — es PF
+  crear-sujeto-obligado,Inicio,PF+PM,disenos/registro-sujeto-obligado/paso-1-sujeto-obligado/common.jpg,
+  tipo-de-sujeto-obligado+tipo-de-perfil,Inicio,PF Notario,disenos/registro-sujeto-obligado/paso-1-sujeto-obligado/persona-fisica.jpg,Notario solo admite PF — única opción disponible
+  tipo-de-sujeto-obligado+tipo-de-perfil,Inicio,PM Inmobiliaria,disenos/registro-sujeto-obligado/paso-1-sujeto-obligado/persona-moral.jpg,Inmobiliaria admite PF y PM
+  step-1-datos-identificacion,Registro persona fisica,PF,disenos/registro-sujeto-obligado/paso-2-identificacion/persona-fisica.jpg,
+  paso-1-datos-identificacion,Registro personal moral,PM,disenos/registro-sujeto-obligado/paso-2-identificacion/persona-moral.jpg,
+  step-2-datos-contacto,Registro persona fisica,PF,disenos/registro-sujeto-obligado/paso-3-contacto/1.jpg,estado vacío — sin contactos
+  step-2-datos-contacto,Registro persona fisica,PF,disenos/registro-sujeto-obligado/paso-3-contacto/2.jpg,estado con contacto agregado
+  step-3-actividad-vulnerable+domicilio,Registro persona fisica,PF Notario,disenos/registro-sujeto-obligado/paso-4-actividad-vulnerable/persona-fisica.jpg,actividad pre-seleccionada READ-ONLY — no editable por usuario
+  step-3-actividad-vulnerable+domicilio,Registro persona fisica,PF Notario múltiple,disenos/registro-sujeto-obligado/paso-4-actividad-vulnerable/persona-fisica-actividad-vulnerable.jpg,múltiples actividades agregadas
+  paso-3-actividad-vulnerable+domicilio,Registro personal moral,PM Inmobiliaria,disenos/registro-sujeto-obligado/paso-4-actividad-vulnerable/persona-moral.jpg,actividad pre-seleccionada READ-ONLY
+  paso-3-actividad-vulnerable+domicilio,Registro personal moral,PM Inmobiliaria múltiple,disenos/registro-sujeto-obligado/paso-4-actividad-vulnerable/persona-moral-con-actividad-vulnerable.jpg,múltiples actividades agregadas
+  paso-4-responsable-cumplimiento,Registro personal moral,PM,disenos/registro-sujeto-obligado/paso-5-responsable-cumplimiento/1.jpg,step existe en diseño y componente FE pero NO está conectado al wizard
+  revision-final,Registro persona fisica,PF Notario,disenos/registro-sujeto-obligado/paso-5-revision-persona-fisica/notario.jpg,
+  revision-final,Registro persona fisica,PF Notario+AV,disenos/registro-sujeto-obligado/paso-5-revision-persona-fisica/notario-con-actividad-vulnerable.jpg,
+  revision-final,Registro persona fisica,PF Inmobiliaria,disenos/registro-sujeto-obligado/paso-5-revision-persona-fisica/inmobiliaria.jpg,
+  revision-final,Registro persona fisica,PF Inmobiliaria+AV,disenos/registro-sujeto-obligado/paso-5-revision-persona-fisica/inmobiliaria-con-actividad-vulnerable.jpg,
+  confirmacion-modal,Revision,PF+PM,disenos/registro-sujeto-obligado/paso-5-revision-persona-fisica/confirmacion.jpg,dialog ¿Estás seguro/a? antes de finalizar
+  resultado-exito,Result,PF+PM,disenos/registro-sujeto-obligado/pagina-resultado/result.jpg,modal muestra tempPassword — copy incorrecto promete envío de correo que NO existe
+  resultado-error,Result,PF+PM,disenos/registro-sujeto-obligado/pagina-resultado/result-with-error.jpg,
+  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario PF paso-01 vacío,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-01-tipo-persona.jpg,tipo persona READ-ONLY — Inmobiliaria seleccionada por sistema (cruce notario→inmobiliaria)
+  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario PF paso-01 seleccionado,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-01-tipo-persona-seleccionado.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-02,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-03 vacío,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-03 lleno,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-04,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-04-actividad-vulnerable.jpg,pre-selecciona TRANSMISION DE BIENES INMUEBLES — flujo inmobiliaria
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-05,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-05-responsable-cumplimiento.jpg,solo aplica cuando tipo persona es PM
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario PF paso-06,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-06-revision.jpg,
+  resultado-exito-modal,Agregar segunda actividad vulnerable,PF+PM,disenos/registro-sujeto-obligado/pagina-resultado/result.jpg,modal éxito tras guardar segunda actividad vulnerable
+  agregar-segunda-actividad-vulnerable-pf+es-notario?,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-01,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-01-tipo-persona.jpg,Inmobiliaria+PF pre-seleccionados READ-ONLY
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-02,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,mismo diseño que PM — paso compartido
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-03 vacío,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,mismo diseño que PM — paso compartido
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-03 lleno,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,mismo diseño que PM — paso compartido
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-04 vacío,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-04-actividad-vulnerable-vacio.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-04 lleno,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-04-actividad-vulnerable-lleno.jpg,
+  agregar-segunda-actividad-vulnerable-pf,Agregar segunda actividad vulnerable,Notario→Inmobiliaria PF paso-05,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable-pf/notario-agrega-inmobiliaria-pf-paso-05-revision.jpg,sin paso responsable — es PF
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm+es-notario?,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-01,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-01-tipo-persona.jpg,Notario+PF pre-seleccionados READ-ONLY — notaria solo admite PF
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-02,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-02-identificacion.jpg,mismo diseño — paso compartido
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-03 vacío,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-vacio.jpg,mismo diseño — paso compartido
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-03 lleno,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable/notario-agrega-inmobiliaria-pm-paso-03-contacto-lleno.jpg,mismo diseño — paso compartido
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-04 vacío,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-04-actividad-vulnerable-vacio.jpg,pre-selecciona FE PÚBLICA
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-04 lleno,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-04-actividad-vulnerable-lleno.jpg,
+  agregar-segunda-actividad-vulnerable-inmobiliaria-pm,Agregar segunda actividad vulnerable,Inmobiliaria→Notaria PF paso-05,disenos/registro-sujeto-obligado/modal-agregar-actividad-vulnerable-notaria-pf/inmobiliaria-agrega-notaria-pf-paso-05-revision.jpg,sin responsable de cumplimiento — es PF
 ```

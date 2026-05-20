@@ -11,7 +11,7 @@ Flujo iniciado desde el wizard de registro de sujeto obligado cuando el usuario 
 
 ## Precondiciones
 
-- El flujo de [registro de sujeto obligado](../registro-sujeto-obligado/flujo.md) debe estar activo con un `registrationId` en estado `draft`.
+- El flujo de [registro de sujeto obligado](registro-sujeto-obligado.md) debe estar activo con un `registrationId` en estado `draft`.
 - El usuario presionó "+ Agregar actividad vulnerable" en el paso 4 del wizard principal.
 - Punto de entrada en el diagrama padre: nodos `agregar-segunda-actividad-vulnerable-pf` / `agregar-segunda-actividad-vulnerable-inmobiliaria-pm` (página "Agregar segunda actividad vulnerable").
 - El modal recibe el `sourceActivityType` del registro principal (`NOTARY` o `REAL_ESTATE`) para derivar el tipo de actividad opuesto. **No recibe ni reutiliza el** `registrationId` **principal** — crea su propio draft al iniciar el paso de identificación.

@@ -11,12 +11,12 @@ instruction: Read this file first at the start of any session involving pld-web 
 - [test-users.md](test-users.md) — credenciales y datos válidos por flujo
 - [component-library.toon](component-library.toon) — componentes UI disponibles, props, cuándo usar cada uno
 - [flujos/README.md](flujos/README.md) — índice de todos los flujos (BE + diseños UI)
-  - [flujos/inicio-sesion/](flujos/inicio-sesion/) — inicio de sesión + recuperación de contraseña
-  - [flujos/recuperacion-contrasena/](flujos/recuperacion-contrasena/) — diseños del subflujo de recuperación
-  - [flujos/registro-sujeto-obligado/](flujos/registro-sujeto-obligado/) — sujetos obligados (Notario/Inmobiliaria, PF/PM)
-    - [flujos/registro-sujeto-obligado/disenos/README.md](flujos/registro-sujeto-obligado/disenos/README.md) — mapa step→diseño→componente FE
-  - [flujos/registro-auxiliar/](flujos/registro-auxiliar/) — auxiliares por sujeto obligado (smoke: `smoke.md`)
-  - [flujos/actividad-secundaria/](flujos/actividad-secundaria/) — segunda actividad vulnerable; registro independiente enlazado al principal
+  - [flujos/inicio-sesion.md](flujos/inicio-sesion.md) — inicio de sesión + recuperación de contraseña
+  - [flujos/post-login.md](flujos/post-login.md) — shell autenticada: redirect por rol, menú de usuario, switch de workspace
+  - [flujos/registro-sujeto-obligado.md](flujos/registro-sujeto-obligado.md) — sujetos obligados (Notario/Inmobiliaria, PF/PM)
+  - [flujos/registro-auxiliar.md](flujos/registro-auxiliar.md) — auxiliares por sujeto obligado (smoke: `registro-auxiliar-smoke.md`)
+  - [flujos/actividad-secundaria.md](flujos/actividad-secundaria.md) — segunda actividad vulnerable; registro independiente enlazado al principal
+  - [flujos/disenos/](flujos/disenos/) — todos los diseños UI organizados por flujo
 - Inconsistencias conocidas (pendiente resolver)
   - **MoralIdentificationStep `birthCountry` sobrante**: el campo existe en FE pero no aparece en diseño ni diagrama BE — confirmar si eliminar
 - Redes futuras
