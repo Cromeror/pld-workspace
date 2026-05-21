@@ -1,6 +1,6 @@
 <mxfile host="embed.diagrams.net" agent="jarvis">
   <diagram id="page-post-login" name="Post-login">
-    <mxGraphModel dx="720" dy="2867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1042" dy="1376" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -14,7 +14,7 @@
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
               <mxPoint x="40" y="300" />
-              <mxPoint x="40" y="1220" />
+              <mxPoint x="40" y="1140" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -27,7 +27,7 @@
         <mxCell id="9" edge="1" parent="1" source="muestra-registro-auxiliar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="inserted-103">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="160" y="1220" />
+              <mxPoint x="160" y="1140" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -43,11 +43,11 @@
         <mxCell id="10" edge="1" parent="1" source="pagina-en-blanco" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="inserted-103">
           <mxGeometry relative="1" as="geometry">
             <Array as="points">
-              <mxPoint x="660" y="1220" />
+              <mxPoint x="660" y="1140" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="pagina-en-blanco" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="pagina en blanco" vertex="1">
+        <mxCell id="pagina-en-blanco" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="muestra pantalla placeholder de auxiliar" vertex="1">
           <mxGeometry height="60" width="160" x="590" y="838" as="geometry" />
         </mxCell>
         <mxCell id="e1" edge="1" parent="1" source="inicio" style="edgeStyle=orthogonalEdgeStyle;" target="sourceuserrole-superadmin">
@@ -79,10 +79,7 @@
         <mxCell id="e9" edge="1" parent="1" source="sourceuserrole-auxiliary" style="edgeStyle=orthogonalEdgeStyle;" target="pagina-en-blanco" value="si">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="8" edge="1" parent="1" source="inserted-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="inserted-103">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="inserted-101" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="muestra página de error. El código dice: rol desconocido" vertex="1">
+        <mxCell id="inserted-101" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Redirige a pantalla genérica de error" vertex="1">
           <mxGeometry height="60" width="160" x="360" y="1014" as="geometry" />
         </mxCell>
         <mxCell id="7" edge="1" parent="1" source="inserted-102" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="inserted-101">
@@ -92,16 +89,13 @@
           <mxGeometry height="60" width="160" x="360" y="926" as="geometry" />
         </mxCell>
         <mxCell id="inserted-103" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="fin" vertex="1">
-          <mxGeometry height="60" width="120" x="380" y="1190" as="geometry" />
+          <mxGeometry height="60" width="120" x="380" y="1110" as="geometry" />
         </mxCell>
-        <mxCell id="12" edge="1" parent="1" source="inserted-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="inserted-104" value="">
+        <mxCell id="12" edge="1" parent="1" source="inserted-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="inserted-103" value="">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="420" y="970" as="sourcePoint" />
-            <mxPoint x="420" y="1170" as="targetPoint" />
+            <mxPoint x="440" y="1102" as="targetPoint" />
           </mxGeometry>
-        </mxCell>
-        <mxCell id="inserted-104" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="redirige a homepage silenciosamente" vertex="1">
-          <mxGeometry height="60" width="160" x="360" y="1102" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

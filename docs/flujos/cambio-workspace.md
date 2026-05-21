@@ -50,7 +50,7 @@ edges[10]{from,to,label}:
 
 ## Casos alternos
 
-- **Usuario sin segunda registration COMPLETED**: el BE responde 403 con "Perfil no disponible". El FE no muestra feedback al usuario — el menú-item simplemente vuelve a estar habilitado sin explicación (ver Inconsistencias).
+- **Usuario sin segunda registration COMPLETED**: el BE responde 403 con "Perfil no disponible". El FE muestra un toast de error al usuario y vuelve a habilitar el menú-item.
 - **SUPERADMIN intenta llamar el endpoint**: el BE responde 403 "Operación no permitida para este rol". Escenario teórico — el menú nunca muestra la opción de switch para SUPERADMIN, así que solo aplica si alguien llama el endpoint directo.
 - **Token expirado durante el switch**: el `JwtAuthGuard` rechaza con 401; el FE redirige al login estándar.
 
@@ -74,7 +74,7 @@ edges[10]{from,to,label}:
 - **FE — cálculo de `canSwitch`** (`AuthenticatedLayout.tsx:33`): solo verifica `role === WORKSPACE_ADMIN && !!currentActivityType`. **No consulta al BE** si existe la segunda registration, por lo que puede ofrecer la opción y recibir 403.
 - **FE — toggle de `activityType` alternativo** (`AuthenticatedLayout.tsx:34-38`): hardcodeado, si el actual es `NOTARY` el alternativo es `REAL_ESTATE`, y viceversa.
 - **FE — onSuccess de la mutation** (`authQueries.ts:46-50`): `authService.saveToken(data.accessToken)` + `queryClient.clear()` (limpia **todo** el cache, no solo queries workspace-scoped).
-- **FE — onError**: no hay manejador explícito; solo se setea `isSwitching = false` para volver a habilitar el menú-item. **No se muestra mensaje al usuario.**
+- **FE — onError**: muestra un toast de error (`showToast` desde `pld-web/src/lib/toast.ts`, severity `error`) con el mensaje del BE o un genérico "No se pudo cambiar de workspace", y setea `isSwitching = false` para volver a habilitar el menú-item.
 - **Estado loading**: mientras la mutation está en flight, el menú-item se deshabilita (`disabled: isSwitching`). No hay spinner adicional.
 - **Post-switch en FE**: `navigate(getPostLoginRedirect(UserRole.WORKSPACE_ADMIN))` → `/register`. El menú se cierra automáticamente al re-renderizar.
 
@@ -93,10 +93,7 @@ edges[10]{from,to,label}:
 
 ## Inconsistencias
 
-- **`canSwitch` no verifica segunda registration `COMPLETED`**: el menú puede ofrecer el switch a un workspace que el usuario no tiene activo. El BE responde 403, pero el usuario no recibe feedback visual del error.
-- **Sin manejo visual de error en FE**: si el `POST /auth/switch-workspace` falla (403 u otro), el menú-item vuelve a habilitarse sin mostrar mensaje. El usuario queda sin contexto de por qué no pasó nada.
-- **Label hardcodeado NOTARY ↔ REAL_ESTATE**: el FE calcula la alternativa con un toggle local. Si en el futuro se agregan más `activityType`, hay que cambiar la lógica.
-- **Path del archivo de layout con espacio inicial**: el archivo real es `pld-web/src/layouts/ AuthenticatedLayout.tsx` (con espacio al inicio del nombre). Bug menor, conviene renombrar.
+_(ninguna conocida)_
 
 <!-- jarvis:llm-index type=flow-design-mapping hide=true description="Índice toon paso a paso del flujo. refs usa prefijos BE:/FE:/UI:/FLUJO: para apuntar a donde se resuelve cada paso en el sistema." -->
 
@@ -104,5 +101,5 @@ edges[10]{from,to,label}:
 steps[3]{step_ui,label_ui,variante,nodos_diagrama,disenos,nota,refs}:
   1,Menú de usuario — switch disponible,WORKSPACE_ADMIN expandido+colapsado,"usuario-abre-menu-de-iniciales+click-en-cambiar-a-notario-inmobiliaria","disenos/cambio-workspace/menu-usuario-workspace-admin-expandido.jpg+disenos/cambio-workspace/menu-usuario-workspace-admin-colapsado.jpg",El menú-item se deshabilita durante el switch (isSwitching). Variantes SUPERADMIN y AUXILIARY no aplican.,"FE:pld-web/src/layouts/AuthenticatedLayout.tsx"
   2,Ejecución del switch,-,"post-auth-switch-workspace-activitytype-alternativo+existe-registration-completed-para-activitytype-alternativo?+re-emite-jwt-con-nuevo-workspaceid-y-activitytype+guarda-token-nuevo-y-limpia-cache-de-queries+redirige-al-post-login-redirect-del-rol",,Re-emite JWT y limpia cache de React Query. El destino es el post-login redirect del rol.,"FE:pld-web/src/queries/authQueries.ts+FE:pld-web/src/services/authService.ts+BE:pld-api/apps/auth-users/src/auth/auth.controller.ts+BE:pld-api/packages/domain-auth-users/src/adapters/auth.adapter.ts+FLUJO:post-login.md"
-  3,Error 403 sin feedback,-,"responde-403-perfil-no-disponible",,El usuario no recibe mensaje visual; el menú-item solo vuelve a habilitarse.,"BE:pld-api/packages/domain-auth-users/src/adapters/auth.adapter.ts+FE:pld-web/src/layouts/AuthenticatedLayout.tsx"
+  3,Error 403,-,"responde-403-perfil-no-disponible",,El FE muestra un toast de error con el mensaje del BE y vuelve a habilitar el menú-item.,"BE:pld-api/packages/domain-auth-users/src/adapters/auth.adapter.ts+FE:pld-web/src/queries/authQueries.ts"
 ```

@@ -8,7 +8,7 @@ Experiencia transversal que aplica a todos los roles inmediatamente después de 
 
 - **SUPERADMIN** — ve el wizard de registro de sujetos obligados (notaría / inmobiliaria).
 - **WORKSPACE_ADMIN** — ve el dashboard de registro de auxiliares.
-- **AUXILIARY** — ruta destino pendiente de definir.
+- **AUXILIARY** — ve una página placeholder (sin funcionalidad aún definida).
 - **Sistema** — lee el JWT, decide la ruta destino por rol y monta la shell autenticada.
 
 ## Precondiciones
@@ -25,37 +25,35 @@ diagram: flow
 notation: ansi-iso-5807
 page: Post-login
 direction: LR
-nodes[11]{id,label,shape}:
+nodes[10]{id,label,shape}:
   inicio,inicio,terminator
   es-superadmin?,¿es SUPERADMIN?,decision
   muestra-registro-notaria-inmobiliaria-paso-1,muestra registro notaria/inmobiliaria paso 1,process
   es-workspace-admin?,¿es WORKSPACE_ADMIN?,decision
   muestra-registro-auxiliar-paso-1,muestra registro auxiliar paso 1,process
   es-auxiliary?,¿es AUXILIARY?,decision
-  pagina-en-blanco,pagina en blanco,process
-  muestra-pagina-de-error-el-codigo-dice-rol-desconocido,muestra página de error. El código dice: rol desconocido,process
+  muestra-pantalla-placeholder-de-auxiliar,muestra pantalla placeholder de auxiliar,process
+  redirige-a-pantalla-generica-de-error,Redirige a pantalla genérica de error,process
   invalida-la-sesion,Invalida la sesion,process
   fin,fin,terminator
-  redirige-a-homepage-silenciosamente,redirige a homepage silenciosamente,process
-edges[13]{from,to,label}:
+edges[12]{from,to,label}:
   muestra-registro-notaria-inmobiliaria-paso-1 "muestra registro notaria/inmobiliaria paso 1",fin "fin",
   muestra-registro-auxiliar-paso-1 "muestra registro auxiliar paso 1",fin "fin",
   es-auxiliary? "¿es AUXILIARY?",invalida-la-sesion "Invalida la sesion",no
-  pagina-en-blanco "pagina en blanco",fin "fin",
+  muestra-pantalla-placeholder-de-auxiliar "muestra pantalla placeholder de auxiliar",fin "fin",
   inicio "inicio",es-superadmin? "¿es SUPERADMIN?",
   es-superadmin? "¿es SUPERADMIN?",muestra-registro-notaria-inmobiliaria-paso-1 "muestra registro notaria/inmobiliaria paso 1",si
   es-superadmin? "¿es SUPERADMIN?",es-workspace-admin? "¿es WORKSPACE_ADMIN?",no
   es-workspace-admin? "¿es WORKSPACE_ADMIN?",muestra-registro-auxiliar-paso-1 "muestra registro auxiliar paso 1",si
   es-workspace-admin? "¿es WORKSPACE_ADMIN?",es-auxiliary? "¿es AUXILIARY?",no
-  es-auxiliary? "¿es AUXILIARY?",pagina-en-blanco "pagina en blanco",si
-  redirige-a-homepage-silenciosamente "redirige a homepage silenciosamente",fin "fin",
-  invalida-la-sesion "Invalida la sesion",muestra-pagina-de-error-el-codigo-dice-rol-desconocido "muestra página de error. El código dice: rol desconocido",
-  muestra-pagina-de-error-el-codigo-dice-rol-desconocido "muestra página de error. El código dice: rol desconocido",redirige-a-homepage-silenciosamente "redirige a homepage silenciosamente",
+  es-auxiliary? "¿es AUXILIARY?",muestra-pantalla-placeholder-de-auxiliar "muestra pantalla placeholder de auxiliar",si
+  invalida-la-sesion "Invalida la sesion",redirige-a-pantalla-generica-de-error "Redirige a pantalla genérica de error",
+  redirige-a-pantalla-generica-de-error "Redirige a pantalla genérica de error",fin "fin",
 ```
 
 ## Casos alternos
 
-- **Rol sin ruta reconocida**: el sistema invalida la sesión, muestra una página de error con código "rol desconocido" y redirige a homepage. Escenario hipotético — todos los usuarios tienen rol asignado en BD.
+- **Rol desconocido**: si el JWT trae un `role` que no es `SUPERADMIN`, `WORKSPACE_ADMIN` ni `AUXILIARY`, el sistema invalida la sesión y redirige a una pantalla genérica de error. Escenario hipotético — todos los usuarios tienen rol asignado en BD.
 
 ## Reglas de negocio
 
@@ -65,8 +63,8 @@ edges[13]{from,to,label}:
   |---|---|
   | `SUPERADMIN` | → muestra registro notaria/inmobiliaria paso 1 |
   | `WORKSPACE_ADMIN` | → muestra registro auxiliar paso 1 |
-  | `AUXILIARY` | → _(pendiente)_ |
-  | Sin rol reconocido | → invalida la sesión → muestra página de error → redirige a homepage _(hipotético — todos los usuarios tienen rol en BD)_ |
+  | `AUXILIARY` | → muestra pantalla placeholder de auxiliar |
+  | Rol desconocido | → invalida la sesión → redirige a pantalla genérica de error _(hipotético — todos los usuarios tienen rol en BD)_ |
 
 - **Shell autenticada**: todas las páginas post-login se renderizan dentro de un layout común que provee:
   - Sidebar izquierdo (solo desktop): logo + ícono de home.
@@ -107,17 +105,18 @@ edges[13]{from,to,label}:
 ## Inconsistencias
 
 - **`canSwitch` no verifica segunda registration `COMPLETED`**: el menú puede ofrecer el switch a un workspace que el usuario no tiene activo, y el BE responde 403.
-- **Ruta destino para `AUXILIARY` no definida**: el flujo cae en "página en blanco".
-- **Rol sin ruta reconocida (FE vs. diagrama)**: el diagrama define invalidar sesión y mostrar página de error; el código (`postLoginRedirect.ts`) redirige a homepage silenciosamente sin invalidar.
+- **Pantalla placeholder de AUXILIARY no implementada**: el `postLoginRedirect.ts` aún no tiene mapping para `AUXILIARY` ni existe el componente/ruta destino — actualmente cae al `DEFAULT_REDIRECT = HOME`.
+- **Rol desconocido sin manejo**: el código (`postLoginRedirect.ts`) no invalida la sesión cuando recibe un rol no reconocido; usa `DEFAULT_REDIRECT = HOME`. Falta pantalla de error genérica.
 - **Label del switch hardcodeado (NOTARY ↔ REAL_ESTATE)**: el FE calcula la alternativa con un toggle local en lugar de consultarla al BE; si en el futuro hay más de dos `activityType`, hay que cambiar la lógica.
 - **Path del archivo de layout con espacio inicial**: el archivo real es `pld-web/src/layouts/ AuthenticatedLayout.tsx` (con espacio al inicio del nombre). Bug menor, conviene renombrar.
 
 <!-- jarvis:llm-index type=flow-design-mapping hide=true description="Índice toon paso a paso del flujo. refs usa prefijos BE:/FE:/UI:/FLUJO: para apuntar a donde se resuelve cada paso en el sistema." -->
 
 ```toon
-steps[4]{step_ui,label_ui,variante,nodos_diagrama,disenos,nota,refs}:
+steps[5]{step_ui,label_ui,variante,nodos_diagrama,disenos,nota,refs}:
   1,Redirect post-login por rol,-,"inicio+es-superadmin?+es-workspace-admin?+es-auxiliary?",,Switch por el campo role del JWT. El workspace ya viene resuelto desde el flujo de inicio-sesion.,"FE:pld-web/src/config/postLoginRedirect.ts+FE:pld-web/src/routes/index.tsx+FLUJO:inicio-sesion.md"
   2,Shell autenticada,-,-,,_(pendiente capturas)_,"FE:pld-web/src/layouts/AuthenticatedLayout.tsx"
   3,Menú de usuario,-,-,,Capturas del menú con switch viven en disenos/cambio-workspace/ (flujo futuro). El menú estático en este flujo aún no tiene capturas propias.,"FE:pld-web/src/layouts/AuthenticatedLayout.tsx"
-  4,Rol sin ruta reconocida,-,"es-auxiliary?+invalida-la-sesion+muestra-pagina-de-error-el-codigo-dice-rol-desconocido+redirige-a-homepage-silenciosamente",,Diagrama y código actual divergen — ver Inconsistencias.,"FE:pld-web/src/config/postLoginRedirect.ts"
+  4,Rol desconocido,-,"es-auxiliary?+invalida-la-sesion+redirige-a-pantalla-de-error",,Invalida la sesión y redirige a pantalla genérica de error. Pendiente implementar en código (ver Inconsistencias).,"FE:pld-web/src/config/postLoginRedirect.ts"
+  5,Placeholder AUXILIARY,-,"es-auxiliary?+muestra-placeholder-auxiliar",,Pantalla placeholder mientras se define la funcionalidad real de AUXILIARY.,"FE:pld-web/src/config/postLoginRedirect.ts+FE:pld-web/src/routes/index.tsx"
 ```
