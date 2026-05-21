@@ -1,0 +1,44 @@
+change_name: auxiliar-registro-workspace-admin
+project_id: pld
+sdd: false
+status: dev_reviewing
+status_history:
+  - status: pm_proposing
+    iteration: 0
+    at: '2026-05-21T07:51:41.237Z'
+  - status: pm_tech_review
+    iteration: 0
+    at: '2026-05-21T07:51:41.243Z'
+  - status: pending_dev_review
+    iteration: 2
+    at: '2026-05-21T07:52:20.061Z'
+  - status: dev_reviewing
+    iteration: 4
+    at: '2026-05-21T07:56:39.988Z'
+thread_id: 7897f64b-069e-409b-96b7-1f6efecb131e
+iteration: 5
+pm_proposal:
+  problem: >-
+    Cuando un auxiliar se registra en la plataforma, debe quedar asociado automáticamente al
+    workspace del usuario WORKSPACE_ADMIN que está logueado en ese momento. La asociación se
+    resuelve usando la información del token JWT del usuario autenticado al momento del registro,
+    sin que el auxiliar deba seleccionar o indicar el workspace manualmente.
+
+
+    Contexto adicional:
+
+
+    1. La creación de auxiliares está EXCLUSIVAMENTE permitida para usuarios con rol
+    WORKSPACE_ADMIN. Ni el SUPERADMIN ni ningún otro rol pueden crear auxiliares ni asignarlos a un
+    workspace.
+
+
+    2. El formulario de registro de auxiliar debe incluir un campo 'Nombre de usuario' (nickname)
+    que será el identificador con el que se creará la cuenta del auxiliar al finalizar el registro.
+    No se usará el email como identificador de login para estos usuarios — el nickname es el único
+    identificador de acceso.
+  context: ''
+  client_material: []
+  unknowns: []
+pm_tech_review: {}
+dev_review: {}

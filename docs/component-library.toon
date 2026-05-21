@@ -7,22 +7,30 @@ design-system: PrimeReact 10 + Tailwind 4 + custom wrappers
 
 # Atoms
 
-components[6]{name,path,extends,custom_props,notes}:
+components[10]{name,path,extends,custom_props,notes}:
   InputText,atoms/InputText/,PrimeReact InputTextProps,errorText?: string,Shows red error text below input when errorText is set. Use for free-text fields.
   Dropdown,atoms/Dropdown/,PrimeReact DropdownProps,errorText?: string,Shows red error text below. Supports filter prop for searchable lists. Use for catalog selections.
   Calendar,atoms/Calendar/,PrimeReact CalendarProps,errorText?: string,Use dateFormat=dd/mm/yy showIcon. Parse with new Date(year month-1 day) — never new Date(isoString) to avoid timezone bug.
   Button,atoms/Button/,PrimeReact ButtonProps,severity?: primary|secondary,Default severity=primary. Use secondary for cancel/back actions.
   Checkbox,atoms/Checkbox/,PrimeReact CheckboxProps,,No custom props.
   RadioButton,atoms/RadioButton/,PrimeReact RadioButtonProps,,No custom props.
+  Dialog,atoms/Dialog/,PrimeReact DialogProps,,Thin wrapper that applies project styles via CSS modules. Use this instead of PrimeReact Dialog directly.
+  IconBadge,atoms/IconBadge/,—,"icon: ReactNode; background: string; size?: number (default 56)",Renders an icon centered in a circular badge. Pass background as CSS color string.
+  TypeItem,atoms/TypeItem/,—,"text: string; onClick: () => void; selected: boolean",Selectable card row with checkmark indicator. Use for exclusive-selection lists (e.g. entity type picker).
+  ValidationInfoItem,atoms/ValidationInfoItem/,—,"title: string; value: string",Label + value display pair. Use in validation/summary screens to show field data read-only.
 
 ---
 
 # Molecules
 
-molecules[3]{name,path,props,notes}:
+molecules[8]{name,path,props,notes}:
   AdministrativeDivisionsField,molecules/AdministrativeDivisionsField/,"countryCode: string; value: Record<string,string>; onChange: fn; errors?: Record<string,string>",Cascade dropdowns: state → municipality → neighborhood. Pass errors keyed by fieldName. Fallback to InputText if no catalog entries.
   ConfirmDialog,molecules/ConfirmDialog/,"open title description cancelLabel confirmLabel onCancel onConfirm isConfirming isConfirmDisabled? icon? iconBackground?",Use for all destructive or irreversible confirmations.
   Stepper,molecules/Stepper/,,Wizard progress indicator. Managed internally by Wizard organism.
+  Modal,molecules/Modal/,"open: boolean; onClose: () => void; title?: ReactNode; body?: ReactNode; actions?: ReactNode; width?: string; closable?: boolean; dismissableMask?: boolean","Centered dialog with title + body + actions layout. Default width=min(440px,90vw). closable and dismissableMask default false. Use instead of Dialog directly when content follows this layout pattern."
+  ValidationItem,molecules/create-users/ValidationItem/,"title: string; items: {title:string;value:string}[]; showEditIcon?: boolean; onClickEdit?: () => void; children?: ReactNode","Summary card with title header and grid of ValidationInfoItem. Optional edit icon. Use in registration validation/review steps."
+  PersonTypeAccordion,molecules/external-users/PersonTypeAccordion/,"title: string; description: string; defaultOpen?: boolean; onSelect?: () => void; children?: ReactNode","Collapsible accordion row with title+description header and chevron. Expands to show children in a flex row. Use for person type selection in external user flows."
+  BeneficiaryOption,molecules/external-users/BeneficiaryOption/,"children: ReactNode; onClick: () => void; selected: boolean","Selectable card with checkmark on right. Similar to TypeItem but accepts ReactNode children and aligns check to top-right. Use for beneficiary type selection."
 
 ---
 
