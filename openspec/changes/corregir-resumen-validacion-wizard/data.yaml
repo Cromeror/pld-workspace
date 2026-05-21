@@ -1,7 +1,7 @@
 change_name: corregir-resumen-validacion-wizard
 project_id: pld
 sdd: false
-status: pm_tech_review
+status: finalized
 status_history:
   - status: pm_proposing
     iteration: 0
@@ -9,6 +9,9 @@ status_history:
   - status: pm_tech_review
     iteration: 0
     at: '2026-05-21T06:00:56.516Z'
+  - status: finalized
+    iteration: 6
+    at: '2026-05-21T07:15:00.000Z'
 thread_id: 7896add7-f7eb-480e-897b-f5af523b9a97
 iteration: 6
 pm_proposal:
