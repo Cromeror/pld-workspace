@@ -28,6 +28,8 @@ Diagrama solo del lado **BE** — el wizard de UI (capturas, copys, validación 
 
 > ⚠️ Dentro del flujo PM, un nodo "Persona Física" refiere al **responsable del cumplimiento de la Ley**, no al tipo de perfil.
 > 📝 Las leyendas de "Actividad vulnerable" (FE PÚBLICA / TRANSMISIÓN DE BIENES INMUEBLES) son copy del front según el tipo de sujeto obligado — no son valores a persistir.
+> 📝 Un usuario puede tener **máximo 2 actividades vulnerables** (una por workspace). El flujo de "agregar segunda" es un wizard modal independiente.
+> 📝 El stepper de UI muestra "Paso 4: Responsable del cumplimiento de la Ley" para todos los flujos, pero **solo aplica cuando el tipo de perfil es Persona Moral**. Para PF (incluyendo todos los flujos de Notario) este paso no existe y no debe renderizarse.
 
 <!-- jarvis:diagram src=FLUJO_REGISTRO_REPORTING_ENTITIES.drawio notation=ansi-iso-5807 -->
 
@@ -57,20 +59,22 @@ edges[8]{from,to,label}:
 ---
 page: Registro persona fisica
 direction: LR
-nodes[47]{id,label,shape}:
+nodes[49]{id,label,shape}:
   persona-fisica,persona fisica,offpage
   step-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable,step 1: Datos de identificación de quien realiza la Actividad Vulnerable,process
   nombre,Nombre*,data
   apellido-paterno,Apellido paterno*,data
   apellido-materno,Apellido materno*,data
-  fecha-de-nacimiento,Fecha de nacimiento*,data
-  rfc,RFC*,data
-  curp,CURP*,data
+  fecha-de-nacimiento,Fecha de nacimiento,data
+  rfc,RFC,data
+  curp,CURP,data
   pais-de-nacionalidad,País de nacionalidad,data
   pais-de-nacimiento,País de nacimiento,data
+  lugar-de-nacimiento,Lugar de nacimiento,data
+  segundo-apellido,Segundo apellido*,data
   step-2-datos-de-contacto,step 2: Datos de Contacto,process
   clave-lada,Clave lada,data
-  numero-de-telefono,Número de teléfono*,data
+  numero-de-telefono,Número de teléfono,data
   correo-electronico,Correo electrónico*,data
   celular,Celular*,data
   step-3-actividad-vulnerable,step 3: Actividad Vulnerable,process
@@ -105,16 +109,18 @@ nodes[47]{id,label,shape}:
   agregar-segunda-actividad-vulnerable-pf,agregar segunda actividad vulnerable pf,offpage
   retorno-actividad-vulnerable,retorno actividad vulnerable,offpage
   continuar-proceso-de-registro-principal,Continuar proceso de registro principal,offpage
-edges[50]{from,to,label}:
+edges[53]{from,to,label}:
   persona-fisica "persona fisica",step-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable "step 1: Datos de identificación de quien realiza la Actividad Vulnerable",
   step-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable "step 1: Datos de identificación de quien realiza la Actividad Vulnerable",nombre "Nombre*",
   nombre "Nombre*",apellido-paterno "Apellido paterno*",
   apellido-paterno "Apellido paterno*",apellido-materno "Apellido materno*",
-  apellido-materno "Apellido materno*",fecha-de-nacimiento "Fecha de nacimiento*",
-  fecha-de-nacimiento "Fecha de nacimiento*",rfc "RFC*",
-  rfc "RFC*",curp "CURP*",
-  curp "CURP*",pais-de-nacionalidad "País de nacionalidad",
+  apellido-materno "Apellido materno*",segundo-apellido "Segundo apellido*",
+  segundo-apellido "Segundo apellido*",fecha-de-nacimiento "Fecha de nacimiento",
+  fecha-de-nacimiento "Fecha de nacimiento",rfc "RFC",
+  rfc "RFC",curp "CURP",
+  curp "CURP",pais-de-nacionalidad "País de nacionalidad",
   pais-de-nacionalidad "País de nacionalidad",pais-de-nacimiento "País de nacimiento",
+  pais-de-nacimiento "País de nacimiento",lugar-de-nacimiento "Lugar de nacimiento",
   step-2-datos-de-contacto "step 2: Datos de Contacto",clave-lada "Clave lada",
   clave-lada "Clave lada",numero-de-telefono "Número de teléfono*",
   numero-de-telefono "Número de teléfono*",correo-electronico "Correo electrónico*",
@@ -137,7 +143,7 @@ edges[50]{from,to,label}:
   numero-interior "Número interior",codigo-postal-2 "Código postal",
   guarda-la-informacion "Guarda la información",step-2-datos-de-contacto "step 2: Datos de Contacto",siguiente step
   los-campos-estan-completos? "¿Los campos estan completos?",ingresa-el-dato-faltante "Ingresa el dato faltante",no estan completos los datos
-  pais-de-nacimiento "País de nacimiento",los-campos-estan-completos? "¿Los campos estan completos?",continuar
+  lugar-de-nacimiento "Lugar de nacimiento",los-campos-estan-completos? "¿Los campos estan completos?",continuar
   ingresa-el-dato-faltante "Ingresa el dato faltante",step-1-datos-de-identificacion-de-quien-realiza-la-actividad-vulnerable "step 1: Datos de identificación de quien realiza la Actividad Vulnerable",
   guarda-la-informacion-2 "Guarda la información",step-3-actividad-vulnerable "step 3: Actividad Vulnerable",siguiente paso
   los-campos-estan-completos?-2 "¿Los campos estan completos?",ingresa-el-dato-faltante-2 "Ingresa el dato faltante",no
@@ -171,7 +177,7 @@ nodes[54]{id,label,shape}:
   guarda-la-informacion,Guarda la información,process
   paso-2-datos-de-contacto,paso 2: Datos de Contacto,process
   clave-lada,Clave lada,data
-  numero-de-telefono,Número de teléfono:,data
+  numero-de-telefono,Número de teléfono,data
   correo-electronico,Correo electrónico*,data
   celular,Celular*,data
   los-campos-estan-completos?-2,¿Los campos están completos?,decision
@@ -226,8 +232,8 @@ edges[58]{from,to,label}:
   los-campos-estan-completos? "¿Los campos están completos?",guarda-la-informacion "Guarda la información",Sí
   guarda-la-informacion "Guarda la información",paso-2-datos-de-contacto "paso 2: Datos de Contacto",siguiente paso
   paso-2-datos-de-contacto "paso 2: Datos de Contacto",clave-lada "Clave lada",
-  clave-lada "Clave lada",numero-de-telefono "Número de teléfono:",
-  numero-de-telefono "Número de teléfono:",correo-electronico "Correo electrónico*",
+  clave-lada "Clave lada",numero-de-telefono "Número de teléfono",
+  numero-de-telefono "Número de teléfono",correo-electronico "Correo electrónico*",
   correo-electronico "Correo electrónico*",celular "Celular*",
   celular "Celular*",agrega-otro-contacto? "¿agrega otro contacto?",
   ingresa-el-dato-faltante-2 "Ingresa el dato faltante",paso-2-datos-de-contacto "paso 2: Datos de Contacto",
