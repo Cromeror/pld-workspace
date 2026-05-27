@@ -54,8 +54,21 @@
   - Selector "Mostrar N registros" cambia el número de filas mostradas.
   - Un usuario WORKSPACE_ADMIN que navega a `/admin/users` → redirige (RoleProtectedRoute).
 
-## Phase 8: Smoke manual
+## Phase 8: Server-side sorting
 
-- [ ] 8.1 [Cross] Stack BE + Web up. Login como admin@pld.com → navegar `/admin/users` → tabla visible.
-- [ ] 8.2 [Cross] Verificar que la tabla solo muestra usuarios con tipo WORKSPACE_ADMIN (no AUXILIARY, no SUPERADMIN).
-- [ ] 8.3 [Web] `yarn build` en `pld-web` verde.
+- [x] 8.1 [BE] Extender `WorkspaceAdminPort.listWorkspaceAdminsPaginated` con `sortBy?: string` y `sortOrder?: 'asc' | 'desc'`.
+- [x] 8.2 [BE] Extender `ListUsersQueryDto` con `sortBy` (enum: fullName|curp|rfc|phone|email|activityType) y `sortOrder` (asc|desc).
+- [x] 8.3 [BE] Actualizar `UsersAdapter` con ORDER BY dinámico: GROUP BY subquery para custom sort, subquery simple para default createdAt.
+- [x] 8.4 [BE] Pasar sort params desde Controller → Service → Port.
+- [x] 8.5 [BE] Agregar tests e2e: verifica que sortBy/sortOrder se reenvían al port.
+- [x] 8.6 [FE] Cambiar `ColumnDef.header` de `string` a `string | ReactNode` en `PaginatedTable`.
+- [x] 8.7 [FE] Extender `adminUsersService.listUsers` y `useListUsers` con sortBy/sortOrder.
+- [x] 8.8 [FE] Agregar estado `sortBy`/`sortOrder`, componente `SortHeader` con SVG toggle asc/desc, reset page=1 al cambiar sort.
+- [x] 8.9 [BE] `pnpm jest` pasa verde.
+- [x] 8.10 [Web] `tsc --noEmit` pasa verde.
+
+## Phase 9: Smoke manual
+
+- [ ] 9.1 [Cross] Stack BE + Web up. Login como admin@pld.com → navegar `/admin/users` → tabla visible.
+- [ ] 9.2 [Cross] Verificar que la tabla solo muestra usuarios con tipo WORKSPACE_ADMIN (no AUXILIARY, no SUPERADMIN).
+- [ ] 9.3 [Web] `yarn build` en `pld-web` verde.
