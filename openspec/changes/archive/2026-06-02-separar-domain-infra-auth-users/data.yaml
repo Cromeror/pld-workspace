@@ -1,0 +1,147 @@
+change_name: separar-domain-infra-auth-users
+project_id: pld
+sdd: false
+status: finalized
+status_history:
+  - status: pm_proposing
+    iteration: 0
+    at: '2026-06-02T01:20:49.764Z'
+  - status: pm_tech_review
+    iteration: 0
+    at: '2026-06-02T01:20:49.771Z'
+  - status: pending_dev_review
+    iteration: 4
+    at: '2026-06-02T01:35:00.000Z'
+  - status: dev_reviewing
+    iteration: 4
+    at: '2026-06-02T01:35:01.000Z'
+  - status: finalized
+    iteration: 5
+    at: '2026-06-02T01:22:25.220Z'
+thread_id: 9bcfa7e2-43c2-4037-bb7c-8fc490f6673f
+iteration: 6
+pm_proposal:
+  problem: >-
+    El paquete `@pld-api/domain-auth-users` mezcla dominio puro con infraestructura (TypeORM,
+    jsonwebtoken, bcrypt/crypto). Esto genera problemas arquitecturales:
+
+
+    1. `UserEntity` tiene decoradores TypeORM (`@Entity`, `@Column`, etc.) mezclados con campos de
+    dominio
+
+    2. Los adapters (`UsersAdapter`, `AuthAdapter`) mezclan lógica de negocio con queries
+    SQL/TypeORM
+
+    3. `jwt/sign.ts` es wrapper de `jsonwebtoken` — infraestructura exportada como dominio
+
+    4. `jti-store.ts` mezcla concepto de dominio (token único) con implementación in-memory
+
+    5. `factory.ts` acopla directamente a `DataSource` de TypeORM
+
+    6. Múltiples módulos de la app (`registration`, `auxiliaries`, `admin`) importan `UserEntity`
+    directamente como si fuera un tipo de dominio
+
+
+    La intención es separar correctamente: el dominio define interfaces y tipos puros, la
+    infraestructura implementa con TypeORM/JWT. El paquete `domain-auth-users` debería quedar solo
+    con dominio puro (ports, tipos, reglas de negocio). Los adapters e entidades TypeORM deberían
+    vivir fuera o en una subcapa de infraestructura dentro del mismo paquete.
+
+
+    Contexto adicional:
+
+    - La app `auth-users` es un monolito NestJS (no microservicios)
+
+    - Se usa Ports & Adapters (Hexagonal) como patrón objetivo
+
+    - El trabajo de `listWorkspaceAdminsPaginated` fue revertido y guardado en stash porque no había
+    un lugar correcto para esa query de backoffice — la refactor debe resolver dónde va ese tipo de
+    query
+
+    - No existe todavía un `domain-registration` ni `domain-admin`; esa deuda también debe
+    considerarse en el scope o en los límites de esta propuesta
+  context: ''
+  client_material: []
+  unknowns: []
+pm_tech_review:
+  in_scope:
+    - >-
+      Reorganizar el paquete domain-auth-users separando dominio puro de infraestructura dentro del
+      mismo paquete (no crear paquetes nuevos)
+    - Definir tipo de dominio User puro (sin decoradores ORM) separado de UserEntity
+    - Mover adapters e infraestructura a subcapa infrastructure/ dentro del paquete
+    - Actualizar consumidores en apps/auth-users/src/ que importan UserEntity directamente
+    - >-
+      Definir donde debe vivir una query de backoffice tipo listWorkspaceAdminsPaginated en la nueva
+      estructura
+    - >-
+      Reorganizar domain-auth-users creando subcapa infrastructure/ para adapters, entities, factory
+      y jwt/sign
+    - Mover InMemoryJtiStore a infrastructure/ — JtiStore (interfaz) queda en dominio
+    - Actualizar index.ts para re-exportar los mismos simbolos publicos desde paths nuevos
+    - Actualizar imports en apps/auth-users/src/ que apuntan a UserEntity o adapters directamente
+    - >-
+      Documentar donde va listWorkspaceAdminsPaginated post-refactor (AdminAdapter en
+      apps/auth-users/src/admin/)
+  out_of_scope:
+    - Crear paquetes nuevos (domain-registration, domain-admin) — segunda fase
+    - Cambiar la API HTTP expuesta
+    - Cambiar el esquema de base de datos
+    - >-
+      Reimplementar listWorkspaceAdminsPaginated — esta en stash, se reimplementa despues de esta
+      refactor
+    - >-
+      Crear tipo User puro separado de UserEntity — no vale la pena en monolito (mapeo doble sin
+      beneficio real)
+    - Crear paquetes nuevos domain-registration o domain-admin
+    - Cambiar contratos de API HTTP
+    - Reimplementar listWorkspaceAdminsPaginated
+  constraints:
+    - >-
+      El stack debe seguir compilando y arrancando al final de cada paso — no hay pasos rotos
+      intermedios
+    - La refactor es interna — no cambia contratos de API
+    - Compilacion y arranque OK en cada paso incremental
+    - Mismos simbolos exportados por el paquete — sin breaking changes para consumidores
+  unknowns:
+    - id: u1
+      text: User puro separado de UserEntity vale la pena en monolito?
+      status: resolved
+      resolution: >-
+        No. En un monolito el mapeo doble no aporta. UserEntity sigue siendo el unico modelo, vive
+        en infrastructure/.
+    - id: u2
+      text: Donde va listWorkspaceAdminsPaginated post-refactor?
+      status: resolved
+      resolution: >-
+        AdminAdapter en apps/auth-users/src/admin/ — compone users + registration via DataSource
+        directo, no en UsersPort.
+    - id: u3
+      text: JtiStore ya tiene interfaz separada de InMemoryJtiStore?
+      status: resolved
+      resolution: >-
+        Si, la interfaz JtiStore ya existe como dominio puro. Solo se mueve InMemoryJtiStore a
+        infrastructure/.
+dev_review:
+  validations:
+    - Los tests existentes pasan
+  technical_boundaries:
+    - >-
+      Dentro del mismo paquete domain-auth-users se crea subcapa infrastructure/ para: adapters/,
+      entities/, factory.ts, jwt/sign.ts, jwt/jti-store.ts (InMemoryJtiStore)
+    - >-
+      El dominio (ports/, crypto/, jwt/types.ts, jwt/jti-store.ts interfaz JtiStore) no importa
+      typeorm ni jsonwebtoken
+    - UserEntity queda en infrastructure/entities/ — no se crea tipo User puro separado
+    - factory.ts se mueve a infrastructure/ porque requiere DataSource
+    - index.ts re-exporta los mismos simbolos publicos desde los nuevos paths — sin breaking changes
+    - >-
+      listWorkspaceAdminsPaginated no va en UsersPort — su lugar es AdminAdapter en
+      apps/auth-users/src/admin/ (fuera del paquete domain)
+  approach: >-
+    Reorganizacion incremental en 4 pasos: 1) Crear infrastructure/ y mover archivos infra, 2)
+    Actualizar imports internos dentro del paquete, 3) Actualizar index.ts, 4) Actualizar imports en
+    apps/auth-users/src/. Cada paso debe compilar antes de continuar.
+  estimate: >-
+    4-6 horas. Riesgo bajo — reorganizacion de archivos con actualizacion de imports. Mayor riesgo:
+    consumidores que importan UserEntity desde paths relativos internos.

@@ -122,8 +122,8 @@
 ## Phase 15: Frontend — build verification
 
 - [x] 15.1 [FE] `yarn tsc -b --noEmit` verde tras todos los cambios.
-- [ ] 15.2 [FE] `yarn build` — DEFERRED a Phase 16 (smoke).
-- [ ] 15.3 [FE] `yarn lint` — DEFERRED a Phase 16.
+- [x] 15.2 [FE] `yarn build` — errores TS preexistentes en ReviewStep/ReportingEntityRegistrationPage/AuxiliaryRegistrationPage (fuera de scope, documentados en verify de superadmin-users-table).
+- [ ] 15.3 [FE] `yarn lint` — DEFERRED.
 
 ## Phase 16: Smoke manual con Playwright (1500px viewport)
 
