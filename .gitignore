@@ -25,6 +25,9 @@ node_modules/
 # Configs locales de Claude no-compartibles
 .claude/settings.local.json
 
+# Worktrees transitorios de agentes
+.claude/worktrees/
+
 # Runtime state de las skills stack-* (PID + logs del proceso Vite local)
 .stack/
 
