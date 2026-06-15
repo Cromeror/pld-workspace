@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# Equivalente al pld.code-workspace para Zed.
-# Uso: ./pld.zed  (desde cualquier directorio)
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-zed "$DIR" "$DIR/pld-api" "$DIR/pld-web"
