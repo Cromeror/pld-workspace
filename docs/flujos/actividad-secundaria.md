@@ -53,7 +53,9 @@ edges[7]{from,to,label}:
 - Si la fuente es **Notario**: el opuesto es Inmobiliaria — puede ser PF o PM (usuario elige).
 - Si la fuente es **Inmobiliaria**: el opuesto es Notario — solo PF (forzado).
 - Solo se permite **una** actividad secundaria por registro principal.
-- El RFC de la actividad secundaria es **independiente** del RFC del registro principal.
+- El paso **Datos de identificación** de la actividad secundaria se **prellena por defecto** con los datos de identificación del registro principal (es la misma persona registrando una segunda actividad — solicitud del Product Owner). El operador puede editarlos antes de avanzar.
+  - Si la secundaria es del **mismo tipo de persona** que el principal (PF→PF o PM→PM): se copian **todos** los campos de identificación, incluidos RFC y CURP.
+  - Si el tipo **difiere** (PF principal → PM secundaria, o viceversa): solo se copia la **nacionalidad**. El RFC no se copia (el formato PF de 13 caracteres difiere del PM de 12) y no hay mapeo entre nombre/apellidos y razón social.
 
 ## Notas
 
@@ -65,6 +67,7 @@ edges[7]{from,to,label}:
 - **Crear draft (lazy)**: el `POST /registration/start-draft` se llama al avanzar del paso 01 (tipo persona) al paso 02 (identificación) — en `persistStep` del paso `REPORTING_ENTITY` o al entrar a `IDENTIFICATION`. Cancelar antes no deja rastro en BE.
 - **Link al principal**: `linkSecondaryActivity(primaryRegistrationId, secondaryRegistrationId)` se llama en `handleConfirm`. El modal debe recibir `primaryRegistrationId` como prop (renombrado desde `registrationId`) — solo se usa en este punto final.
 - **Cancelar post-draft**: `onClose` sin cleanup — el draft secundario queda incompleto en BE pero nunca se finaliza ni enlaza, por lo que no afecta el registro principal.
+- **Prellenado de identificación**: la página pasa al modal `sourceIdentification` (la identificación del principal) y `sourceProfileType`. El modal deriva el `initialState.identification` con `prefillIdentification()` y lo recomputa si el operador cambia el tipo de persona en el Paso 01. El `key` del modal incluye `profileType` para forzar remount cuando cambia el tipo del principal.
 
 ## Referencias
 
