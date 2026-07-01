@@ -115,62 +115,28 @@ El sistema DEBE exponer `GET /catalogs/countries` retornando los países donde e
 - GIVEN llamada al endpoint
 - THEN response incluye `Cache-Control: public, max-age=86400, immutable`
 
-### Requirement: Endpoint de estructura administrativa por país
+### Requirement: Resolución de código postal vía servicio externo
 
-El sistema DEBE exponer `GET /catalogs/administrative-divisions/:countryCode/structure` retornando los niveles administrativos del país.
+El sistema NO expone endpoints de división administrativa. La resolución de código postal (entidad federativa, municipio, colonias) la realiza el frontend consumiendo directamente el servicio externo NOT47 (`{VITE_POSTAL_API_URL}/catalogs/postal-codes/{cp}`). Ver ADR-004.
 
-#### Scenario: Estructura para México
+#### Scenario: Sin endpoints de administrative-divisions en el BE
 
-- GIVEN un cliente envía `GET /pld-api/auth-users/catalogs/administrative-divisions/MX/structure`
-- WHEN el servidor procesa la petición
-- THEN responde HTTP 200
-- AND el body tiene shape `{ countryCode: 'MX', levels: AdministrativeLevel[] }`
-- AND levels contiene exactamente 3 entradas con fieldName `state`, `municipality`, `neighborhood` en ese orden
-- AND cada nivel incluye `{ level, fieldName, label }` con label en español
+- GIVEN el módulo catalogs de pld-api
+- THEN NO existe `GET /catalogs/administrative-divisions/:countryCode/structure`
+- AND NO existe `GET /catalogs/administrative-divisions/:countryCode/entries`
+- AND NO existe `GET /catalogs/postal-codes/:countryCode/:cp`
 
-#### Scenario: País no soportado
+#### Scenario: El servicio externo devuelve nombres
 
-- GIVEN un cliente envía `GET /catalogs/administrative-divisions/XX/structure`
-- WHEN XX no está en la lista de países soportados
-- THEN responde HTTP 404
-
-### Requirement: Endpoint de entradas administrativas filtradas
-
-El sistema DEBE exponer `GET /catalogs/administrative-divisions/:countryCode/entries?level=N&parentCode=X` retornando entradas filtradas en cascada.
-
-#### Scenario: Nivel 1 sin parentCode
-
-- GIVEN un cliente envía `GET /catalogs/administrative-divisions/MX/entries?level=1`
-- WHEN el servidor procesa
-- THEN responde HTTP 200
-- AND el body es un array de exactamente 32 entradas (estados de MX)
-- AND cada entrada tiene `parentCode === null`
-
-#### Scenario: Nivel 2 con parentCode
-
-- GIVEN un cliente envía `GET /catalogs/administrative-divisions/MX/entries?level=2&parentCode=09`
-- WHEN el servidor procesa
-- THEN responde HTTP 200
-- AND el body es un array de entradas con `level=2` y `parentCode='09'`
-- AND el array NO está vacío (CDMX tiene 16 alcaldías)
-
-#### Scenario: Nivel > 1 sin parentCode
-
-- GIVEN un cliente envía `GET /catalogs/administrative-divisions/MX/entries?level=2`
-- WHEN no se proporciona parentCode
-- THEN responde HTTP 400 con mensaje "parentCode required for level > 1"
-
-#### Scenario: País no soportado
-
-- GIVEN un cliente envía `GET /catalogs/administrative-divisions/XX/entries?level=1`
-- WHEN XX no existe
-- THEN responde HTTP 404
+- GIVEN el frontend consulta un CP válido (ej. 52760) contra NOT47
+- THEN la respuesta trae `state`, `municipality` y `neighborhoods` por nombre
+- AND NO trae localidad (nivel 3), que en el FE se captura como campo libre
 
 ### Requirement: Endpoints públicos del módulo catalogs
 
-Los endpoints `vulnerable-activities`, `countries`, y `administrative-divisions/*` NO DEBEN requerir token JWT.
+Los endpoints `vulnerable-activities`, `countries` y `beneficiario` NO DEBEN requerir token JWT.
 
 #### Scenario: Acceso anónimo
 
-- GIVEN cualquiera de los 4 endpoints sin header `Authorization`
+- GIVEN cualquiera de los endpoints públicos sin header `Authorization`
 - THEN responde HTTP 200

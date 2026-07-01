@@ -48,10 +48,11 @@ Piezas reutilizadas: `users`, `reporting_entity_address` (domicilio del auxiliar
 | `rfc` | string | ✅ | `auxiliary_profile.rfc` |
 | `phone` | string | ✅ | `users.phone` |
 | `email` | string | ✅ | `users.email` |
-| `address.state` | string | ✅ | `address_division` level 1 |
+| `address.state` | string | ✅ | `address.state` |
 | `address.postalCode` | string | ✅ | `reporting_entity_address.postal_code` |
-| `address.municipality` | string | ✅ | `address_division` level 2 |
-| `address.neighborhood` | string | ✅ | `address_division` level 4 |
+| `address.municipality` | string | ✅ | `address.municipality` |
+| `address.locality` | string | ❌ | `address.locality` (campo libre) |
+| `address.neighborhood` | string | ✅ | `address.neighborhood` |
 | `address.street` | string | ✅ | `reporting_entity_address.street` |
 | `address.exteriorNumber` | string | ✅ | `reporting_entity_address.exterior_number` |
 | `address.interiorNumber` | string | ❌ | `reporting_entity_address.interior_number` |
