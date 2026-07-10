@@ -35,3 +35,17 @@ Verificado contra 10 CP de distintos estados: devuelve **siempre** `state`, `mun
 - CORS: NOT47 responde el preflight con `access-control-allow-methods: GET` y `allow-headers: *`; el navegador acepta el origen del pld-web.
 - `VITE_POSTAL_API_URL` usa la misma URL (`https://not47-api-qa.zurco.com.mx/not47-api`) en QA y PROD — confirmado con el equipo.
 - La migración es destructiva (DROP address_division): correr backfill y respaldar antes en QA/PROD.
+
+---
+
+## Actualización 2026-07-10 — el punto 1 (FE directo) queda SUPERSEDED por proxy en pld-api
+
+**Motivo**: la afirmación de CORS de §35 resultó falsa en el navegador. El preflight OPTIONS de NOT47 devuelve `access-control-allow-methods` pero **nunca `Access-Control-Allow-Origin`** (y además manda `access-control-allow-credentials: true`, combinación inválida). Verificado con Playwright: el GET del FE a NOT47 se bloquea con `net::ERR_FAILED` + `blocked by CORS policy: No 'Access-Control-Allow-Origin' header`. `curl` no lo detectaba porque no aplica política CORS. Consecuencia: `#state`/`#municipality` nunca autocompletaban en QA y fallaban 16 e2e de `registro-auxiliar`.
+
+**Cambio**: el FE ya **no** pega directo a NOT47. pld-api actúa de **proxy server-side** (sin navegador ⇒ sin CORS):
+
+- BE: `GET /pld-api/auth-users/catalogs/postal-codes/:cp` (público) en `apps/auth-users/src/catalogs/` → `PostalCodesService` llama a NOT47 con axios y **reenvía el body tal cual**. URL de NOT47 en env `NOT47_API_URL`.
+- FE: `postalCodeService.ts` usa el axios normal (`@/config/axios`, base `VITE_API_URL`) y el path del proxy. Mismo shape `PostalCodeLookup` ⇒ los 3 consumidores (auxiliar, cliente, sujeto obligado), el hook y los tipos **no cambian**.
+- Se elimina `VITE_POSTAL_API_URL` de los `.env` de pld-web (queda huérfana).
+
+Verificado: proxy responde 200 (62010→Morelos/Cuernavaca) y reenvía 404 (62749); e2e local `registro-auxiliar` 21/21 verde sin tocar el spec.
