@@ -39,9 +39,49 @@ Aplica al crear o actualizar flujos en `docs/flujos/`. Estructura plana — sin 
 - El diagrama drawio acompaña al md con el mismo nombre: `<nombre-flujo>.drawio`.
 - `<nombre-flujo>.md` es la **fuente de verdad del sistema completo** — describe el flujo end-to-end incluyendo pasos de usuario, validaciones, lógica BE y referencias a diseños UI.
 - El toon en el `.md` representa el flujo del sistema; puede referenciar tanto decisiones de BE (endpoints, tablas) como de UI (pantallas, estados visuales). Las notas e inconsistencias del llm-index son la guía para alinear implementación y diseño.
-- Los diseños UI viven en `docs/flujos/disenos/<nombre-flujo>/`, con subcarpetas por paso (`paso-N-*`) y `pagina-resultado/` cuando aplique.
-- Cuando el usuario provee mockups UI, archivar en `disenos/<nombre-flujo>/paso-N-*/` y actualizar el llm-index en el `.md` del flujo.
 - Decisiones técnicas relevantes al flujo → crear ADR en `docs/decisiones/`.
+
+### Mockups de diseño — recepción y versionado (tool `pld_design_receiver`)
+
+Los diseños UI (mockups, screenshots de Figma, etc.) YA NO se archivan a mano en
+`docs/flujos/disenos/`. Se reciben y versionan con la tool de Jarvis
+`pld_design_receiver`, que las guarda en `docs/design/<slug>/vN/`.
+
+**Cuándo usarla**: cuando el usuario adjunta una o más imágenes en el chat y el mensaje
+indica que es un diseño/mockup de un flujo (ej. "te paso el diseño de X", "nueva versión
+de Y", "acá están las pantallas de Z"). Disparadores típicos: "diseño", "mockup",
+"pantallas", "flujo de <nombre>", "nueva versión de <nombre>", o simplemente imágenes
+adjuntas sin más contexto en una conversación sobre un flujo de negocio.
+
+**Cómo invocarla**:
+1. Normalizar lo que el usuario nombró a un slug kebab-case, ej. "flujo cliente externo
+   fiduciaria" → `flujo-cliente-externo-fiduciaria`. Si el usuario ya usó ese mismo nombre
+   antes, reusar el MISMO slug (no crear uno nuevo aunque la redacción varíe un poco) para
+   que las imágenes se acumulen como versiones del mismo diseño.
+2. Si el payload (imágenes en base64) es grande, escribir un archivo temporal con el JSON
+   de input y usar `--input-file`; si es chico, `--input` inline sirve.
+3. Ejecutar:
+   ```
+   jarvis tool run pld_design_receiver --input-file '<path-al-json>'
+   ```
+   con:
+   ```json
+   {
+     "design_slug": "<slug>",
+     "images": [{ "filename": "...", "content_base64": "..." }],
+     "project_id": "pld"
+   }
+   ```
+4. **Cada llamada crea una versión nueva** (`v1`, `v2`, ...) con TODAS las imágenes de esa
+   entrega — nunca mezcla ni pisa una versión anterior. No hay forma de "agregar a v1"
+   después de creada; una entrega complementaria siempre es una versión nueva que debe
+   incluir todo lo que se quiere que tenga esa versión (no solo el delta).
+5. Confirmarle al usuario qué versión se creó y con cuántas imágenes (la tool ya devuelve
+   ese resumen en texto — reportalo tal cual).
+
+Esta carpeta (`docs/design/`) es el insumo para `pld_design_converter` (fase 2, en
+desarrollo), que leerá una versión y armará el Gherkin correspondiente para
+`pld-web/e2e/tests/`.
 
 <!-- JARVIS:BEGIN hash=ws-pld-root -->
 ## Jarvis MCP (project)
